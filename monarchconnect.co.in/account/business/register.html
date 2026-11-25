@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from https://monarchconnect.co.in/account/business/register.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monarch Connect - Header</title>
+<link rel="stylesheet" href="style.html">
+<link rel="stylesheet" href="../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="assets/images/monarch-fav.html" type="image/png">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:#050505; color:#fff; font-family:Arial,Helvetica,sans-serif; }
+a { color:inherit; text-decoration:none; }
+
+/* HEADER ONLY */
+.main-header {
+    position:fixed; top:0; left:0; width:100%; height:100px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 55px; z-index:500; background:transparent;
+    transition:background .4s ease, box-shadow .4s ease, backdrop-filter .4s ease;
+}
+.main-header.scrolled { background:#050505; box-shadow:0 5px 25px rgba(0,0,0,.65); backdrop-filter:blur(8px); }
+.main-header::after {
+    content:""; position:absolute; left:55px; right:55px; bottom:0; height:1px;
+    background:rgba(255,255,255,.65); transition:all .4s ease;
+}
+.main-header.scrolled::after { left:0; right:0; background:rgba(255,255,255,.75); }
+
+.menu-btn {
+    position:relative; width:80px; height:40px; display:flex; align-items:center;
+    padding:0 0 0 38px; background:transparent; border:0; color:#fff;
+    font-size:12px; font-weight:400; letter-spacing:2px; cursor:pointer; z-index:510;
+}
+.menu-btn span { position:absolute; left:0; width:25px; height:1px; background:#fff; display:block; transition:transform .3s ease,width .3s ease; }
+.menu-btn span:nth-child(1) { top:8px; }
+.menu-btn span:nth-child(2) { top:15px; }
+.menu-btn span:nth-child(3) { top:22px; }
+.menu-btn:hover span:nth-child(1) { width:30px; }
+.menu-btn:hover span:nth-child(3) { width:20px; }
+
+.logo { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; z-index:505; }
+.logo img { width:150px; height:150px; display:block; object-fit:contain; }
+
+.contact-btn {
+    display:inline-flex; align-items:center; justify-content:center; padding:12px 24px;
+    border:1px solid #fff; border-radius:20px; color:#fff; font-size:16px;
+    font-weight:400; letter-spacing:2px; transition:all .35s ease; z-index:505;
+}
+.contact-btn:hover { background:#fff; border-color:#fff; color:#000; }
+
+/* SLIDE-OUT NAVIGATION */
+.side-menu {
+    position:fixed; top:0; left:-500px; width:370px; height:100vh;
+    padding:120px 45px 40px; background:#080808; border-right:1px solid rgba(255,255,255,.45);
+    z-index:700; overflow-y:auto; transition:left .45s cubic-bezier(.77,0,.175,1);
+}
+.side-menu.active { left:0; }
+.close-btn {
+    position:absolute; top:28px; right:30px; width:42px; height:42px;
+    display:flex; align-items:center; justify-content:center; padding:0;
+    background:transparent; border:0; color:#fff; font-size:35px; font-weight:200;
+    line-height:1; cursor:pointer; transition:all .3s ease;
+}
+.close-btn:hover { transform:rotate(90deg); }
+.side-menu nav { display:flex; flex-direction:column; }
+.side-menu nav a {
+    display:block; padding:18px 0; border-bottom:1px solid rgba(255,255,255,.08);
+    color:#fff; font-size:17px; font-weight:400; letter-spacing:2px; transition:all .3s ease;
+}
+.side-menu nav a:first-child { border-top:1px solid rgba(255,255,255,.08); }
+.side-menu nav a:hover { padding-left:10px; color:#fff; }
+.menu-overlay {
+    position:fixed; inset:0; background:rgba(0,0,0,.72); z-index:650;
+    opacity:0; visibility:hidden; pointer-events:none; transition:opacity .35s ease,visibility .35s ease;
+}
+.menu-overlay.active { opacity:1; visibility:visible; pointer-events:auto; }
+
+@media (max-width:900px) {
+    .main-header { height:90px; padding:0 30px; }
+    .main-header::after { left:30px; right:30px; }
+    .main-header.scrolled::after { left:0; right:0; }
+    .logo img { width:125px; height:125px; }
+}
+@media (max-width:600px) {
+    .main-header { height:80px; padding:0 18px; }
+    .main-header::after { left:18px; right:18px; }
+    .main-header.scrolled::after { left:0; right:0; }
+    .logo img { width:100px; height:100px; }
+    .menu-btn { width:75px; height:36px; padding-left:30px; font-size:9px; letter-spacing:1.5px; }
+    .menu-btn span { width:20px; }
+    .menu-btn span:nth-child(1) { top:7px; }
+    .menu-btn span:nth-child(2) { top:14px; }
+    .menu-btn span:nth-child(3) { top:21px; }
+    .contact-btn { padding:9px 13px; font-size:13px; letter-spacing:1px; }
+    .side-menu { left:-90%; width:85%; padding:100px 30px 30px; }
+    .side-menu.active { left:0; }
+    .side-menu nav a { padding:16px 0; font-size:15px; }
+    .close-btn { top:22px; right:22px; font-size:32px; }
+}
+@media (max-width:380px) {
+    .main-header { padding:0 14px; }
+    .main-header::after { left:14px; right:14px; }
+    .logo img { width:85px; height:85px; }
+    .menu-btn { width:70px; padding-left:27px; font-size:8px; }
+    .menu-btn span { width:18px; }
+    .contact-btn { padding:8px 10px; font-size:12px; }
+}
+</style>
+</head>
+<body>
+
+<header class="main-header" id="mainHeader">
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <a href="../../index-2.html" class="logo" aria-label="Monarch Connect Home">
+        <img src="../../assets/images/logo.png" alt="Monarch Connect">
+    </a>
+    <a href="../index.html" class="contact-btn" aria-label="Account">
+        <i class="fa fa-user" aria-hidden="true"></i>
+    </a>
+</header>
+
+<div class="side-menu" id="sideMenu" aria-hidden="true">
+    <button class="close-btn" id="closeBtn" type="button" aria-label="Close menu">&times;</button>
+    <nav>
+        <a href="../../index-2.html">Home</a>
+        <a href="../../about.html">About</a>
+        <a href="../../blogs.html">Blog</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</div>
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const sideMenu = document.getElementById('sideMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const header = document.getElementById('mainHeader');
+
+function openMenu() {
+    sideMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+    sideMenu.setAttribute('aria-hidden', 'false');
+    menuBtn.setAttribute('aria-expanded', 'true');
+}
+function closeMenu() {
+    sideMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    sideMenu.setAttribute('aria-hidden', 'true');
+    menuBtn.setAttribute('aria-expanded', 'false');
+}
+menuBtn.addEventListener('click', openMenu);
+closeBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') closeMenu();
+});
+function checkHeaderScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+}
+window.addEventListener('scroll', checkHeaderScroll);
+checkHeaderScroll();
+</script>
+
+</body>
+
+<!-- Mirrored from https://monarchconnect.co.in/account/business/register.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:45 GMT -->
+</html>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+>
+
+<title>Business Registration</title>
+
+<link
+    rel="stylesheet"
+    href="../assets/css/style.css"
+>
+
+</head>
+
+<body>
+
+<div class="auth">
+
+<form
+    class="form-card wide"
+    method="post"
+    enctype="multipart/form-data"
+>
+
+
+<h1>Legal Business Registration</h1>
+
+
+
+
+<!-- BUSINESS NAME -->
+
+<input
+    type="text"
+    name="registered_business_name"
+    placeholder="Registered Business Name"
+    value=""
+    required
+>
+
+
+<!-- BUSINESS NUMBER -->
+
+<input
+    type="text"
+    name="business_number"
+    placeholder="Business Associated Number"
+    value=""
+>
+
+
+<!-- EMAIL -->
+
+<input
+    type="email"
+    name="email"
+    placeholder="Email"
+    value=""
+    required
+>
+
+
+<!-- PHONE -->
+
+<input
+    type="tel"
+    name="phone"
+    placeholder="Phone Number"
+    value=""
+>
+
+
+<!-- BUSINESS DOCUMENT NUMBERS -->
+
+<div class="grid">
+
+    <input
+        type="text"
+        name="cin_no"
+        placeholder="CIN"
+        value=""
+    >
+
+    <input
+        type="text"
+        name="gst_no"
+        placeholder="GST No"
+        value=""
+    >
+
+    <input
+        type="text"
+        name="msme_no"
+        placeholder="MSME No"
+        value=""
+    >
+
+    <input
+        type="text"
+        name="shop_establishment_no"
+        placeholder="Shop Establishment No"
+        value=""
+    >
+
+</div>
+
+
+<!-- LEGAL DOCUMENT -->
+
+<label>
+    Legal Business Registration Document
+</label>
+
+<input
+    type="file"
+    name="legal_document"
+    accept=".pdf,.jpg,.jpeg,.png"
+    required
+>
+
+<small>
+    Accepted: PDF, JPG, JPEG, PNG — Maximum 5 MB
+</small>
+
+
+<!-- PASSWORD -->
+
+<input
+    type="password"
+    name="password"
+    placeholder="Password (8+ characters)"
+    minlength="8"
+    required
+>
+
+
+<!-- ACKNOWLEDGEMENT -->
+
+<label>
+
+    <input
+        type="checkbox"
+        required
+    >
+
+    I acknowledge the statement and agree to continue.
+
+</label>
+
+
+<!-- REGISTER -->
+
+<button
+    type="submit"
+    class="btn"
+>
+    Register Business
+</button>
+
+
+<p>
+
+    Already registered?
+
+    <a href="login.html">
+        Sign in
+    </a>
+
+</p>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-main">
+
+        <!-- ================= BRAND ================= -->
+
+        <div class="footer-brand">
+
+            <a href="../../index-2.html" class="footer-logo">
+
+                <img
+                    src="../../assets/images/logo.png"
+                    alt="Monarch Connect Logo"
+                >
+
+            </a>
+
+            <p>
+                Make Your Own Mark With Monarch.
+                Building ideas, creating possibilities
+                and turning visions into reality.
+            </p>
+
+            <div class="footer-social">
+
+                <a href="#" aria-label="Instagram">
+                   <i class="fa fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                   <i class="fa fa-facebook"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                   <i class="fa fa-linkedin"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <div class="footer-column">
+
+            <h3>QUICK LINKS</h3>
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#work">Our Work</a>
+
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <div class="footer-column">
+
+            <h3>SERVICES</h3>
+
+            <a href="../../our-services.html">Construction</a>
+            <a href="../../read.html">Read Me</a>
+
+        </div>
+
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div class="footer-column footer-contact">
+
+            <h3>CONTACT</h3>
+
+            <a href="tel:+91 8800391355">
+                +91 8800391355
+            </a>
+
+            <a href="monarch%40info.monarchconnect.co.in.html">
+                monarch@info.monarchconnect.co.in
+            </a>
+
+            <p>
+                India
+            </p>
+
+            <a
+                href="contact.html"
+                class="footer-contact-btn"
+            >
+                GET IN TOUCH
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER LINE ================= -->
+
+    <div class="footer-line"></div>
+
+
+
+    <!-- ================= BOTTOM ================= -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="footerYear"></span>
+            Monarch Connect. All Rights Reserved.    &nbsp;<spna style="color:black"> Developed By Parvez Ahmad (<a href="https://www.google.com/search?q=parvez3737&amp;oq=Parvez3737&amp;gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGO8FMgcIAhAAGO8FMgcIAxAAGO8FMgcIBBAAGO8FMgcIBRAAGO8F0gEIMzQ5MmowajeoAgiwAgHxBRLQ5u5pQtVN8QUS0ObuaULVTQ&amp;sourceid=chrome&amp;source=chrome.ob&amp;ie=UTF-8">Parvez3737</spna></a>
+        </p>
+
+        <div class="footer-bottom-links">
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms-and-conditions.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+<style>/* =========================================================
+   PREMIUM FOOTER — BLACK + WHITE + LIGHT GREY
+========================================================= */
+
+.main-footer {
+    position: relative;
+    background: #050505;
+    color: #ffffff;
+    padding: 85px 7% 25px;
+    overflow: hidden;
+}
+
+/* =========================================================
+   TOP LIGHT-GREY LINE
+========================================================= */
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7%;
+    right: 7%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(235,235,235,.75),
+        transparent
+    );
+}
+
+/* =========================================================
+   FOOTER MAIN
+========================================================= */
+
+.footer-main {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 60px;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+    max-width: 340px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.footer-logo img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-brand > p {
+    max-width: 320px;
+    margin: 0;
+    color: #a6a6a6;
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: .4px;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(210,210,210,.45);
+
+    color: #e6e6e6;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    transition: all .3s ease;
+}
+
+.footer-social a:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+    transform: translateY(-4px);
+}
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    position: relative;
+    margin: 12px 0 28px;
+
+    color: #f5f5f5;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.footer-column h3::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 1px;
+    margin-top: 11px;
+
+    background: #d0d0d0;
+
+    transition: width .3s ease;
+}
+
+.footer-column:hover h3::after {
+    width: 45px;
+}
+
+.footer-column > a {
+    margin-bottom: 14px;
+
+    color: #9a9a9a;
+    font-size: 15px;
+    text-decoration: none;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+.footer-column > a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.footer-contact p {
+    margin: 0 0 22px;
+    color: #999999;
+    font-size: 14px;
+}
+
+.footer-contact-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 5px;
+    padding: 11px 18px;
+
+    border: 1px solid rgba(225,225,225,.55);
+
+    color: #eeeeee !important;
+
+    font-size: 9px !important;
+    letter-spacing: 2px;
+
+    transition: all .3s ease !important;
+}
+
+.footer-contact-btn span {
+    font-size: 16px;
+    transition: transform .3s ease;
+}
+
+.footer-contact-btn:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000 !important;
+    transform: translateX(0) !important;
+}
+
+.footer-contact-btn:hover span {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   LINE
+========================================================= */
+
+.footer-line {
+    max-width: 1300px;
+    height: 1px;
+    margin: 65px auto 22px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220,220,220,.16),
+        transparent
+    );
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: .5px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-bottom-links a {
+    color: #666666;
+    font-size: 10px;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .main-footer {
+        padding: 75px 5% 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 40px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-footer {
+        padding: 65px 25px 25px;
+    }
+
+    .main-footer::before {
+        left: 25px;
+        right: 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 18px;
+    }
+
+    .footer-logo img {
+        width: 105px;
+        height: 105px;
+        margin: auto;
+    }
+
+    .footer-brand > p {
+        margin: auto;
+        font-size: 12px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column h3 {
+        margin-top: 0;
+    }
+
+    .footer-column > a:hover {
+        transform: translateY(-2px);
+    }
+
+    .footer-contact-btn {
+        margin-top: 8px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+}
+.footer-bottom p a,
+.footer-bottom p a:hover,
+.footer-bottom p a:focus,
+.footer-bottom p a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+<script>
+    javascript
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const year =
+        document.getElementById("footerYear");
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+});
+
+</script>

@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('input[type=file]').forEach(i=>i.addEventListener('change',()=>{if(i.files[0]&&i.files[0].size>5*1024*1024){alert('Maximum document size is 5 MB.');i.value='';}}));});

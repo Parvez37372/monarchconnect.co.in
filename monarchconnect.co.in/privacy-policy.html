@@ -1,0 +1,2039 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from https://monarchconnect.co.in/privacy-policy.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Privacy Policy | Monarch Connect</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="icon"
+type="image/png"
+href="assets/images/f.png">
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.main-header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 55px;
+
+    z-index:1000;
+
+    background:#050505;
+
+    border-bottom:1px solid rgba(255,255,255,.25);
+}
+
+.main-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:55px;
+    right:55px;
+
+    bottom:0;
+
+    height:1px;
+
+    background:rgba(255,255,255,.55);
+}
+
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
+.menu-btn{
+
+    position:relative;
+
+    width:80px;
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 0 0 38px;
+
+    background:transparent;
+
+    border:none;
+
+    color:#fff;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    z-index:60;
+}
+
+.menu-btn span{
+
+    position:absolute;
+
+    left:0;
+
+    width:25px;
+    height:1px;
+
+    background:#fff;
+
+    display:block;
+
+    transition:.3s ease;
+}
+
+.menu-btn span:nth-child(1){
+    top:8px;
+}
+
+.menu-btn span:nth-child(2){
+    top:15px;
+}
+
+.menu-btn span:nth-child(3){
+    top:22px;
+}
+
+.menu-btn:hover span:nth-child(1){
+    width:30px;
+}
+
+.menu-btn:hover span:nth-child(3){
+    width:20px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    z-index:55;
+}
+
+.logo img{
+
+    width:150px;
+    height:150px;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+
+/* =========================================================
+   ACCOUNT BUTTON
+========================================================= */
+
+.contact-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    width:45px;
+    height:45px;
+
+    border:1px solid #fff;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    font-size:16px;
+
+    transition:.35s ease;
+
+    z-index:55;
+}
+
+.contact-btn:hover{
+
+    background:#fff;
+
+    color:#000;
+}
+
+
+/* =========================================================
+   SIDE MENU
+========================================================= */
+
+.side-menu{
+
+    position:fixed;
+
+    top:0;
+
+    left:-500px;
+
+    width:370px;
+
+    height:100vh;
+
+    padding:120px 45px 40px;
+
+    background:#080808;
+
+    border-right:1px solid rgba(255,255,255,.45);
+
+    z-index:2000;
+
+    overflow-y:auto;
+
+    transition:
+    left .45s cubic-bezier(.77,0,.175,1);
+}
+
+.side-menu.active{
+    left:0;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-btn{
+
+    position:absolute;
+
+    top:28px;
+    right:30px;
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:transparent;
+
+    border:none;
+
+    color:#fff;
+
+    font-size:35px;
+
+    font-weight:200;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.close-btn:hover{
+
+    transform:rotate(90deg);
+
+    color:#ccc;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.side-menu nav{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.side-menu nav a{
+
+    display:block;
+
+    padding:18px 0;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-size:17px;
+
+    letter-spacing:2px;
+
+    transition:.3s ease;
+}
+
+.side-menu nav a:first-child{
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+.side-menu nav a:hover{
+
+    padding-left:10px;
+
+    color:#ddd;
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.menu-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.72);
+
+    z-index:1500;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:.35s ease;
+}
+
+.menu-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+}
+
+
+/* =========================================================
+   PRIVACY PAGE
+========================================================= */
+
+.privacy-page{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    padding:
+    175px 30px 100px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.privacy-header{
+
+    padding-bottom:55px;
+
+    border-bottom:1px solid #292929;
+}
+
+.privacy-label{
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    color:#bdbdbd;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+.privacy-header h1{
+
+    font-size:
+    clamp(45px,7vw,85px);
+
+    line-height:1;
+
+    font-weight:300;
+
+    margin-bottom:25px;
+}
+
+.privacy-header h1 span{
+
+    color:#bdbdbd;
+}
+
+.privacy-header p{
+
+    max-width:780px;
+
+    color:#999;
+
+    font-size:15px;
+
+    line-height:1.9;
+}
+
+.privacy-updated{
+
+    margin-top:22px;
+
+    color:#666;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.privacy-content{
+
+    padding-top:55px;
+}
+
+.privacy-section{
+
+    margin-bottom:55px;
+
+    padding-bottom:35px;
+
+    border-bottom:1px solid #181818;
+}
+
+.privacy-section:last-child{
+
+    border-bottom:none;
+}
+
+.privacy-section h2{
+
+    margin-bottom:18px;
+
+    color:#fff;
+
+    font-size:25px;
+
+    font-weight:400;
+
+    line-height:1.4;
+}
+
+.privacy-section h2 span{
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-right:12px;
+
+    letter-spacing:2px;
+}
+
+.privacy-section p{
+
+    max-width:950px;
+
+    margin-bottom:16px;
+
+    color:#999;
+
+    font-size:15px;
+
+    line-height:1.9;
+}
+
+.privacy-section ul{
+
+    max-width:950px;
+
+    padding-left:22px;
+
+    margin-top:15px;
+}
+
+.privacy-section li{
+
+    margin-bottom:12px;
+
+    color:#999;
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+.privacy-section strong{
+
+    color:#ddd;
+
+    font-weight:500;
+}
+
+
+/* =========================================================
+   INFORMATION BOX
+========================================================= */
+
+.info-box{
+
+    margin:25px 0;
+
+    padding:25px 28px;
+
+    background:#0b0b0b;
+
+    border-left:2px solid #d0d0d0;
+
+    border-top:1px solid #222;
+
+    border-right:1px solid #222;
+
+    border-bottom:1px solid #222;
+}
+
+.info-box p{
+
+    margin:0;
+
+    color:#aaa;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CONTACT BOX
+========================================================= */
+
+.privacy-contact{
+
+    margin-top:60px;
+
+    padding:40px;
+
+    background:#0b0b0b;
+
+    border:1px solid #292929;
+}
+
+.privacy-contact h3{
+
+    margin-bottom:15px;
+
+    color:#fff;
+
+    font-size:24px;
+
+    font-weight:400;
+}
+
+.privacy-contact p{
+
+    margin-bottom:12px;
+
+    color:#888;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+.privacy-contact a{
+
+    color:#ddd;
+
+    text-decoration:none;
+}
+
+.privacy-contact a:hover{
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   DEVELOPER
+========================================================= */
+
+.developer-credit{
+
+    margin-top:35px;
+
+    padding-top:25px;
+
+    border-top:1px solid #202020;
+
+    text-align:center;
+
+    color:#555;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+}
+
+.developer-credit a{
+
+    color:#888;
+
+    text-decoration:none;
+
+    transition:.3s ease;
+}
+
+.developer-credit a:hover{
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:650px){
+
+    .main-header{
+
+        height:80px;
+
+        padding:0 18px;
+    }
+
+    .main-header::after{
+
+        left:18px;
+        right:18px;
+    }
+
+    .logo img{
+
+        width:100px;
+        height:100px;
+    }
+
+    .menu-btn{
+
+        width:75px;
+
+        height:36px;
+
+        padding-left:30px;
+
+        font-size:9px;
+    }
+
+    .menu-btn span{
+
+        width:20px;
+    }
+
+    .contact-btn{
+
+        width:40px;
+        height:40px;
+
+        font-size:14px;
+    }
+
+    .side-menu{
+
+        left:-90%;
+
+        width:85%;
+
+        padding:100px 30px 30px;
+    }
+
+    .side-menu.active{
+
+        left:0;
+    }
+
+    .side-menu nav a{
+
+        padding:16px 0;
+
+        font-size:15px;
+    }
+
+    .close-btn{
+
+        top:22px;
+
+        right:22px;
+
+        font-size:32px;
+    }
+
+    .privacy-page{
+
+        padding:
+        135px 22px 70px;
+    }
+
+    .privacy-header{
+
+        padding-bottom:38px;
+    }
+
+    .privacy-header h1{
+
+        font-size:48px;
+    }
+
+    .privacy-header p{
+
+        font-size:14px;
+    }
+
+    .privacy-content{
+
+        padding-top:40px;
+    }
+
+    .privacy-section{
+
+        margin-bottom:40px;
+
+        padding-bottom:28px;
+    }
+
+    .privacy-section h2{
+
+        font-size:21px;
+    }
+
+    .privacy-section p,
+    .privacy-section li{
+
+        font-size:14px;
+
+        line-height:1.8;
+    }
+
+    .info-box{
+
+        padding:20px;
+    }
+
+    .privacy-contact{
+
+        padding:25px;
+
+        margin-top:40px;
+    }
+
+}
+
+
+@media(max-width:380px){
+
+    .privacy-header h1{
+
+        font-size:42px;
+    }
+
+    .privacy-page{
+
+        padding-left:18px;
+
+        padding-right:18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="main-header">
+
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open Menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+
+    <a href="index-2.html" class="logo">
+
+        <img
+            src="assets/images/logo.png"
+            alt="Monarch Connect">
+
+    </a>
+
+
+    <a
+        href="account/index.html"
+        class="contact-btn"
+        aria-label="Account">
+
+        <i class="fa fa-user"></i>
+
+    </a>
+
+</header>
+
+
+<!-- =========================================================
+     SIDE MENU
+========================================================= -->
+
+<div
+    class="side-menu"
+    id="sideMenu">
+
+    <button
+        class="close-btn"
+        id="closeBtn"
+        aria-label="Close Menu">
+
+        &times;
+
+    </button>
+
+
+    <nav>
+
+        <a href="index-2.html">
+            Home
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="index-2.html#services">
+            Services
+        </a>
+
+        <a href="index-2.html#projects">
+            Our Work
+        </a>
+
+        <a href="index-2.html#insights">
+            Insights
+        </a>
+
+        <a href="index-2.html#news">
+            Newsroom
+        </a>
+
+        <a href="blogs.html">
+            Blog
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+</div>
+
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<!-- =========================================================
+     PRIVACY POLICY
+========================================================= -->
+
+<main class="privacy-page">
+
+
+    <header class="privacy-header">
+
+        <span class="privacy-label">
+            Monarch Connect
+        </span>
+
+        <h1>
+            Privacy <span>Policy</span>
+        </h1>
+
+        <p>
+            At Monarch Connect, we respect your privacy and are committed
+            to protecting the information you provide when you visit,
+            communicate with or use our website and services. This Privacy
+            Policy explains what information may be collected, how it may
+            be used, how it may be protected and the choices available to
+            you.
+        </p>
+
+        <div class="privacy-updated">
+            Last Updated: 07 October 2026
+        </div>
+
+    </header>
+
+
+    <div class="privacy-content">
+
+
+        <!-- 01 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>01</span>
+                Introduction
+            </h2>
+
+            <p>
+                This Privacy Policy applies to the Monarch Connect website,
+                related pages, online forms, account areas and other digital
+                interactions operated by or on behalf of Monarch Connect.
+            </p>
+
+            <p>
+                By using our website, you acknowledge that you have read
+                and understood this Privacy Policy. If you do not agree
+                with the practices described here, please discontinue use
+                of the website.
+            </p>
+
+        </section>
+
+
+        <!-- 02 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>02</span>
+                Information We May Collect
+            </h2>
+
+            <p>
+                Depending on how you interact with Monarch Connect, we may
+                receive information that you voluntarily provide to us.
+                This may include:
+            </p>
+
+            <ul>
+
+                <li>
+                    Your name and contact information.
+                </li>
+
+                <li>
+                    Email address and telephone number.
+                </li>
+
+                <li>
+                    Business or organization information.
+                </li>
+
+                <li>
+                    Information submitted through contact or enquiry forms.
+                </li>
+
+                <li>
+                    Account or login-related information where applicable.
+                </li>
+
+                <li>
+                    Information you provide when communicating with us.
+                </li>
+
+                <li>
+                    Any other information you voluntarily choose to provide.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- 03 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>03</span>
+                Automatically Collected Information
+            </h2>
+
+            <p>
+                When you access our website, certain technical information
+                may be collected automatically by standard web technologies.
+                This information may include browser type, device type,
+                operating system, approximate usage information, pages
+                visited and general technical information.
+            </p>
+
+            <p>
+                Such information may help us understand website performance,
+                identify technical problems and improve the user experience.
+            </p>
+
+        </section>
+
+
+        <!-- 04 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>04</span>
+                How We Use Information
+            </h2>
+
+            <p>
+                Information collected through the website may be used for
+                legitimate business and operational purposes, including:
+            </p>
+
+            <ul>
+
+                <li>
+                    Responding to enquiries and requests.
+                </li>
+
+                <li>
+                    Providing information about our services.
+                </li>
+
+                <li>
+                    Managing accounts and authorized access.
+                </li>
+
+                <li>
+                    Communicating with users regarding their requests.
+                </li>
+
+                <li>
+                    Improving website functionality and user experience.
+                </li>
+
+                <li>
+                    Maintaining website security and preventing misuse.
+                </li>
+
+                <li>
+                    Monitoring technical performance and resolving errors.
+                </li>
+
+                <li>
+                    Complying with applicable legal or regulatory requirements.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- 05 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>05</span>
+                Cookies and Similar Technologies
+            </h2>
+
+            <p>
+                Monarch Connect may use cookies or similar technologies
+                where necessary to support website functionality, remember
+                preferences, understand usage patterns or improve website
+                performance.
+            </p>
+
+            <p>
+                Cookies are small data files stored on your device by a
+                website. Depending on your browser settings, you may be able
+                to block or delete cookies. Disabling certain cookies may
+                affect some website functionality.
+            </p>
+
+        </section>
+
+
+        <!-- 06 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>06</span>
+                Account and Login Information
+            </h2>
+
+            <p>
+                If Monarch Connect provides account or login functionality,
+                certain information may be required to create and maintain
+                your account.
+            </p>
+
+            <div class="info-box">
+
+                <p>
+                    You are responsible for keeping your login credentials
+                    confidential and for notifying us if you believe that
+                    unauthorized access to your account has occurred.
+                </p>
+
+            </div>
+
+            <p>
+                We may use account information to authenticate users,
+                maintain account security, provide authorized features and
+                manage services associated with an account.
+            </p>
+
+        </section>
+
+
+        <!-- 07 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>07</span>
+                Communication
+            </h2>
+
+            <p>
+                If you contact Monarch Connect by email, contact form,
+                telephone or another communication method, we may retain
+                relevant information from that communication in order to
+                respond to your request and maintain appropriate business
+                records.
+            </p>
+
+        </section>
+
+
+        <!-- 08 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>08</span>
+                Sharing of Information
+            </h2>
+
+            <p>
+                Monarch Connect does not intend to sell or rent your
+                personal information for monetary gain.
+            </p>
+
+            <p>
+                Information may be shared when reasonably necessary for
+                legitimate business operations, technical service providers,
+                website hosting, security, communication services, legal
+                obligations or other authorized purposes.
+            </p>
+
+            <p>
+                Where third-party service providers are used, they may
+                process information only as necessary to provide the
+                relevant service or fulfill an authorized purpose.
+            </p>
+
+        </section>
+
+
+        <!-- 09 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>09</span>
+                Data Security
+            </h2>
+
+            <p>
+                We take reasonable technical and organizational measures
+                designed to protect information from unauthorized access,
+                alteration, disclosure or destruction.
+            </p>
+
+            <p>
+                However, no internet transmission, website, server or
+                electronic storage system can be guaranteed to be completely
+                secure. Therefore, while we work to protect information,
+                absolute security cannot be guaranteed.
+            </p>
+
+        </section>
+
+
+        <!-- 10 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>10</span>
+                Data Retention
+            </h2>
+
+            <p>
+                We may retain information for as long as reasonably
+                necessary to fulfill the purposes for which it was collected,
+                maintain business and transaction records, resolve disputes,
+                enforce agreements or comply with applicable legal
+                requirements.
+            </p>
+
+        </section>
+
+
+        <!-- 11 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>11</span>
+                Third-Party Websites
+            </h2>
+
+            <p>
+                Our website may contain links to third-party websites,
+                platforms or services. These third parties may have their
+                own privacy policies and practices.
+            </p>
+
+            <p>
+                Monarch Connect is not responsible for the privacy practices,
+                security or content of third-party websites. We recommend
+                reviewing the privacy policy of any external website before
+                providing personal information.
+            </p>
+
+        </section>
+
+
+        <!-- 12 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>12</span>
+                Children's Privacy
+            </h2>
+
+            <p>
+                Our website is not intended to knowingly collect personal
+                information from children in circumstances where such
+                collection is prohibited by applicable law.
+            </p>
+
+            <p>
+                If you believe that a child has provided personal information
+                to us inappropriately, please contact us so that the matter
+                can be reviewed and appropriate steps can be considered.
+            </p>
+
+        </section>
+
+
+        <!-- 13 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>13</span>
+                Your Choices
+            </h2>
+
+            <p>
+                Depending on applicable law and the nature of the information,
+                you may have rights or choices relating to your personal
+                information.
+            </p>
+
+            <p>
+                You may contact Monarch Connect to request information about
+                personal information we may hold about you, request correction
+                of inaccurate information or raise a privacy-related concern.
+            </p>
+
+        </section>
+
+
+        <!-- 14 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>14</span>
+                Changes to This Privacy Policy
+            </h2>
+
+            <p>
+                Monarch Connect may update this Privacy Policy from time to
+                time to reflect changes in our website, services, technology,
+                legal requirements or business practices.
+            </p>
+
+            <p>
+                When changes are made, the revised policy will be published
+                on this page and the updated date will be changed accordingly.
+            </p>
+
+        </section>
+
+
+        <!-- 15 -->
+
+        <section class="privacy-section">
+
+            <h2>
+                <span>15</span>
+                Governing Law
+            </h2>
+
+            <p>
+                This Privacy Policy shall be interpreted in accordance with
+                applicable laws of India, subject to any mandatory rights or
+                protections available to users under applicable law.
+            </p>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <div class="privacy-contact">
+
+            <h3>
+                Privacy Questions?
+            </h3>
+
+            <p>
+                If you have questions, concerns or requests regarding this
+                Privacy Policy or the handling of your information, please
+                contact Monarch Connect through the contact information
+                available on our website.
+            </p>
+
+            <p>
+                We will make reasonable efforts to review and respond to
+                privacy-related enquiries.
+            </p>
+
+        </div>
+
+
+        <!-- DEVELOPER -->
+
+       <!-- <div class="developer-credit">
+
+            © <span id="privacyYear"></span>
+            Monarch Connect. All Rights Reserved.
+
+            &nbsp; | &nbsp;
+
+            Developed By
+            <a
+                href="https://www.google.com/search?q=parvez3737"
+                target="_blank"
+                rel="noopener noreferrer">
+                Parvez Ahmad (Parvez3737)
+            </a>
+
+        </div>-->
+
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+   JAVASCRIPT
+========================================================= -->
+
+<script>
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const closeBtn =
+    document.getElementById("closeBtn");
+
+const sideMenu =
+    document.getElementById("sideMenu");
+
+const menuOverlay =
+    document.getElementById("menuOverlay");
+
+
+menuBtn.addEventListener("click", () => {
+
+    sideMenu.classList.add("active");
+
+    menuOverlay.classList.add("active");
+
+});
+
+
+closeBtn.addEventListener("click", () => {
+
+    sideMenu.classList.remove("active");
+
+    menuOverlay.classList.remove("active");
+
+});
+
+
+menuOverlay.addEventListener("click", () => {
+
+    sideMenu.classList.remove("active");
+
+    menuOverlay.classList.remove("active");
+
+});
+
+
+/* CURRENT YEAR */
+
+document.getElementById("privacyYear").textContent =
+    new Date().getFullYear();
+
+</script>
+
+
+<!-- =========================================================
+   YOUR EXISTING FOOTER
+   YAHAN APNA FOOTER CODE PASTE KARNA
+========================================================= -->
+
+
+</body>
+
+
+<!-- Mirrored from https://monarchconnect.co.in/privacy-policy.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:40 GMT -->
+</html>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-main">
+
+        <!-- ================= BRAND ================= -->
+
+        <div class="footer-brand">
+
+            <a href="index-2.html" class="footer-logo">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Monarch Connect Logo"
+                >
+
+            </a>
+
+            <p>
+                Make Your Own Mark With Monarch.
+                Building ideas, creating possibilities
+                and turning visions into reality.
+            </p>
+
+            <div class="footer-social">
+
+                <a href="#" aria-label="Instagram">
+                   <i class="fa fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                   <i class="fa fa-facebook"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                   <i class="fa fa-linkedin"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <div class="footer-column">
+
+            <h3>QUICK LINKS</h3>
+
+            <a href="index-2.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#work">Our Work</a>
+
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <div class="footer-column">
+
+            <h3>SERVICES</h3>
+
+            <a href="our-services.html">Construction</a>
+            <a href="read.html">Read Me</a>
+
+        </div>
+
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div class="footer-column footer-contact">
+
+            <h3>CONTACT</h3>
+
+            <a href="tel:+91 8800391355">
+                +91 8800391355
+            </a>
+
+            <a href="monarch%40info.monarchconnect.co.in.html">
+                monarch@info.monarchconnect.co.in
+            </a>
+
+            <p>
+                India
+            </p>
+
+            <a
+                href="contact.html"
+                class="footer-contact-btn"
+            >
+                GET IN TOUCH
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER LINE ================= -->
+
+    <div class="footer-line"></div>
+
+
+
+    <!-- ================= BOTTOM ================= -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="footerYear"></span>
+            Monarch Connect. All Rights Reserved.    &nbsp;<spna style="color:black"> Developed By Parvez Ahmad (<a href="https://www.google.com/search?q=parvez3737&amp;oq=Parvez3737&amp;gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGO8FMgcIAhAAGO8FMgcIAxAAGO8FMgcIBBAAGO8FMgcIBRAAGO8F0gEIMzQ5MmowajeoAgiwAgHxBRLQ5u5pQtVN8QUS0ObuaULVTQ&amp;sourceid=chrome&amp;source=chrome.ob&amp;ie=UTF-8">Parvez3737</spna></a>
+        </p>
+
+        <div class="footer-bottom-links">
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms-and-conditions.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+<style>/* =========================================================
+   PREMIUM FOOTER — BLACK + WHITE + LIGHT GREY
+========================================================= */
+
+.main-footer {
+    position: relative;
+    background: #050505;
+    color: #ffffff;
+    padding: 85px 7% 25px;
+    overflow: hidden;
+}
+
+/* =========================================================
+   TOP LIGHT-GREY LINE
+========================================================= */
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7%;
+    right: 7%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(235,235,235,.75),
+        transparent
+    );
+}
+
+/* =========================================================
+   FOOTER MAIN
+========================================================= */
+
+.footer-main {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 60px;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+    max-width: 340px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.footer-logo img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-brand > p {
+    max-width: 320px;
+    margin: 0;
+    color: #a6a6a6;
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: .4px;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(210,210,210,.45);
+
+    color: #e6e6e6;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    transition: all .3s ease;
+}
+
+.footer-social a:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+    transform: translateY(-4px);
+}
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    position: relative;
+    margin: 12px 0 28px;
+
+    color: #f5f5f5;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.footer-column h3::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 1px;
+    margin-top: 11px;
+
+    background: #d0d0d0;
+
+    transition: width .3s ease;
+}
+
+.footer-column:hover h3::after {
+    width: 45px;
+}
+
+.footer-column > a {
+    margin-bottom: 14px;
+
+    color: #9a9a9a;
+    font-size: 15px;
+    text-decoration: none;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+.footer-column > a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.footer-contact p {
+    margin: 0 0 22px;
+    color: #999999;
+    font-size: 14px;
+}
+
+.footer-contact-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 5px;
+    padding: 11px 18px;
+
+    border: 1px solid rgba(225,225,225,.55);
+
+    color: #eeeeee !important;
+
+    font-size: 9px !important;
+    letter-spacing: 2px;
+
+    transition: all .3s ease !important;
+}
+
+.footer-contact-btn span {
+    font-size: 16px;
+    transition: transform .3s ease;
+}
+
+.footer-contact-btn:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000 !important;
+    transform: translateX(0) !important;
+}
+
+.footer-contact-btn:hover span {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   LINE
+========================================================= */
+
+.footer-line {
+    max-width: 1300px;
+    height: 1px;
+    margin: 65px auto 22px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220,220,220,.16),
+        transparent
+    );
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: .5px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-bottom-links a {
+    color: #666666;
+    font-size: 10px;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .main-footer {
+        padding: 75px 5% 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 40px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-footer {
+        padding: 65px 25px 25px;
+    }
+
+    .main-footer::before {
+        left: 25px;
+        right: 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 18px;
+    }
+
+    .footer-logo img {
+        width: 105px;
+        height: 105px;
+        margin: auto;
+    }
+
+    .footer-brand > p {
+        margin: auto;
+        font-size: 12px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column h3 {
+        margin-top: 0;
+    }
+
+    .footer-column > a:hover {
+        transform: translateY(-2px);
+    }
+
+    .footer-contact-btn {
+        margin-top: 8px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+}
+.footer-bottom p a,
+.footer-bottom p a:hover,
+.footer-bottom p a:focus,
+.footer-bottom p a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+<script>
+    javascript
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const year =
+        document.getElementById("footerYear");
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+});
+
+</script>

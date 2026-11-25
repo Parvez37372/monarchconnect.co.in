@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from https://monarchconnect.co.in/blogs.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monarch Connect - Header</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="assets/images/monarch-fav.png" type="image/png">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:#050505; color:#fff; font-family:Arial,Helvetica,sans-serif; }
+a { color:inherit; text-decoration:none; }
+
+/* HEADER ONLY */
+.main-header {
+    position:fixed; top:0; left:0; width:100%; height:100px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 55px; z-index:500; background:transparent;
+    transition:background .4s ease, box-shadow .4s ease, backdrop-filter .4s ease;
+}
+.main-header.scrolled { background:#050505; box-shadow:0 5px 25px rgba(0,0,0,.65); backdrop-filter:blur(8px); }
+.main-header::after {
+    content:""; position:absolute; left:55px; right:55px; bottom:0; height:1px;
+    background:rgba(255,255,255,.65); transition:all .4s ease;
+}
+.main-header.scrolled::after { left:0; right:0; background:rgba(255,255,255,.75); }
+
+.menu-btn {
+    position:relative; width:80px; height:40px; display:flex; align-items:center;
+    padding:0 0 0 38px; background:transparent; border:0; color:#fff;
+    font-size:12px; font-weight:400; letter-spacing:2px; cursor:pointer; z-index:510;
+}
+.menu-btn span { position:absolute; left:0; width:25px; height:1px; background:#fff; display:block; transition:transform .3s ease,width .3s ease; }
+.menu-btn span:nth-child(1) { top:8px; }
+.menu-btn span:nth-child(2) { top:15px; }
+.menu-btn span:nth-child(3) { top:22px; }
+.menu-btn:hover span:nth-child(1) { width:30px; }
+.menu-btn:hover span:nth-child(3) { width:20px; }
+
+.logo { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; z-index:505; }
+.logo img { width:150px; height:150px; display:block; object-fit:contain; }
+
+.contact-btn {
+    display:inline-flex; align-items:center; justify-content:center; padding:12px 24px;
+    border:1px solid #fff; border-radius:20px; color:#fff; font-size:16px;
+    font-weight:400; letter-spacing:2px; transition:all .35s ease; z-index:505;
+}
+.contact-btn:hover { background:#fff; border-color:#fff; color:#000; }
+
+/* SLIDE-OUT NAVIGATION */
+.side-menu {
+    position:fixed; top:0; left:-500px; width:370px; height:100vh;
+    padding:120px 45px 40px; background:#080808; border-right:1px solid rgba(255,255,255,.45);
+    z-index:700; overflow-y:auto; transition:left .45s cubic-bezier(.77,0,.175,1);
+}
+.side-menu.active { left:0; }
+.close-btn {
+    position:absolute; top:28px; right:30px; width:42px; height:42px;
+    display:flex; align-items:center; justify-content:center; padding:0;
+    background:transparent; border:0; color:#fff; font-size:35px; font-weight:200;
+    line-height:1; cursor:pointer; transition:all .3s ease;
+}
+.close-btn:hover { transform:rotate(90deg); }
+.side-menu nav { display:flex; flex-direction:column; }
+.side-menu nav a {
+    display:block; padding:18px 0; border-bottom:1px solid rgba(255,255,255,.08);
+    color:#fff; font-size:17px; font-weight:400; letter-spacing:2px; transition:all .3s ease;
+}
+.side-menu nav a:first-child { border-top:1px solid rgba(255,255,255,.08); }
+.side-menu nav a:hover { padding-left:10px; color:#fff; }
+.menu-overlay {
+    position:fixed; inset:0; background:rgba(0,0,0,.72); z-index:650;
+    opacity:0; visibility:hidden; pointer-events:none; transition:opacity .35s ease,visibility .35s ease;
+}
+.menu-overlay.active { opacity:1; visibility:visible; pointer-events:auto; }
+
+@media (max-width:900px) {
+    .main-header { height:90px; padding:0 30px; }
+    .main-header::after { left:30px; right:30px; }
+    .main-header.scrolled::after { left:0; right:0; }
+    .logo img { width:125px; height:125px; }
+}
+@media (max-width:600px) {
+    .main-header { height:80px; padding:0 18px; }
+    .main-header::after { left:18px; right:18px; }
+    .main-header.scrolled::after { left:0; right:0; }
+    .logo img { width:100px; height:100px; }
+    .menu-btn { width:75px; height:36px; padding-left:30px; font-size:9px; letter-spacing:1.5px; }
+    .menu-btn span { width:20px; }
+    .menu-btn span:nth-child(1) { top:7px; }
+    .menu-btn span:nth-child(2) { top:14px; }
+    .menu-btn span:nth-child(3) { top:21px; }
+    .contact-btn { padding:9px 13px; font-size:13px; letter-spacing:1px; }
+    .side-menu { left:-90%; width:85%; padding:100px 30px 30px; }
+    .side-menu.active { left:0; }
+    .side-menu nav a { padding:16px 0; font-size:15px; }
+    .close-btn { top:22px; right:22px; font-size:32px; }
+}
+@media (max-width:380px) {
+    .main-header { padding:0 14px; }
+    .main-header::after { left:14px; right:14px; }
+    .logo img { width:85px; height:85px; }
+    .menu-btn { width:70px; padding-left:27px; font-size:8px; }
+    .menu-btn span { width:18px; }
+    .contact-btn { padding:8px 10px; font-size:12px; }
+}
+</style>
+</head>
+<body>
+
+<header class="main-header" id="mainHeader">
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <a href="index-2.html" class="logo" aria-label="Monarch Connect Home">
+        <img src="assets/images/logo.png" alt="Monarch Connect">
+    </a>
+    <a href="account/index.html" class="contact-btn" aria-label="Account">
+        <i class="fa fa-user" aria-hidden="true"></i>
+    </a>
+</header>
+
+<div class="side-menu" id="sideMenu" aria-hidden="true">
+    <button class="close-btn" id="closeBtn" type="button" aria-label="Close menu">&times;</button>
+    <nav>
+        <a href="index-2.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blogs.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</div>
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const sideMenu = document.getElementById('sideMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const header = document.getElementById('mainHeader');
+
+function openMenu() {
+    sideMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+    sideMenu.setAttribute('aria-hidden', 'false');
+    menuBtn.setAttribute('aria-expanded', 'true');
+}
+function closeMenu() {
+    sideMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    sideMenu.setAttribute('aria-hidden', 'true');
+    menuBtn.setAttribute('aria-expanded', 'false');
+}
+menuBtn.addEventListener('click', openMenu);
+closeBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') closeMenu();
+});
+function checkHeaderScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+}
+window.addEventListener('scroll', checkHeaderScroll);
+checkHeaderScroll();
+</script>
+
+</body>
+
+<!-- Mirrored from https://monarchconnect.co.in/blogs.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:27 GMT -->
+</html>
+<br>
+<!-- ===========================
+     MONARCH CONNECT BLOG SECTION
+     Header & Footer excluded
+=========================== -->
+<br>
+<br>
+<section class="monarch-blog">
+
+    <!-- BLOG HERO -->
+    <div class="mb-hero">
+        <div class="mb-hero-image"></div>
+
+        <div class="mb-hero-content">
+            <span class="mb-eyebrow">
+                <span class="mb-line"></span>
+                Monarch Connect – Blog Posts
+            </span>
+
+            <h1>
+            Three posts for the Monarch<br> blog section.
+            </h1>
+
+            <p>
+                Insights, tips and perspectives to help you make
+                better decisions, find the right professionals
+                and move your projects forward.
+            </p>
+        </div>
+    </div>
+
+    <!-- BLOG POSTS -->
+    <div class="mb-posts">
+
+        <!-- BLOG 01 -->
+        <article class="mb-post">
+
+            <div class="mb-post-number">01</div>
+
+            <div class="mb-post-content">
+                <div class="mb-post-meta">
+                    <span class="mb-line"></span>
+                    <span>BUILDER TIPS</span>
+                    <span>/</span>
+                    <span>4 MIN READ</span>
+                </div>
+
+                <h2>Five Questions to Ask Before You Hire a Builder</h2>
+
+                <p class="mb-excerpt">
+                    
+Choosing a builder is one of the most consequential decisions in a building project. The walls, the budget and the timeline all follow from it. Yet many people make the choice on a recommendation, a friendly meeting and a hopeful feeling.<br>
+Hope is not a strategy. Before you commit, ask these five questions.
+                </p>
+
+                <button class="mb-read-btn" type="button"
+                    aria-expanded="false" aria-controls="mb-article-1"
+                    onclick="mbToggleArticle(this, 'mb-article-1')">
+                    READ ARTICLE <span>⟶</span>
+                </button>
+            </div>
+
+            <div class="mb-post-image">
+                <img
+                    src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+                    alt="Modern building under construction"
+                    loading="lazy">
+            </div>
+
+            <div class="mb-full-article" id="mb-article-1" hidden>
+                <div class="mb-article-inner">
+
+                    <span class="mb-article-label">01 / BUILDER TIPS</span>
+
+                    <h3>Five Questions to Ask Before You Hire a Builder</h3>
+
+                    <p>
+                        Choosing a builder is one of the most consequential
+                        decisions in a building project. The walls, the budget
+                        and the timeline all follow from it. Yet many people
+                        make the choice on a recommendation, a friendly meeting
+                        and a hopeful feeling.
+                    </p>
+
+                    <p><strong>Hope is not a strategy. Before you commit, ask these five questions.</strong></p>
+
+                    <h4>1. Can I see work you have completed?</h4>
+                    <p>
+                        Photographs are a start, but completed projects tell
+                        the real story. Ask for addresses or references, and
+                        if possible visit a finished site. A good builder will
+                        be proud to show you.
+                    </p>
+
+                    <h4>2. Who will actually be on my site?</h4>
+                    <p>
+                        Some companies win the project and pass it to others.
+                        Ask who will supervise daily work, who the point of
+                        contact is, and whether the team you meet is the team
+                        you get.
+                    </p>
+
+                    <h4>3. How is the estimate built?</h4>
+                    <p>
+                        A low number is not the same as a fair one. Ask for a
+                        breakdown covering materials, labour and timelines,
+                        and ask what is not included. Surprises usually hide
+                        in the gaps.
+                    </p>
+
+                    <h4>4. How are payments linked to progress?</h4>
+                    <p>
+                        Payments tied to completed milestones protect both
+                        sides. Be cautious of any arrangement that asks for
+                        most of the money before the work is visible.
+                    </p>
+
+                    <h4>5. What happens when something goes wrong?</h4>
+                    <p>
+                        Every project meets a delay or a change. What matters
+                        is how a builder handles it. Their answer reveals
+                        their honesty more than any brochure can.
+                    </p>
+
+                    <h4>Trust should be checked, not assumed</h4>
+                    <p>
+                        None of these questions are difficult, but they take
+                        time and confidence to ask. That is why Monarch Connect
+                        exists: to bring verified builders and construction
+                        companies into one place, so more of this groundwork
+                        is done before your first conversation.
+                    </p>
+
+                    <p class="mb-article-ending">
+                        Build with someone you can trust.
+                        <strong>Make Your Own Mark With Monarch.</strong>
+                    </p>
+
+                    <button class="mb-read-btn mb-close-btn" type="button"
+                        onclick="mbToggleArticle(this, 'mb-article-1')">
+                        READ LESS <span>⟵</span>
+                    </button>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- BLOG 02 -->
+        <article class="mb-post mb-post-reverse">
+
+            <div class="mb-post-number">02</div>
+
+            <div class="mb-post-image">
+                <img
+                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+                    alt="Construction professional at a building site"
+                    loading="lazy">
+            </div>
+
+            <div class="mb-post-content">
+                <div class="mb-post-meta">
+                    <span class="mb-line"></span>
+                    <span>INDUSTRY INSIGHTS</span>
+                    <span>/</span>
+                    <span>4 MIN READ</span>
+                </div>
+
+                <h2>Great Builders Deserve to Be Found</h2>
+
+                <p class="mb-excerpt">
+                    Ask anyone in construction how they find new work,
+                    and the answer is often the same: “Word of mouth.”
+                    But when growth depends on who happens to be talking,
+                    skilled builders can spend years doing excellent work
+                    that few people ever see.
+                </p>
+
+                <button class="mb-read-btn" type="button"
+                    aria-expanded="false" aria-controls="mb-article-2"
+                    onclick="mbToggleArticle(this, 'mb-article-2')">
+                    READ ARTICLE <span>⟶</span>
+                </button>
+            </div>
+
+            <div class="mb-full-article" id="mb-article-2" hidden>
+                <div class="mb-article-inner">
+
+                    <span class="mb-article-label">02 / INDUSTRY INSIGHTS</span>
+
+                    <h3>Great Builders Deserve to Be Found</h3>
+
+                    <p>
+                        Ask anyone in construction how they find new work,
+                        and the answer is often the same: "Word of mouth."
+                    </p>
+
+                    <p>
+                        It is a beautiful thing when it works. A satisfied
+                        client tells a neighbour, and a reputation is born.
+                        But it is also a limitation. If your growth depends
+                        on who happens to be talking, skilled builders can
+                        spend years doing excellent work that few people
+                        ever see.
+                    </p>
+
+                    <h4>The visibility gap</h4>
+                    <p>
+                        In construction, quality is slow to prove. A well-built
+                        home reveals its value over years, while a confident
+                        sales pitch is visible in minutes. That imbalance means
+                        the loudest voice can win over the best work, and honest
+                        builders end up competing on promises instead of results.
+                    </p>
+
+                    <h4>Three ways builders can close the gap</h4>
+
+                    <p>
+                        <strong>Document your work.</strong>
+                        Photograph projects at every stage, from foundation
+                        to finishing. Process builds as much trust as the
+                        final result.
+                    </p>
+
+                    <p>
+                        <strong>Make your credentials easy to see.</strong>
+                        Registrations, past clients and completed projects
+                        should be one click away, not something a customer
+                        has to ask for.
+                    </p>
+
+                    <p>
+                        <strong>Let your clients speak.</strong>
+                        A thoughtful review from a satisfied homeowner carries
+                        more weight than any advertisement you could write.
+                    </p>
+
+                    <h4>A platform built for quality</h4>
+                    <p>
+                        Monarch Connect gives builders and construction
+                        companies a verified profile and a way to reach
+                        people who are genuinely ready to build. The aim
+                        is simple: when you do honest work, the right
+                        customers should be able to find you.
+                    </p>
+
+                    <p class="mb-article-ending">
+                        Your work has always spoken. Now it can be heard.
+                        <strong>Make Your Own Mark With Monarch.</strong>
+                    </p>
+
+                    <button class="mb-read-btn mb-close-btn" type="button"
+                        onclick="mbToggleArticle(this, 'mb-article-2')">
+                        READ LESS <span>⟵</span>
+                    </button>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- BLOG 03 -->
+        <article class="mb-post">
+
+            <div class="mb-post-number">03</div>
+
+            <div class="mb-post-content">
+                <div class="mb-post-meta">
+                    <span class="mb-line"></span>
+                    <span>PROJECT PLANNING</span>
+                    <span>/</span>
+                    <span>4 MIN READ</span>
+                </div>
+
+                <h2>Why the Right Connection Changes Everything</h2>
+
+                <p class="mb-excerpt">
+                    Every great building began as a conversation. Before
+                    the first brick is laid, someone has to meet someone:
+                    a homeowner and a builder, a company and a supplier,
+                    an entrepreneur and an expert who sees what they cannot.
+                </p>
+
+                <button class="mb-read-btn" type="button"
+                    aria-expanded="false" aria-controls="mb-article-3"
+                    onclick="mbToggleArticle(this, 'mb-article-3')">
+                    READ ARTICLE <span>⟶</span>
+                </button>
+            </div>
+
+            <div class="mb-post-image">
+                <img
+                    src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+                    alt="Architectural planning and construction design"
+                    loading="lazy">
+            </div>
+
+            <div class="mb-full-article" id="mb-article-3" hidden>
+                <div class="mb-article-inner">
+
+                    <span class="mb-article-label">03 / PROJECT PLANNING</span>
+
+                    <h3>Why the Right Connection Changes Everything</h3>
+
+                    <p>
+                        Every great building began as a conversation. Before
+                        the first brick is laid, someone has to meet someone:
+                        a homeowner and a builder, a company and a supplier,
+                        an entrepreneur and an expert who sees what they cannot.
+                    </p>
+
+                    <p>
+                        Opportunity in this industry has always travelled
+                        through people. Yet most of those meetings still
+                        depend on luck, location or a friend of a friend.
+                    </p>
+
+                    <h4>Connect, Discover, Grow</h4>
+                    <p>
+                        At Monarch Connect we think of professional
+                        relationships as a simple path.
+                    </p>
+
+                    <p>
+                        <strong>Connect.</strong>
+                        Meet the people and businesses that belong in your
+                        journey. A strong network does not mean knowing
+                        everyone. It means knowing the right few.
+                    </p>
+
+                    <p>
+                        <strong>Discover.</strong>
+                        Look beyond the obvious. The builder, designer or
+                        specialist who is perfect for your project may be
+                        one you would never have found through your usual circles.
+                    </p>
+
+                    <p>
+                        <strong>Grow.</strong>
+                        A good introduction is only the beginning. Relationships
+                        that are built on trust lead to repeat work, referrals
+                        and partnerships that outlast a single project.
+                    </p>
+
+                    <h4>Why intention matters</h4>
+                    <p>
+                        A large network is not the same as a useful one.
+                        The most valuable connections are made with intent:
+                        you know what you are looking for, and the person on
+                        the other side knows what they offer. That clarity
+                        saves time, builds respect and turns introductions
+                        into outcomes.
+                    </p>
+
+                    <h4>Building something lasting</h4>
+                    <p>
+                        Whether you are planning a home, growing a construction
+                        company or launching a venture of your own, the people
+                        around you shape what is possible. Choose them carefully,
+                        and make it easy for them to find you.
+                    </p>
+
+                    <p class="mb-article-ending">
+                        That is the idea behind Monarch Connect.
+                        <strong>Building Connections. Creating Opportunities.</strong>
+                    </p>
+
+                    <button class="mb-read-btn mb-close-btn" type="button"
+                        onclick="mbToggleArticle(this, 'mb-article-3')">
+                        READ LESS <span>⟵</span>
+                    </button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+<style>
+/* ===========================
+   MONARCH BLOG CSS
+   All styles use mb- prefix
+=========================== */
+
+.monarch-blog {
+    --mb-bg: #050505;
+    --mb-text: #f5f5f5;
+    --mb-muted: #b8b8b8;
+    --mb-line: #414141;
+
+    background: var(--mb-bg);
+    color: var(--mb-text);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    overflow: hidden;
+}
+
+.monarch-blog *,
+.monarch-blog *::before,
+.monarch-blog *::after {
+    box-sizing: border-box;
+}
+
+.monarch-blog img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s ease, filter .5s ease;
+}
+
+.monarch-blog a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* HERO */
+
+.mb-hero {
+    position: relative;
+    min-height: 510px;
+    display: flex;
+    align-items: center;
+    padding: 90px 8% 100px;
+    isolation: isolate;
+    overflow: hidden;
+    border-bottom: 1px solid #171717;
+}
+
+.mb-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.97) 0%,
+                rgba(0,0,0,.28) 100%,
+            rgba(0,0,0,.82) 38%
+        
+        ),
+        
+        url("assets/images/blog-img.jpeg");
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.mb-hero-content {
+    max-width: 690px;
+}
+
+.mb-eyebrow,
+.mb-post-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.mb-line {
+    width: 34px;
+    height: 1px;
+    display: inline-block;
+    background: #eee;
+    flex-shrink: 0;
+}
+
+.mb-hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 5.2vw, 70px);
+    line-height: 1.04;
+    font-weight: 400;
+    letter-spacing: -1.8px;
+    margin: 24px 0;
+}
+
+.mb-hero-content > p {
+    max-width: 440px;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #c5c5c5;
+    margin: 0;
+}
+
+/* POSTS LAYOUT */
+
+.mb-posts {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 35px 8% 70px;
+}
+
+.mb-post {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    column-gap: 8%;
+    row-gap: 35px;
+    padding: 45px 0 70px;
+}
+
+.mb-post-number {
+    position: absolute;
+    z-index: 0;
+    top: 12px;
+    left: -12px;
+    color: #242424;
+    font-size: clamp(95px, 12vw, 155px);
+    line-height: .9;
+    font-weight: 700;
+    letter-spacing: -9px;
+    pointer-events: none;
+}
+
+.mb-post-content {
+    position: relative;
+    z-index: 1;
+    padding: 25px 0 15px 35px;
+}
+
+.mb-post-meta {
+    gap: 10px;
+    margin-bottom: 17px;
+    color: #d5d5d5;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.mb-post-meta .mb-line {
+    width: 30px;
+}
+
+.mb-post h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 3vw, 43px);
+    font-weight: 400;
+    line-height: 1.13;
+    letter-spacing: -.8px;
+    margin: 0 0 20px;
+}
+
+.mb-excerpt {
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--mb-muted);
+    margin: 0 0 24px;
+    max-width: 470px;
+}
+
+.mb-post-image {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+    background: #141414;
+}
+
+.mb-post-image:hover img {
+    transform: scale(1.045);
+    
+}
+
+/* ALTERNATING LAYOUT */
+
+.mb-post-reverse .mb-post-image {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.mb-post-reverse .mb-post-content {
+    grid-column: 2;
+    grid-row: 1;
+    padding-left: 0;
+}
+
+.mb-post-reverse .mb-post-number {
+    left: 48%;
+}
+
+/* READ ARTICLE BUTTON */
+
+.mb-read-btn {
+    appearance: none;
+    border: 0;
+    padding: 5px 0;
+    background: transparent;
+    color: #f5f5f5;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    transition: opacity .25s ease;
+}
+
+.mb-read-btn span {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform .25s ease;
+}
+
+.mb-read-btn:hover {
+    opacity: .65;
+}
+
+.mb-read-btn:hover span {
+    transform: translateX(5px);
+}
+
+.mb-read-btn:focus-visible {
+    outline: 1px solid white;
+    outline-offset: 6px;
+}
+
+/* EXPANDED ARTICLE */
+
+.mb-full-article {
+    grid-column: 1 / -1;
+    width: 100%;
+    border-top: 1px solid var(--mb-line);
+    margin-top: 10px;
+    padding-top: 35px;
+    animation: mbFadeIn .4s ease both;
+}
+
+.mb-full-article[hidden] {
+    display: none;
+}
+
+.mb-article-inner {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.mb-article-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.mb-article-inner h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.15;
+    margin: 0 0 25px;
+}
+
+.mb-article-inner h4 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    line-height: 1.35;
+    font-weight: 400;
+    margin: 32px 0 12px;
+    color: #f4f4f4;
+}
+
+.mb-article-inner p {
+    color: #bcbcbc;
+    font-size: 14px;
+    line-height: 1.95;
+    margin: 0 0 18px;
+}
+
+.mb-article-inner strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.mb-article-ending {
+    border-top: 1px solid #303030;
+    padding-top: 23px;
+    margin-top: 30px !important;
+}
+
+.mb-article-ending strong {
+    display: block;
+    margin-top: 8px;
+}
+
+.mb-close-btn {
+    margin-top: 15px;
+}
+
+.mb-close-btn:hover span {
+    transform: translateX(-5px);
+}
+
+@keyframes mbFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .mb-hero {
+        min-height: 440px;
+        padding: 75px 6%;
+    }
+
+    .mb-posts {
+        padding: 25px 6% 50px;
+    }
+
+    .mb-post {
+        column-gap: 5%;
+        padding: 40px 0 55px;
+    }
+
+    .mb-post-content {
+        padding-left: 15px;
+    }
+
+    .mb-post-image {
+        height: 280px;
+    }
+
+    .mb-post-number {
+        font-size: 105px;
+    }
+
+    .mb-post h2 {
+        font-size: clamp(25px, 3.2vw, 34px);
+    }
+
+    .mb-post-meta {
+        font-size: 8px;
+        letter-spacing: 1px;
+        gap: 7px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .mb-hero {
+        min-height: 410px;
+        padding: 65px 24px 70px;
+    }
+
+    .mb-hero-image {
+        background-position: 58% center;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(0,0,0,.91),
+                rgba(0,0,0,.55)
+            ),
+            linear-gradient(0deg, #050505 0%, transparent 45%),
+            url("https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80");
+    }
+
+    .mb-hero h1 {
+        font-size: clamp(37px, 10vw, 52px);
+        letter-spacing: -1px;
+        margin: 22px 0;
+    }
+
+    .mb-hero-content > p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .mb-eyebrow {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
+
+    .mb-posts {
+        padding: 20px 24px 35px;
+    }
+
+    .mb-post {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        padding: 35px 0 45px;
+    }
+
+    .mb-post-number {
+        top: 20px;
+        left: -4px;
+        font-size: 95px;
+        letter-spacing: -5px;
+    }
+
+    .mb-post-content {
+        padding: 28px 0 0 18px;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .mb-post-image,
+    .mb-post-reverse .mb-post-image {
+        grid-column: 1;
+        grid-row: 2;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .mb-post-reverse .mb-post-content {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 28px 0 0 18px;
+    }
+
+    .mb-post-reverse .mb-post-number {
+        left: -4px;
+    }
+
+    .mb-post h2 {
+        font-size: clamp(29px, 8vw, 38px);
+        line-height: 1.13;
+        margin-bottom: 15px;
+    }
+
+    .mb-post-meta {
+        font-size: 8px;
+        margin-bottom: 15px;
+    }
+
+    .mb-excerpt {
+        font-size: 12px;
+        line-height: 1.85;
+    }
+
+    .mb-full-article {
+        padding-top: 25px;
+        margin-top: 5px;
+    }
+
+    .mb-article-inner h3 {
+        font-size: 32px;
+    }
+
+    .mb-article-inner h4 {
+        font-size: 21px;
+    }
+
+    .mb-article-inner p {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .monarch-blog *,
+    .monarch-blog *::before,
+    .monarch-blog *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-main">
+
+        <!-- ================= BRAND ================= -->
+
+        <div class="footer-brand">
+
+            <a href="index-2.html" class="footer-logo">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Monarch Connect Logo"
+                >
+
+            </a>
+
+            <p>
+                Make Your Own Mark With Monarch.
+                Building ideas, creating possibilities
+                and turning visions into reality.
+            </p>
+
+            <div class="footer-social">
+
+                <a href="#" aria-label="Instagram">
+                   <i class="fa fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                   <i class="fa fa-facebook"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                   <i class="fa fa-linkedin"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <div class="footer-column">
+
+            <h3>QUICK LINKS</h3>
+
+            <a href="index-2.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#work">Our Work</a>
+
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <div class="footer-column">
+
+            <h3>SERVICES</h3>
+
+            <a href="our-services.html">Construction</a>
+            <a href="read.html">Read Me</a>
+
+        </div>
+
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div class="footer-column footer-contact">
+
+            <h3>CONTACT</h3>
+
+            <a href="tel:+91 8800391355">
+                +91 8800391355
+            </a>
+
+            <a href="monarch%40info.monarchconnect.co.in.html">
+                monarch@info.monarchconnect.co.in
+            </a>
+
+            <p>
+                India
+            </p>
+
+            <a
+                href="contact.html"
+                class="footer-contact-btn"
+            >
+                GET IN TOUCH
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER LINE ================= -->
+
+    <div class="footer-line"></div>
+
+
+
+    <!-- ================= BOTTOM ================= -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="footerYear"></span>
+            Monarch Connect. All Rights Reserved.    &nbsp;<spna style="color:black"> Developed By Parvez Ahmad (<a href="https://www.google.com/search?q=parvez3737&amp;oq=Parvez3737&amp;gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGO8FMgcIAhAAGO8FMgcIAxAAGO8FMgcIBBAAGO8FMgcIBRAAGO8F0gEIMzQ5MmowajeoAgiwAgHxBRLQ5u5pQtVN8QUS0ObuaULVTQ&amp;sourceid=chrome&amp;source=chrome.ob&amp;ie=UTF-8">Parvez3737</spna></a>
+        </p>
+
+        <div class="footer-bottom-links">
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms-and-conditions.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+<style>/* =========================================================
+   PREMIUM FOOTER — BLACK + WHITE + LIGHT GREY
+========================================================= */
+
+.main-footer {
+    position: relative;
+    background: #050505;
+    color: #ffffff;
+    padding: 85px 7% 25px;
+    overflow: hidden;
+}
+
+/* =========================================================
+   TOP LIGHT-GREY LINE
+========================================================= */
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7%;
+    right: 7%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(235,235,235,.75),
+        transparent
+    );
+}
+
+/* =========================================================
+   FOOTER MAIN
+========================================================= */
+
+.footer-main {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 60px;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+    max-width: 340px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.footer-logo img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-brand > p {
+    max-width: 320px;
+    margin: 0;
+    color: #a6a6a6;
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: .4px;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(210,210,210,.45);
+
+    color: #e6e6e6;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    transition: all .3s ease;
+}
+
+.footer-social a:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+    transform: translateY(-4px);
+}
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    position: relative;
+    margin: 12px 0 28px;
+
+    color: #f5f5f5;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.footer-column h3::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 1px;
+    margin-top: 11px;
+
+    background: #d0d0d0;
+
+    transition: width .3s ease;
+}
+
+.footer-column:hover h3::after {
+    width: 45px;
+}
+
+.footer-column > a {
+    margin-bottom: 14px;
+
+    color: #9a9a9a;
+    font-size: 15px;
+    text-decoration: none;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+.footer-column > a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.footer-contact p {
+    margin: 0 0 22px;
+    color: #999999;
+    font-size: 14px;
+}
+
+.footer-contact-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 5px;
+    padding: 11px 18px;
+
+    border: 1px solid rgba(225,225,225,.55);
+
+    color: #eeeeee !important;
+
+    font-size: 9px !important;
+    letter-spacing: 2px;
+
+    transition: all .3s ease !important;
+}
+
+.footer-contact-btn span {
+    font-size: 16px;
+    transition: transform .3s ease;
+}
+
+.footer-contact-btn:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000 !important;
+    transform: translateX(0) !important;
+}
+
+.footer-contact-btn:hover span {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   LINE
+========================================================= */
+
+.footer-line {
+    max-width: 1300px;
+    height: 1px;
+    margin: 65px auto 22px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220,220,220,.16),
+        transparent
+    );
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: .5px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-bottom-links a {
+    color: #666666;
+    font-size: 10px;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .main-footer {
+        padding: 75px 5% 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 40px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-footer {
+        padding: 65px 25px 25px;
+    }
+
+    .main-footer::before {
+        left: 25px;
+        right: 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 18px;
+    }
+
+    .footer-logo img {
+        width: 105px;
+        height: 105px;
+        margin: auto;
+    }
+
+    .footer-brand > p {
+        margin: auto;
+        font-size: 12px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column h3 {
+        margin-top: 0;
+    }
+
+    .footer-column > a:hover {
+        transform: translateY(-2px);
+    }
+
+    .footer-contact-btn {
+        margin-top: 8px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+}
+.footer-bottom p a,
+.footer-bottom p a:hover,
+.footer-bottom p a:focus,
+.footer-bottom p a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+<script>
+    javascript
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const year =
+        document.getElementById("footerYear");
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+});
+
+</script>
+<script>
+function mbToggleArticle(button, articleId) {
+    const article = document.getElementById(articleId);
+
+    if (!article) return;
+
+    const isOpening = article.hidden;
+
+    article.hidden = !isOpening;
+
+    // Update the corresponding READ ARTICLE button.
+    const post = button.closest('.mb-post');
+    if (!post) return;
+
+    const mainButton = post.querySelector(
+        '.mb-post-content > .mb-read-btn'
+    );
+
+    if (mainButton) {
+        mainButton.setAttribute('aria-expanded', String(isOpening));
+    }
+
+    // Keep the open article's content visible after clicking.
+    if (isOpening) {
+        window.setTimeout(function () {
+            article.scrollIntoView({
+                behavior: window.matchMedia(
+                    '(prefers-reduced-motion: reduce)'
+                ).matches ? 'auto' : 'smooth',
+                block: 'start'
+            });
+        }, 80);
+    } else {
+        if (mainButton) {
+            mainButton.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }
+}
+</script>

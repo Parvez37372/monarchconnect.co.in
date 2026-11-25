@@ -1,0 +1,5904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from https://monarchconnect.co.in/ by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Monarch Connect</title>
+
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="icon" type="assets/images/logo.png" href="assets/images/f.png" style="width:50px;height:50px">
+
+<style>
+
+
+/* =========================================================
+   MONARCH CONNECT
+   HEADER + HERO + BACKGROUND SLIDER + SIDE MENU
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+hero-section {
+    margin: 0;
+    background: #050505;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND SLIDER
+========================================================= */
+
+.bg-slider {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    z-index: -10;
+
+    background: #050505;
+}
+
+
+/* Individual image */
+
+.bg-slide {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 1.2s ease,
+        transform 6s ease;
+
+    filter: brightness(.58);
+}
+
+
+/* Active image */
+
+.bg-slide.active {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* Dark overlay */
+
+.bg-slider::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+
+    z-index: 2;
+}
+
+
+/* Top and bottom dark */
+
+.bg-slider::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   LEFT SLIDER DOTS
+========================================================= */
+
+.slider-dots {
+    position: absolute;
+
+    left: 28px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+
+    z-index: 20;
+}
+
+
+.slider-dot {
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    border: 1px solid #ffffff;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition:
+        all .35s ease;
+}
+
+
+.slider-dot.active {
+    width: 11px;
+    height: 11px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,.75);
+}
+
+
+.slider-dot:hover {
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.main-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 55px;
+
+    z-index: 50;
+
+    background: transparent;
+
+    transition:
+        background .4s ease,
+        box-shadow .4s ease,
+        backdrop-filter .4s ease;
+}
+
+
+/* Header after scroll */
+
+.main-header.scrolled {
+
+    background: #050505;
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,.65);
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* Header bottom line */
+
+.main-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 55px;
+    right: 55px;
+
+    bottom: 0;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.65);
+
+    transition: all .4s ease;
+}
+
+
+.main-header.scrolled::after {
+
+    left: 0;
+    right: 0;
+
+    background:
+        rgba(255,255,255,.75);
+}
+
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
+.menu-btn {
+
+    position: relative;
+
+    width: 80px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 0 0 38px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #fff;
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    z-index: 60;
+}
+
+
+.menu-btn span {
+
+    position: absolute;
+
+    left: 0;
+
+    width: 25px;
+
+    height: 1px;
+
+    background: #ffffff;
+
+    display: block;
+
+    transition:
+        transform .3s ease,
+        width .3s ease,
+        background .3s ease;
+}
+
+
+.menu-btn span:nth-child(1) {
+    top: 8px;
+}
+
+.menu-btn span:nth-child(2) {
+    top: 15px;
+}
+
+.menu-btn span:nth-child(3) {
+    top: 22px;
+}
+
+
+.menu-btn:hover {
+    color: #ffffff;
+}
+
+
+.menu-btn:hover span:nth-child(1) {
+    width: 30px;
+}
+
+
+.menu-btn:hover span:nth-child(3) {
+    width: 20px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 55;
+}
+
+
+.logo img {
+
+    width: 150px;
+    height: 150px;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 12px 24px;
+
+    border: 1px solid #fff;
+    border-radius:20px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    transition:
+        all .35s ease;
+
+    z-index: 55;
+}
+
+
+.contact-btn:hover {
+
+    background: #ffffff;
+
+    border-color: #ffffff;
+
+    color: #000;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+
+    position: relative;
+    letter-spacing: 15px;
+
+    z-index: 5;
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+
+/* Small heading */
+
+.hero-small {
+
+    margin-bottom: 22px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    letter-spacing: 7px;
+
+    text-transform: uppercase;
+}
+
+
+/* Main heading */
+
+.hero-content h1 {
+
+    margin: 0;
+
+    color: #fff;
+
+    font-size:
+        clamp(50px, 8vw, 100px);
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    letter-spacing: 15px;
+
+    text-transform: uppercase;
+    font-family:Georgia, "Times New Roman", serif;;
+}
+
+
+.hero-content h1 span {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   GOLD LINE
+========================================================= */
+
+.hero-line {
+
+    width: 420px;
+
+    max-width: 80%;
+
+    height: 3px;
+
+    margin: 35px auto 25px;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.hero-tagline {
+
+    margin-bottom: 28px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 300;
+
+    letter-spacing: 4px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SIDE MENU
+========================================================= */
+
+.side-menu {
+
+    position: fixed;
+
+    top: 0;
+
+    left: -500px;
+
+    width: 370px;
+
+    height: 100vh;
+
+    padding: 120px 45px 40px;
+
+    background: #080808;
+
+    border-right:
+        1px solid rgba(255,255,255,.45);
+
+    z-index: 200;
+
+    overflow-y: auto;
+
+    transition:
+        left .45s
+        cubic-bezier(.77,0,.175,1);
+}
+
+
+.side-menu.active {
+    left: 0;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-btn {
+
+    position: absolute;
+
+    top: 28px;
+    right: 30px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+
+    color: #fff;
+
+    font-size: 35px;
+
+    font-weight: 200;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: all .3s ease;
+}
+
+
+.close-btn:hover {
+
+    color: #ffffff;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   SIDE MENU NAV
+========================================================= */
+
+.side-menu nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+}
+
+
+.side-menu nav a {
+
+    position: relative;
+
+    display: block;
+
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    transition: all .3s ease;
+}
+
+
+.side-menu nav a:first-child {
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
+}
+
+
+.side-menu nav a:hover {
+
+    padding-left: 10px;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MENU OVERLAY
+========================================================= */
+
+.menu-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.72);
+
+    z-index: 150;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+
+.menu-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+.bg-slide {
+    filter: brightness(.78);
+}
+
+
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .main-header {
+
+        height: 90px;
+
+        padding: 0 30px;
+    }
+
+
+    .main-header::after {
+
+        left: 30px;
+        right: 30px;
+    }
+
+
+    .main-header.scrolled::after {
+
+        left: 0;
+        right: 0;
+    }
+
+
+    .logo img {
+
+        width: 125px;
+        height: 125px;
+    }
+
+
+    .menu-btn {
+
+        font-size: 11px;
+    }
+
+
+    .hero-content h1 {
+
+        font-size:
+            clamp(48px, 9vw, 85px);
+
+        letter-spacing: 6px;
+    }
+
+
+    .hero-tagline {
+
+        font-size: 14px;
+    }
+
+
+    .slider-dots {
+
+        left: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-header {
+
+        height: 80px;
+
+        padding: 0 18px;
+    }
+
+
+    .main-header::after {
+
+        left: 18px;
+        right: 18px;
+    }
+
+
+    .main-header.scrolled::after {
+
+        left: 0;
+        right: 0;
+    }
+
+
+    .logo img {
+
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .menu-btn {
+
+        width: 75px;
+
+        height: 36px;
+
+        padding-left: 30px;
+
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .menu-btn span {
+
+        width: 20px;
+    }
+
+
+    .menu-btn span:nth-child(1) {
+        top: 7px;
+    }
+
+
+    .menu-btn span:nth-child(2) {
+        top: 14px;
+    }
+
+
+    .menu-btn span:nth-child(3) {
+        top: 21px;
+    }
+
+
+    .contact-btn {
+
+        padding: 9px 13px;
+
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .hero {
+
+        min-height: 600px;
+    }
+
+
+    .hero-content {
+
+        padding: 20px;
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 70px;
+
+        letter-spacing: 3px;
+
+        line-height: 1.15;
+    }
+
+
+    .hero-line {
+
+        width: 230px;
+
+        height: 2px;
+
+        margin: 25px auto 20px;
+    }
+
+
+    .hero-tagline {
+
+        max-width: 320px;
+
+        margin: 0 auto 30px;
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+
+        line-height: 1.8;
+    }
+
+
+    /* Left dots */
+
+    .slider-dots {
+
+        left: 12px;
+
+        gap: 13px;
+    }
+
+
+    .slider-dot {
+
+        width: 7px;
+        height: 7px;
+    }
+
+
+    .slider-dot.active {
+
+        width: 9px;
+        height: 9px;
+    }
+
+
+    /* Side menu */
+
+    .side-menu {
+
+        left: -90%;
+
+        width: 85%;
+
+        padding: 100px 30px 30px;
+    }
+
+
+    .side-menu.active {
+
+        left: 0;
+    }
+
+
+    .side-menu nav a {
+
+        padding: 16px 0;
+
+        font-size: 15px;
+    }
+
+
+    .close-btn {
+
+        top: 22px;
+
+        right: 22px;
+
+        font-size: 32px;
+    }
+
+}
+.connect-title {
+    color: #ffffff;
+    font-size: 60px;
+    letter-spacing:25px;
+    Georgia, serif;
+    
+}
+
+/* Mobile View */
+@media (max-width: 767px) {
+    .connect-title {
+        font-size: 36px;
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .main-header {
+
+        padding: 0 14px;
+    }
+
+
+    .main-header::after {
+
+        left: 14px;
+        right: 14px;
+    }
+
+
+    .logo img {
+
+        width: 85px;
+        height: 85px;
+    }
+
+
+    .menu-btn {
+
+        width: 70px;
+
+        padding-left: 27px;
+
+        font-size: 8px;
+    }
+
+
+    .menu-btn span {
+
+        width: 18px;
+    }
+
+
+    .contact-btn {
+
+        padding: 8px 10px;
+
+        font-size: 8px;
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 34px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .hero-tagline {
+
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   IMAGE SAFETY
+========================================================= */
+
+img {
+
+    max-width: 100%;
+}
+
+</style>
+
+</head>
+
+
+<hero-section>
+
+
+<!-- =========================================================
+     BACKGROUND SLIDER
+========================================================= -->
+
+<div class="bg-slider">
+
+    <div
+        class="bg-slide active"
+        style="background-image:url('assets/images/h1.jpeg');">
+    </div>
+
+    <div
+        class="bg-slide"
+        style="background-image:url('assets/images/h2.jpeg');">
+    </div>
+
+    <div
+        class="bg-slide"
+        style="background-image:url('assets/images/h3.jpeg');">
+    </div>
+    <div
+        class="bg-slide"
+        style="background-image:url('assets/images/h4.jpeg');">
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     LEFT SIDE SLIDER DOTS
+========================================================= -->
+
+<div class="slider-dots">
+
+    <button
+        class="slider-dot active"
+        data-slide="0"
+        aria-label="Slide 1">
+    </button>
+
+    <button
+        class="slider-dot"
+        data-slide="1"
+        aria-label="Slide 2">
+    </button>
+
+    <button
+        class="slider-dot"
+        data-slide="2"
+        aria-label="Slide 3">
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="main-header">
+
+    <button class="menu-btn" id="menuBtn">
+
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <a href="#" class="logo">
+
+        <img
+            src="assets/images/logo.png"
+            alt="Monarch Connect">
+
+    </a>
+
+
+    <a
+        href="account/index.html"
+        class="contact-btn">
+<i class="fa fa-user"></i>
+</a>
+
+</header>
+
+
+<!-- =========================================================
+     SIDE MENU
+========================================================= -->
+
+<div
+    class="side-menu"
+    id="sideMenu">
+
+    <button
+        class="close-btn"
+        id="closeBtn">
+
+        &times;
+
+    </button>
+
+
+    <nav>
+
+        <a href="index-2.html">
+            Home
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="blogs.html">
+            Blog
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+</div>
+
+
+<div
+    class="menu-overlay"
+    id="menuOverlay">
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<br>
+<br>
+<br>
+<br>
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            MONARCH
+        </h1>
+        <hr style="width:500px; margin: 15px auto; border:0; border-top:1px solid #fff">
+        <h2 class="connect-title"><span>CONNECT</span></h2>
+
+
+       <!-- <div class="hero-line"></div>-->
+
+        <br>
+        <br>
+        
+        <br>
+        
+        <p class="hero-tagline">
+            Make Your Own Mark With Monarch
+        </p>
+         
+         
+<div class="mc-button-group">
+    <a href="account/business/login.html" class="mc-btn">Business Login</a>
+    <a href="account/consumer/login.html" class="mc-btn">Consumer Login</a>
+</div>
+
+<style>
+.mc-button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.mc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 26px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 50px;
+
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: 0.3s ease;
+}
+
+.mc-btn:hover {
+    color: #000;
+    background: #fff;
+}
+
+@media (max-width: 480px) {
+    .mc-button-group {
+        gap: 10px;
+    }
+
+    .mc-btn {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+</style>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const closeBtn =
+    document.getElementById("closeBtn");
+
+const sideMenu =
+    document.getElementById("sideMenu");
+
+const menuOverlay =
+    document.getElementById("menuOverlay");
+
+
+menuBtn.addEventListener("click", () => {
+
+    sideMenu.classList.add("active");
+
+    menuOverlay.classList.add("active");
+
+});
+
+
+closeBtn.addEventListener("click", () => {
+
+    sideMenu.classList.remove("active");
+
+    menuOverlay.classList.remove("active");
+
+});
+
+
+menuOverlay.addEventListener("click", () => {
+
+    sideMenu.classList.remove("active");
+
+    menuOverlay.classList.remove("active");
+
+});
+
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const header =
+    document.querySelector(".main-header");
+
+
+function checkScroll() {
+
+    if (window.scrollY > 50) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    checkScroll
+);
+
+
+/* Run once */
+
+checkScroll();
+
+
+/* =========================================================
+   BACKGROUND SLIDER
+========================================================= */
+
+const slides =
+    document.querySelectorAll(".bg-slide");
+
+const dots =
+    document.querySelectorAll(".slider-dot");
+
+
+let currentSlide = 0;
+
+let slideTimer;
+
+
+/* =========================================================
+   CHANGE SLIDE
+========================================================= */
+
+function changeSlide(index) {
+
+    slides.forEach((slide) => {
+
+        slide.classList.remove("active");
+
+    });
+
+
+    dots.forEach((dot) => {
+
+        dot.classList.remove("active");
+
+    });
+
+
+    slides[index].classList.add("active");
+
+    dots[index].classList.add("active");
+
+
+    currentSlide = index;
+
+}
+
+
+/* =========================================================
+   AUTO SLIDER
+========================================================= */
+
+function startSlider() {
+
+    slideTimer =
+        setInterval(() => {
+
+            currentSlide++;
+
+            if (
+                currentSlide >=
+                slides.length
+            ) {
+
+                currentSlide = 0;
+
+            }
+
+            changeSlide(currentSlide);
+
+        }, 5000);
+
+}
+
+
+/* =========================================================
+   DOT CLICK
+========================================================= */
+
+dots.forEach((dot, index) => {
+
+    dot.addEventListener("click", () => {
+
+        clearInterval(slideTimer);
+
+        changeSlide(index);
+
+        startSlider();
+
+    });
+
+});
+
+
+/* Start */
+
+startSlider();
+
+
+</script>
+
+
+</hero-section>
+
+
+<!-- Mirrored from https://monarchconnect.co.in/ by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:16 GMT -->
+</html><!-- =========================================================
+     MONARCH CONNECT - COMPLETE SECTION
+========================================================= -->
+
+<section class="monarch-connect">
+
+    <!-- =========================
+         HEADING
+    ========================== -->
+
+    <div class="mc-heading">
+
+    </div>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <div class="mc-hero">
+
+        <img
+            src="assets/images/up.jpeg"
+            alt="Monarch Connect"
+        >
+
+        <div class="mc-hero-content">
+
+            <span class="mc-tag">
+                MONARCH CONNECT
+            </span>
+
+            <h3>
+                Connect With The Right People
+            </h3>
+
+            <p>
+                Discover meaningful connections, build your network
+                and connect with people who matter.
+            </p>
+
+            <a
+                href="#mcSearch"
+                class="mc-btn"
+            >
+                Explore
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SEARCH
+    ========================== -->
+
+    <div class="mc-search-wrapper">
+
+        <div class="mc-search">
+
+            <div class="mc-search-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <circle
+                        cx="11"
+                        cy="11"
+                        r="7"
+                    ></circle>
+
+                    <line
+                        x1="16.5"
+                        y1="16.5"
+                        x2="21"
+                        y2="21"
+                    ></line>
+
+                </svg>
+
+            </div>
+
+
+            <input
+                type="text"
+                id="mcSearch"
+                placeholder="Want to go specific?"
+                autocomplete="off"
+            >
+
+
+            <button
+                type="button"
+                id="mcSearchBtn"
+            >
+                Search
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         BLURRED CARDS
+         BEFORE SEARCH
+    ========================== -->
+
+    <div
+        class="mc-preview"
+        id="mcPreview"
+    >
+
+
+        <!-- Preview Card 1 -->
+
+        <div class="mc-profile blurred">
+
+            <div class="mc-avatar">
+                MC
+            </div>
+
+            <div class="mc-profile-info">
+
+                <div class="fake-title"></div>
+
+                <div class="fake-text"></div>
+
+                <div class="fake-text small"></div>
+
+                <div class="fake-buttons">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Preview Card 2 -->
+
+        <div class="mc-profile blurred">
+
+            <div class="mc-avatar">
+                MC
+            </div>
+
+            <div class="mc-profile-info">
+
+                <div class="fake-title"></div>
+
+                <div class="fake-text"></div>
+
+                <div class="fake-text small"></div>
+
+                <div class="fake-buttons">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Preview Card 3 -->
+
+        <div class="mc-profile blurred">
+
+            <div class="mc-avatar">
+                MC
+            </div>
+
+            <div class="mc-profile-info">
+
+                <div class="fake-title"></div>
+
+                <div class="fake-text"></div>
+
+                <div class="fake-text small"></div>
+
+                <div class="fake-buttons">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Preview Card 4 -->
+
+        <div class="mc-profile blurred">
+
+            <div class="mc-avatar">
+                MC
+            </div>
+
+            <div class="mc-profile-info">
+
+                <div class="fake-title"></div>
+
+                <div class="fake-text"></div>
+
+                <div class="fake-text small"></div>
+
+                <div class="fake-buttons">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SEARCH RESULTS
+    ========================== -->
+
+    <div
+        class="mc-results"
+        id="mcResults"
+    ></div>
+
+
+</section>
+
+
+
+<style>
+    
+    
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.monarch-connect {
+
+    width: 100%;
+
+    padding: 40px 25px 80px;
+
+    box-sizing: border-box;
+
+    color: #ffffff;
+
+background:black;
+height:auto;
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.mc-heading {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    margin-bottom: 32px;
+
+}
+
+
+.mc-heading h2 {
+
+    margin: 0;
+
+    max-width: 850px;
+
+    font-size: 34px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    letter-spacing: -.5px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #ffffff 25%,
+            #ffffff 50%,
+            #ffffff 75%,
+            #ffffff 100%
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.mc-heading a {
+
+    margin-top: 10px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+
+.mc-heading a:hover {
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.mc-hero {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 300px;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(255, 255, 255, .35);
+
+    box-shadow:
+
+        0 20px 60px rgba(0, 0, 0, .55),
+
+        0 0 40px rgba(255, 255, 255, .08);
+
+}
+
+
+.mc-hero img {
+
+    width: 100%;
+
+    height: 80%;
+
+    display: block;
+
+    object-fit: cover;
+
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+========================================================= */
+
+.mc-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.mc-hero-content {
+
+    position: absolute;
+
+    left: 35px;
+
+    bottom: 105px;
+
+    max-width: 650px;
+
+    color: #ffffff;
+
+}
+
+
+.mc-tag {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 13px;
+
+    margin-bottom: 15px;
+
+    border-radius: 5px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #ffffff,
+            #ffffff
+        );
+
+    color: #000000;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+.mc-hero-content h3 {
+
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+}
+
+
+.mc-hero-content p {
+
+    margin: 0 0 22px;
+
+    max-width: 600px;
+
+    color: rgba(255, 255, 255, .86);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   EXPLORE BUTTON
+========================================================= */
+
+.mc-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 215px;
+
+    height: 48px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    color: #000000;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #ffffff 30%,
+            #ffffff 65%,
+            #ffffff 100%
+        );
+
+    box-shadow:
+
+        0 8px 25px rgba(255, 255, 255, .18);
+
+    transition: all .3s ease;
+
+}
+
+
+.mc-btn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+
+        0 12px 35px rgba(255, 255, 255, .30);
+
+}
+
+
+/* =========================================================
+   SEARCH WRAPPER
+========================================================= */
+
+.mc-search-wrapper {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 32px 0 40px;
+
+}
+
+
+/* =========================================================
+   SEARCH BOX
+========================================================= */
+
+.mc-search {
+
+    display: flex;
+
+    align-items: center;
+
+    width: min(700px, 100%);
+
+    height: 60px;
+
+    padding: 5px 6px 5px 20px;
+
+    box-sizing: border-box;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #111111,
+            #050505
+        );
+
+    border: 1px solid #ffffff;
+
+    border-radius: 40px;
+
+    box-shadow:
+
+        0 12px 40px rgba(0, 0, 0, .48);
+
+    transition: .3s;
+
+}
+
+
+.mc-search:focus-within {
+
+    border-color: #ffffff;
+
+    box-shadow:
+
+        0 0 0 3px rgba(255, 255, 255, .10),
+
+        0 12px 40px rgba(0, 0, 0, .48);
+
+}
+
+
+/* =========================================================
+   SEARCH ICON
+========================================================= */
+
+.mc-search-icon {
+
+    width: 23px;
+
+    height: 23px;
+
+    margin-right: 12px;
+
+    flex-shrink: 0;
+
+}
+
+
+.mc-search-icon svg {
+
+    width: 100%;
+
+    height: 100%;
+
+    fill: none;
+
+    stroke: #ffffff;
+
+    stroke-width: 1.7;
+
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.mc-search input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+}
+
+
+.mc-search input::placeholder {
+
+    color: #bdbdbd;
+
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+========================================================= */
+
+.mc-search button {
+
+    height: 48px;
+
+    padding: 0 30px;
+
+    border: 0;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    color: #170b01;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #ffffff,
+            #ffffff
+        );
+
+    transition: all .3s ease;
+
+}
+
+
+.mc-search button:hover {
+
+    transform: scale(1.03);
+
+    box-shadow:
+
+        0 5px 22px rgba(255, 255, 255, .25);
+
+}
+
+
+/* =========================================================
+   PREVIEW GRID
+========================================================= */
+
+.mc-preview {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+/* =========================================================
+   PREVIEW CARD
+========================================================= */
+
+.mc-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 185px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #111111,
+            #080808
+        );
+
+    border: 1px solid #2b2b2b;
+
+    border-radius: 18px;
+
+}
+
+
+/* =========================================================
+   BLUR
+========================================================= */
+
+.mc-profile.blurred {
+
+    filter: blur(5px);
+
+    opacity: .48;
+
+    user-select: none;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.mc-avatar {
+
+    width: 82px;
+
+    height: 82px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #222222,
+            #000000
+        );
+
+    border: 1px solid #ffffff;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   FAKE CARD CONTENT
+========================================================= */
+
+.mc-profile-info {
+
+    flex: 1;
+
+    margin-left: 25px;
+
+}
+
+
+.fake-title {
+
+    width: 50%;
+
+    height: 14px;
+
+    margin-bottom: 17px;
+
+    background: #777777;
+
+    border-radius: 10px;
+
+}
+
+
+.fake-text {
+
+    width: 90%;
+
+    height: 9px;
+
+    margin-bottom: 10px;
+
+    background: #444444;
+
+    border-radius: 10px;
+
+}
+
+
+.fake-text.small {
+
+    width: 65%;
+
+}
+
+
+.fake-buttons {
+
+    display: flex;
+
+    gap: 20px;
+
+    margin-top: 24px;
+
+}
+
+
+.fake-buttons span {
+
+    width: 70px;
+
+    height: 12px;
+
+    background: #777777;
+
+    border-radius: 10px;
+
+}
+
+
+/* =========================================================
+   REAL RESULTS
+========================================================= */
+
+.mc-results {
+
+    display: none;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+
+}
+
+
+.mc-results.active {
+
+    display: grid;
+
+}
+
+
+/* =========================================================
+   CONNECTION CARD
+========================================================= */
+
+.connection-card {
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 185px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #101010,
+            #080808
+        );
+
+    border: 1px solid #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow:
+
+        0 10px 35px rgba(0, 0, 0, .40);
+
+    transition: all .3s ease;
+
+}
+
+
+.connection-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #ffffff;
+
+    box-shadow:
+
+        0 15px 40px rgba(255, 255, 255, .12);
+
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.connection-avatar {
+
+    width: 82px;
+
+    height: 82px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 2px solid #ffffff;
+
+    background: #111111;
+
+}
+
+
+/* =========================================================
+   PROFILE INFO
+========================================================= */
+
+.connection-info {
+
+    margin-left: 20px;
+
+}
+
+
+.connection-info span {
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: .8px;
+
+}
+
+
+.connection-info h4 {
+
+    margin: 5px 0 7px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    line-height: 1.2;
+
+}
+
+
+.connection-info p {
+
+    margin: 0 0 15px;
+
+    color: #bdbdbd;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CONNECT BUTTON
+========================================================= */
+
+.connect-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 9px 20px;
+
+    border-radius: 22px;
+
+    text-decoration: none;
+
+    color: #000000;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #ffffff,
+            #ffffff
+        );
+
+    transition: .3s;
+
+}
+
+
+.connect-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+
+        0 6px 18px rgba(255, 255, 255, .22);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .mc-preview,
+    .mc-results {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .monarch-connect {
+
+        padding: 28px 15px 55px;
+
+    }
+
+
+    .mc-heading h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .mc-hero {
+
+        height: 420px;
+
+    }
+
+
+    .mc-hero-content {
+
+        left: 22px;
+
+        right: 22px;
+
+        bottom: 25px;
+
+    }
+
+
+    .mc-hero-content h3 {
+
+        font-size: 25px;
+
+    }
+
+
+    .mc-hero-content p {
+
+        font-size: 13px;
+
+    }
+
+
+    .mc-btn {
+
+        width: 100%;
+
+    }
+
+
+    .mc-search {
+
+        height: 55px;
+
+        padding-left: 15px;
+
+    }
+
+
+    .mc-search button {
+
+        height: 43px;
+
+        padding: 0 19px;
+
+    }
+
+
+    .mc-search input {
+
+        font-size: 13px;
+
+    }
+
+
+    .mc-profile,
+    .connection-card {
+
+        min-height: 150px;
+
+        padding: 18px;
+
+    }
+
+
+    .mc-avatar,
+    .connection-avatar {
+
+        width: 62px;
+
+        height: 62px;
+
+    }
+
+
+    .mc-profile-info,
+    .connection-info {
+
+        margin-left: 16px;
+
+    }
+
+
+    .connection-info h4 {
+
+        font-size: 17px;
+
+    }
+
+
+    .connection-info p {
+
+        font-size: 12px;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .mc-heading h2 {
+
+        font-size: 20px;
+
+    }
+
+
+    .mc-hero {
+
+        height: 390px;
+
+    }
+
+
+    .mc-hero-content h3 {
+
+        font-size: 22px;
+
+    }
+
+
+    .mc-search button {
+
+        padding: 0 15px;
+
+    }
+
+
+    .mc-search-icon {
+
+        margin-right: 7px;
+
+    }
+
+}
+
+
+</style>
+
+
+
+<script>
+
+/* =========================================================
+   MONARCH CONNECT DATA
+========================================================= */
+
+const monarchData = [
+
+    {
+        name: "JPJ Construction Pvt. Ltd.",
+        category: "Leadership",
+        role: "Connect with experienced business leaders.",
+        image: "https://images.openai.com/static-rsc-1/C126wZokVZez7S385dsRu4tuk24fY0j-grIAO9-nUgKahnlqI5Ed2ZBX2RMkVX6t5q07TQLOah-ElJZQjzX9fjSB2eSNXOkEvr9oVFgSRsBC1kmxjHNtbfK43nsuCCCxYe1k9LLgO9Xs113BQnNNuU7eroALneq34NdwxihGqxFIzkwPeGOw3zEJueNHEepCXOtg-_akmZxLEAzN_sO_FGTcf7fhTFIJZFlmugxht0xm0M7tB1uiUlmT5QSva8yh2mHihakIPbWDpck-tQOH0l3T_r3nC6X9O8p67cVDx0A7Aa0RGKRM3bnBSYAaNYATQIqjt4xP_4bRyq89fhUKSnBHDoVv460rI0qqKTnG7f4fGf-DiDUAulH72wmbwIaAK2VYd8vlu6J2PRhgW4JgdM2GO9SN61tSHSt7JvUsacE"
+    },
+
+    {
+        name: "Home Construction Solution",
+        category: "Construction Solution",
+        role: "Discover entrepreneurs and growing businesses.",
+        image: "https://images.openai.com/static-rsc-4/U4jM2Zek99E1KIqXgSllD4v161538iptWhdnbMhHAQyUhDOkj-lDW-flSgG7OZ93kri5b7H0j_T1Yp3V-3d1cA1iagbEbJy9XTbUO0H4XJ2u70AIglkFBGxC7J5Zy5XzoneerVV9IoyN_pe0Ylvxk-1xSHINgAlM-puEDIKO8DJcJl1XS1f2__T0tMt1AH0h?purpose=fullsize"
+    },
+
+    {
+        name: "Professionals",
+        category: "Laxraj Construction India",
+        role: "Build meaningful professional relationships.",
+        image: "https://images.openai.com/static-rsc-1/1ADo2FuZoqlh9VqYeyhEQevJOLtW_oH32OR1OgXanJqZC4vVVPSsSwwI93kSOeamNJ0IZV-KR4hGxH8sFTCm7N61kiIU5wSXDLl-BhX4L3mREmRL_ggAkUcGJCkteZc1zEaCAC_2tidLygCcoAe_8mvKRB2Tdn4XFgOkj_XdWt3FO4vMbS5Emw8Rj2z4zttZ6HzPGMG1PaH6KfaqwLKrolbWsJhQ4LzjxQySO7Anf6HNyxAjWFC1RCFGTQtW6bu8vP85bF740sjdJEFlsPH1_04tt68YpSCISbLqUfsbcr3hNdk5q-0U3pMGXtvizIyxhAmd5zzEcn41N1x_OO-NzqnO3n7krKBktwIRlCuAlNcsqnVZZb_dIwUXSUFlM_LeEq5gYkf6xeItcAbCUbBH67OIz-Wi7F7mJ88LQ1WDqSU"
+    },
+
+    {
+        name: "Industry Experts",
+        category: "HKT Construction Company",
+        role: "Connect with experts across different industries.",
+        image: "https://images.openai.com/static-rsc-4/CdGpwRjMrW0gr5jsRPS9fBX5ZlJQB0n-irIaqVvqMHU6pzH8pXDjyAijEOEGZRViv3Pqm2pnmZyy8IZGSTKOkhM_tKOYEsganVLIL_tt05Kvml530nB0wcmN0TiA2jOgcDbDRUDRsi9bthp6GaajhdIs-Ql8Duuj601Kj0S7LDMLHietlE0jgthnFj_DouAu?purpose=fullsize"
+    },
+
+    {
+        name: "BP Homes Pvt. Ltd",
+        category: "BP Pvt. Ltd",
+        role: "Discover investors and potential opportunities.",
+        image: "https://images.openai.com/static-rsc-1/J-LUfIxtwqTPaSSYaZj6UgrBJDXz09VjFw2duTzJ6_DajNJnILS0HaBkM-5ZUEFa9xe4hWbaMR4t5giPEGLka30LgF2-bC_B8n16byDFN8AMND70ZE2Fg94swIhBl1e7MYTgAMh7Syy21qBWgXmgdKHPE-NunwMbLyYBFz0tkLoBGp0fSUlQVoMrw5NvLRnT-Vr1j0RLZbg8FUuTgLeDADRwmOf-xbKESVfowlGzZEMtAaFjVSymU7eOdyPrTTPisLJDXxf635BEWJzzbtu6-6HrJ6n-V-QZ0vhuFm6QCEILGDfSR53tyfdjC-Q-RUqRfmxQ2UjluNHGNhg-UYI66PIjx2w-PkJorsBCrdm6bDDuY1ociaLMQ0PmE9Y0kwUHd84V5VjIrsXM7tePwEa05WYXygeNqzPmWJKGF0-WWog"
+    },
+
+    {
+        name: "Mansha Group",
+        category: "Mansha Group",
+        role: "Connect with designers, creators and innovators.",
+        image: "https://images.openai.com/static-rsc-4/27xAd-SvUIudBCvRLNuFyQkRXKPpR91jdJHfmJH8dAZ-fjLE0C34tnOlBOYfMv73NMO9fNy3DvKGA7x7YZ7x4hE6-2a-9UHoWAQTSaakmLBDGZkjj1qIinL-ifIVgstat2ejYe8gQkbiIHvBRZwzKCMLdFmPOVLmpmqbKvnv9cxh2KDlfAl7-Ni8dz91rPrA?purpose=fullsize"
+    },
+
+    {
+        name: "Kamboj Infrastructure Private Limited",
+        category: "Private Limited",
+        role: "Meet founders building innovative businesses.",
+        image: "https://images.openai.com/static-rsc-1/eTJ7rvko9C6ttWXb_2F4T4cLZarcFc0DbNeJCi89R7JKv0TMPfYqJukfm2XFruviZ2hJ7N_mx6m3m4Pme3grrbijKd1JCWHVyzgo4hKeBJgiMwMEdKFvylLimLVjMvHUeRYNVakvUmdzxXt0TCgQiB4gTPWfC2adx-bhVv2llVTiD8pGFZegFAQCEgG_Jfp44mKvpIYY7KsqLXYahSSibUduXXELd3d--2G766hVjSvqOFmRk4y2RFtmkbSb8x5BbALSjfT-2Uwr5basnqR6k-he2K65-PUAMd95dmZZgOn_5FC6jmzwW1KgelfJrXjuZSQAfsb6mXenFZ_hwpdXSZ6pO7kp03NvX2WR00vjXkcweRXBGK1nqvVO07ATe5zHQMvzU1Yipv5Jqkb4MpjzvNk9IdrBabM34npSxOqFPLE"
+    },
+
+    {
+        name: "Bhawan Techno Construction Pvt. L",
+        category: "Marketing",
+        role: "Connect with experienced marketing professionals.",
+        image: "https://images.openai.com/static-rsc-4/56WYHtiwTBYO6JK__XbeLrFmEP5qmCTmc2MKMAka__ge2mimXH-NEv-Sf1f6GM_QEe6mwRvRMtqsQlVRAyylaxwRHIIXE3i7g_eMNBGsCF69x9C2LKQFDlkz1UrOurlIL-8R6zqeJ10AVqWXNsMDahH-dRO5EY347Lz1MW1VIlYxEuthWk0Na-DlF9N-YDYP?purpose=fullsize"
+    }
+
+];
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const mcSearch =
+    document.getElementById("mcSearch");
+
+const mcSearchBtn =
+    document.getElementById("mcSearchBtn");
+
+const mcPreview =
+    document.getElementById("mcPreview");
+
+const mcResults =
+    document.getElementById("mcResults");
+
+
+/* =========================================================
+   SEARCH FUNCTION
+========================================================= */
+
+function searchMonarch() {
+
+    const keyword =
+        mcSearch.value.trim();
+
+
+    /* -------------------------
+       EMPTY SEARCH
+    ------------------------- */
+
+    if (!keyword) {
+
+        mcPreview.style.display = "grid";
+
+        mcResults.classList.remove("active");
+
+        mcResults.innerHTML = "";
+
+        return;
+
+    }
+
+
+    const searchText =
+        keyword.toLowerCase();
+
+
+    /* -------------------------
+       FIND MATCHES
+    ------------------------- */
+
+    const matched =
+        monarchData.filter(item => {
+
+            return (
+
+                item.name
+                    .toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                item.category
+                    .toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                item.role
+                    .toLowerCase()
+                    .includes(searchText)
+
+            );
+
+        });
+
+
+    /*
+       If matching cards exist:
+       show matching cards first.
+
+       If nothing matches:
+       still show ALL cards.
+    */
+
+    const cards =
+        matched.length > 0
+            ? matched
+            : monarchData;
+
+
+    /* -------------------------
+       HIDE BLURRED CARDS
+    ------------------------- */
+
+    mcPreview.style.display = "none";
+
+
+    /* -------------------------
+       CLEAR OLD RESULTS
+    ------------------------- */
+
+    mcResults.innerHTML = "";
+
+
+    /* -------------------------
+       CREATE CARDS
+    ------------------------- */
+
+    cards.forEach(item => {
+
+        mcResults.innerHTML += `
+
+            <article class="connection-card">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                    class="connection-avatar"
+                >
+
+
+                <div class="connection-info">
+
+                    <span>
+                        ${item.category}
+                    </span>
+
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+
+                    <p>
+                        ${item.role}
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="connect-btn"
+                    >
+                        Connect
+                    </a>
+
+                </div>
+
+            </article>
+
+        `;
+
+    });
+
+
+    /* -------------------------
+       SHOW RESULTS
+    ------------------------- */
+
+    mcResults.classList.add("active");
+
+
+    /* -------------------------
+       SCROLL
+    ------------------------- */
+
+    setTimeout(() => {
+
+        mcResults.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }, 100);
+
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+========================================================= */
+
+mcSearchBtn.addEventListener(
+    "click",
+    searchMonarch
+);
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+mcSearch.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            searchMonarch();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   RESET WHEN INPUT CLEARED
+========================================================= */
+
+mcSearch.addEventListener(
+    "input",
+    function() {
+
+        if (
+            this.value.trim() === ""
+        ) {
+
+            mcResults.innerHTML = "";
+
+            mcResults.classList.remove(
+                "active"
+            );
+
+            mcPreview.style.display =
+                "grid";
+
+        }
+
+    }
+);
+
+</script>
+<section class="business-section">
+    <div class="business-grid">
+
+        <!-- Card 1 -->
+        <div class="bu-card-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTHyKrUPlxofDswFKxGl4pWY-lFgvU0qcwI9aL8--L8rtyNKOhnCjdwZJT&amp;s=10" alt="JPJ Construction">
+            <div class="bu-card-info">
+                <span>LEADERSHIP</span>
+                <h3>JPJ Construction Pvt. Ltd.</h3>
+                <p>Connect with experienced business leaders.</p>
+            
+<div class="bu-card-options">
+    <a href="#" class="bu-option">Architect</a>
+    <a href="#" class="bu-option">Builder</a>
+    <a href="#" class="bu-option">Designer</a>
+</div>
+           </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bu-card-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5HNVUp0IsnrqGolqBBknEGLnM8K6hQf5rMSewn1A3ovsMIy-ZERiihzpd&amp;s=10" alt="Home Construction">
+            <div class="bu-card-info">
+                <span>CONSTRUCTION SOLUTION</span>
+                <h3>Home Construction Solution</h3>
+                <p>Discover entrepreneurs and growing businesses.</p>
+                      
+<div class="bu-card-options">
+    <a href="#" class="bu-option">Contractor</a>
+    <a href="#" class="bu-option">Builder</a>
+    <a href="#" class="bu-option">Designer</a>
+</div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bu-card-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs-YY2PhU98VF_cMVN9LR63aZnPvEdueG-1DA8XLix-g&amp;s=10" alt="Building Solutions">
+            <div class="bu-card-info">
+                <span>BUILDING SOLUTIONS</span>
+                <h3>Building Construction</h3>
+                <p>Explore quality construction services.</p>
+                      
+<div class="bu-card-options">
+    <a href="#" class="bu-option">Engineer</a>
+    <a href="#" class="bu-option">Builder</a>
+    <a href="#" class="bu-option">Plumber</a>
+</div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bu-card-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyqN-W6IphA9w05s6aWfh25MRRDcwk42gDd3a-0g7rqQ&amp;s=10" alt="Real Estate">
+            <div class="bu-card-info">
+                <span>REAL ESTATE</span>
+                <h3>Real Estate Solutions</h3>
+                <p>Connect with trusted property professionals.</p>
+                      
+<div class="bu-card-options">
+    <a href="#" class="bu-option">Mason</a>
+    <a href="#" class="bu-option">Builder</a>
+    <a href="#" class="bu-option">Surveyor</a>
+</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<style>
+/* new-main-sec */
+.business-section {
+    width: 100%;
+    padding: 24px 25px;
+    background: #000;
+    box-sizing: border-box;
+}
+
+/* Four Cards in One Row */
+.business-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Card Design */
+.bu-card-img {
+    min-width: 0;
+    min-height: 220px;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: linear-gradient(145deg, #111, #080808);
+    border: 1px solid #dedede;
+    border-radius: 25px;
+    color: #fff;
+}
+
+/* Circular Image */
+.bu-card-img img {
+    width: 82px;
+    height: 82px;
+    min-width: 82px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+/* Card Content */
+.bu-card-info {
+    min-width: 0;
+}
+
+.bu-card-info span {
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 9px;
+    color: #fff;
+}
+
+.bu-card-info h3 {
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 0 0 10px;
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+.bu-card-info p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #bdbdbd;
+    margin: 0 0 17px;
+}
+
+.c-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #fff;
+    color: #000;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    transition: 0.3s ease;
+}
+
+.c-btn:hover {
+    background: #d9d9d9;
+    transform: translateY(-2px);
+}
+
+/* Laptop */
+@media (max-width: 1400px) {
+    .business-grid {
+        gap: 14px;
+    }
+
+    .bu-card-img {
+        padding: 20px 14px;
+        gap: 12px;
+    }
+
+    .bu-card-img img {
+        width: 65px;
+        height: 65px;
+        min-width: 65px;
+    }
+
+    .bu-card-info h3 {
+        font-size: 16px;
+    }
+
+    .bu-card-info p {
+        font-size: 12px;
+    }
+}
+
+/* Tablet: Two Cards Per Row */
+@media (max-width: 1000px) {
+    .business-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bu-card-img {
+        min-height: 190px;
+        padding: 22px;
+        gap: 16px;
+    }
+
+    .bu-card-img img {
+        width: 75px;
+        height: 75px;
+        min-width: 75px;
+    }
+
+    .bu-card-info h3 {
+        font-size: 18px;
+    }
+
+    .bu-card-info p {
+        font-size: 13px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .business-section {
+        padding: 15px 10px;
+    }
+
+    .business-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .bu-card-img {
+        min-height: 175px;
+        padding: 20px 15px;
+        gap: 14px;
+        border-radius: 20px;
+    }
+
+    .bu-card-img img {
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+    }
+
+    .bu-card-info span {
+        font-size: 11px;
+        margin-bottom: 7px;
+    }
+
+    .bu-card-info h3 {
+        font-size: 17px;
+        margin-bottom: 7px;
+    }
+
+    .bu-card-info p {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .c-btn {
+        padding: 10px 21px;
+        font-size: 13px;
+    }
+}
+
+
+   /* Three Professional Options - Single Row */
+.bu-card-options {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+.bu-option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1;
+    min-width: 0;
+    padding: 8px 5px;
+    box-sizing: border-box;
+
+    color: #fff;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 30px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: all 0.3s ease;
+}
+
+.bu-option:hover {
+    color: #000;
+    background: #fff;
+    border-color: #fff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .bu-card-options {
+        gap: 5px;
+        margin-top: 12px;
+    }
+
+    .bu-option {
+        flex: 1;
+        padding: 7px 3px;
+        font-size: 10px;
+    }
+}
+</style>
+
+<style>
+/* =================================
+   BRAND SHOWCASE SECTION
+================================= */
+
+.brands-section {
+    position: relative;
+    width: 100%;
+    padding: 45px 17px;
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.brands-section::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    top: -200px;
+    left: -150px;
+    background: rgba(255,255,255,.04);
+    filter: blur(100px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.brands-section::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    bottom: -180px;
+    right: -100px;
+    background: rgba(255,255,255,.035);
+    filter: blur(100px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.brands-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* =================================
+   SECTION HEADING
+================================= */
+
+.brands-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.brands-heading .eyebrow {
+    display: inline-block;
+    color: #aaa;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.brands-heading h2 {
+    color: #fff;
+    font-size: clamp(28px, 4vw, 43px);
+    font-weight: 800;
+    margin: 0 0 10px;
+    letter-spacing: -1px;
+}
+
+.brands-heading h2 span {
+    color: #888;
+}
+
+.brands-heading p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.brand-count {
+    flex-shrink: 0;
+    border: 1px solid #383838;
+    border-radius: 30px;
+    padding: 10px 18px;
+    color: #ddd;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* =================================
+   BRAND GRID
+================================= */
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+/* =================================
+   BRAND CARD
+================================= */
+
+.brand-card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 0;
+    min-height: 220px;
+    padding: 20px 14px;
+
+    color: #fff;
+    text-decoration: none;
+
+    background: linear-gradient(
+        145deg,
+        #191919 0%,
+        #0b0b0b 65%,
+        #141414 100%
+    );
+
+    border: 1px solid #555;
+    border-radius: 25px;
+    overflow: hidden;
+
+    transition: .4s ease;
+
+    animation: brandReveal .7s ease both;
+    animation-delay: calc(var(--i) * 80ms);
+
+    box-sizing: border-box;
+}
+
+.brand-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -100px;
+    top: -100px;
+    background: rgba(255,255,255,.05);
+    border-radius: 50%;
+    transition: .5s ease;
+    pointer-events: none;
+}
+
+.brand-card:hover {
+    transform: translateY(-5px);
+    border-color: #aaa;
+    box-shadow: 0 15px 35px rgba(255,255,255,.07);
+}
+
+.brand-card:hover::before {
+    transform: scale(2);
+}
+
+/* =================================
+   BRAND LOGO
+================================= */
+
+.brand-logo {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.brand-logo img,
+.brand-logo-placeholder {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    background: #222;
+    transition: .4s ease;
+    box-sizing: border-box;
+}
+
+.brand-logo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.brand-card:hover .brand-logo img,
+.brand-card:hover .brand-logo-placeholder {
+    border-color: #fff;
+    transform: scale(1.06);
+}
+
+/* =================================
+   BRAND CONTENT
+================================= */
+
+.brand-info {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.brand-category {
+    display: block;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+}
+
+.brand-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #fff;
+    margin: 0 0 10px;
+    overflow-wrap: anywhere;
+    transition: .3s;
+}
+
+.brand-card:hover .brand-info h3 {
+    color: #ddd;
+}
+
+.brand-info p {
+    color: #ccc;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0 0 13px;
+}
+
+/* =================================
+   READ MORE BUTTON
+================================= */
+
+.brand-readmore {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    width: fit-content;
+    padding: 9px 16px;
+    margin-top: auto;
+
+    background: #000;
+    color: #fff;
+
+    border: 1px solid #777;
+    border-radius: 30px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    transition: all .3s ease;
+}
+
+.brand-readmore .read-arrow {
+    font-size: 15px;
+    transition: transform .3s ease;
+}
+
+.brand-card:hover .brand-readmore {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.brand-card:hover .read-arrow {
+    transform: translateX(5px);
+}
+
+/* =================================
+   EMPTY / ERROR
+================================= */
+
+.no-brands,
+.brand-error {
+    grid-column: 1 / -1;
+    padding: 50px 20px;
+    text-align: center;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background: #111;
+}
+
+.no-brands h3 {
+    color: #fff;
+    font-size: 23px;
+    margin: 0 0 10px;
+}
+
+.no-brands p,
+.brand-error {
+    color: #aaa;
+}
+
+/* =================================
+   ANIMATION
+================================= */
+
+@keyframes brandReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1100px) {
+    .brands-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .brand-card {
+        min-height: 210px;
+    }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 650px) {
+    .brands-section {
+        padding: 40px 12px;
+    }
+
+    .brands-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+
+    .brands-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .brand-card {
+        min-height: 190px;
+        padding: 18px 14px;
+    }
+
+    .brand-logo img,
+    .brand-logo-placeholder {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 380px) {
+    .brands-section {
+        padding: 35px 10px;
+    }
+
+    .brand-card {
+        padding: 15px 11px;
+        gap: 10px;
+    }
+
+    .brand-logo img,
+    .brand-logo-placeholder {
+        width: 55px;
+        height: 55px;
+    }
+
+    .brand-info h3 {
+        font-size: 14px;
+    }
+
+    .brand-info p {
+        font-size: 11px;
+    }
+
+    .brand-readmore {
+        padding: 8px 12px;
+        font-size: 9px;
+    }
+
+    .brands-heading h2 {
+        font-size: 27px;
+    }
+}
+
+/* =================================
+   REDUCE MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .brand-card {
+        animation: none;
+        transition: none;
+    }
+}
+</style>
+
+
+<section class="brands-section">
+
+    <div class="brands-container">
+
+        <!-- SECTION HEADING -->
+
+        <div class="brands-heading">
+
+            <div>
+                <span class="eyebrow">
+                    MONARCH CONNECT / OUR NETWORK
+                </span>
+
+                <h2>
+                    Explore Our <span>Brands.</span>
+                </h2>
+
+                <p>
+                    Discover trusted brands and connect with leading
+                    professionals in the industry.
+                </p>
+            </div>
+
+            <div class="brand-count">
+                4 BRANDS
+            </div>
+
+        </div>
+
+
+        <!-- BRAND CARDS -->
+
+        <div class="brands-grid">
+
+            
+                
+                    
+                    <a
+                        href="brand-detailsdcfd.html?id=4"
+                        class="brand-card"
+                        style="--i: 0"
+                    >
+
+                        <!-- LOGO -->
+
+                        <div class="brand-logo">
+
+                            
+                                <img
+                                    src="uploads/brands/909c013d1193349a948170936db58f0f.jpg"
+                                    alt="Beyond Briks"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                >
+
+                                <div
+                                    class="brand-logo-placeholder"
+                                    style="display:none;"
+                                >
+                                    B                                </div>
+
+                            
+                        </div>
+
+
+                        <!-- BRAND DETAILS -->
+
+                        <div class="brand-info">
+
+                            <span class="brand-category">
+                                RESIDENTIAL                            </span>
+
+                            <h3>
+                                Beyond Briks                            </h3>
+
+                            <p>
+                                Our Mission is to deliver every home on time, on budget, and exactly as promised — led by one accountable team f...                            </p>
+
+                            <!-- READ MORE BUTTON -->
+
+                            <span class="brand-readmore">
+                                Read More
+                                <span class="read-arrow">→</span>
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                
+                    
+                    <a
+                        href="brand-detailsd708.html?id=3"
+                        class="brand-card"
+                        style="--i: 1"
+                    >
+
+                        <!-- LOGO -->
+
+                        <div class="brand-logo">
+
+                            
+                                <img
+                                    src="uploads/brands/1651608f366e96d17d22287c3fe5a22f.jpg"
+                                    alt="Dev Construction"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                >
+
+                                <div
+                                    class="brand-logo-placeholder"
+                                    style="display:none;"
+                                >
+                                    D                                </div>
+
+                            
+                        </div>
+
+
+                        <!-- BRAND DETAILS -->
+
+                        <div class="brand-info">
+
+                            <span class="brand-category">
+                                RESIDENTIAL                            </span>
+
+                            <h3>
+                                Dev Construction                            </h3>
+
+                            <p>
+                                Dev Construction is an Indian Best Consturction                            </p>
+
+                            <!-- READ MORE BUTTON -->
+
+                            <span class="brand-readmore">
+                                Read More
+                                <span class="read-arrow">→</span>
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                
+                    
+                    <a
+                        href="brand-details0b30.html?id=2"
+                        class="brand-card"
+                        style="--i: 2"
+                    >
+
+                        <!-- LOGO -->
+
+                        <div class="brand-logo">
+
+                            
+                                <img
+                                    src="uploads/brands/8d7b716718f0e818b5d2e26d784314e1.jpg"
+                                    alt="Maxa Civil Engineering"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                >
+
+                                <div
+                                    class="brand-logo-placeholder"
+                                    style="display:none;"
+                                >
+                                    M                                </div>
+
+                            
+                        </div>
+
+
+                        <!-- BRAND DETAILS -->
+
+                        <div class="brand-info">
+
+                            <span class="brand-category">
+                                RESIDENTIAL                            </span>
+
+                            <h3>
+                                Maxa Civil Engineering                            </h3>
+
+                            <p>
+                                Maxa Civil Engineering The best Solution For Building or House                            </p>
+
+                            <!-- READ MORE BUTTON -->
+
+                            <span class="brand-readmore">
+                                Read More
+                                <span class="read-arrow">→</span>
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                
+                    
+                    <a
+                        href="brand-details681a.html?id=1"
+                        class="brand-card"
+                        style="--i: 3"
+                    >
+
+                        <!-- LOGO -->
+
+                        <div class="brand-logo">
+
+                            
+                                <img
+                                    src="uploads/brands/7b9f7f741ffa95f1c4177cda26351d37.png"
+                                    alt="maxa"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                >
+
+                                <div
+                                    class="brand-logo-placeholder"
+                                    style="display:none;"
+                                >
+                                    M                                </div>
+
+                            
+                        </div>
+
+
+                        <!-- BRAND DETAILS -->
+
+                        <div class="brand-info">
+
+                            <span class="brand-category">
+                                COMMERCIAL                            </span>
+
+                            <h3>
+                                maxa                            </h3>
+
+                            <p>
+                                khk                            </p>
+
+                            <!-- READ MORE BUTTON -->
+
+                            <span class="brand-readmore">
+                                Read More
+                                <span class="read-arrow">→</span>
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                
+            
+        </div>
+
+    </div>
+
+</section>
+<!-- MONARCH CONNECT COMPANY ADS -->
+<section class="mc-ads-section">
+
+    <div class="mc-ad-slider" id="mcAdSlider">
+
+        <!-- COMPANY AD 1 -->
+        <article class="mc-ad-slide active">
+
+            <div class="mc-ad-content">
+
+                <div class="mc-company-info">
+                    <img
+                        src="assets/images/fav.png"
+                        alt="Company Logo"
+                        class="mc-company-logo"
+                    >
+
+                    <div>
+                        <span class="mc-ad-label">FEATURED COMPANY</span>
+                        <h3 class="mc-company-name">ABC Constructions</h3>
+                    </div>
+                </div>
+
+                <h2 class="mc-ad-title">
+                    Building Trust.<br>
+                    Creating Landmarks.
+                </h2>
+
+                <p class="mc-ad-desc">
+                    Discover quality construction, reliable professionals
+                    and thoughtfully designed spaces for your next project.
+                </p>
+
+                <a href="business681a.html?id=1" class="mc-connect-btn">
+                    Connect <span>↗</span>
+                </a>
+
+            </div>
+
+            <div class="mc-ad-visual">
+                <img src="assets/images/h1.jpeg" alt="ABC Constructions Project">
+                <div class="mc-ad-image-overlay"></div>
+                <span class="mc-ad-image-text">QUALITY IN EVERY DETAIL.</span>
+            </div>
+
+        </article>
+
+
+        <!-- COMPANY AD 2 -->
+        <article class="mc-ad-slide">
+
+            <div class="mc-ad-content">
+
+                <div class="mc-company-info">
+                    <img
+                        src="assets/images/fav.png"
+                        alt="Company Logo"
+                        class="mc-company-logo"
+                    >
+
+                    <div>
+                        <span class="mc-ad-label">FEATURED BUILDER</span>
+                        <h3 class="mc-company-name">Modern Living Builders</h3>
+                    </div>
+                </div>
+
+                <h2 class="mc-ad-title">
+                    Your Vision.<br>
+                    Our Expertise.
+                </h2>
+
+                <p class="mc-ad-desc">
+                    Connect with construction professionals committed
+                    to quality, transparency and dependable execution.
+                </p>
+
+                <a href="business0b30.html?id=2" class="mc-connect-btn">
+                    Connect <span>↗</span>
+                </a>
+
+            </div>
+
+            <div class="mc-ad-visual">
+                <img src="assets/images/h2.jpeg" alt="Modern Living Builders Project">
+                <div class="mc-ad-image-overlay"></div>
+                <span class="mc-ad-image-text">DESIGNED TO LAST.</span>
+            </div>
+
+        </article>
+
+
+        <!-- COMPANY AD 3 -->
+        <article class="mc-ad-slide">
+
+            <div class="mc-ad-content">
+
+                <div class="mc-company-info">
+                    <img
+                        src="assets/images/fav.png"
+                        alt="Company Logo"
+                        class="mc-company-logo"
+                    >
+
+                    <div>
+                        <span class="mc-ad-label">FEATURED PROFESSIONAL</span>
+                        <h3 class="mc-company-name">Prime Build Associates</h3>
+                    </div>
+                </div>
+
+                <h2 class="mc-ad-title">
+                    Better Spaces.<br>
+                    Better Connections.
+                </h2>
+
+                <p class="mc-ad-desc">
+                    Find the right team for residential, commercial
+                    and architectural construction projects.
+                </p>
+
+                <a href="businessd708.html?id=3" class="mc-connect-btn">
+                    Connect <span>↗</span>
+                </a>
+
+            </div>
+
+            <div class="mc-ad-visual">
+                <img src="assets/images/h3.jpeg" alt="Prime Build Associates Project">
+                <div class="mc-ad-image-overlay"></div>
+                <span class="mc-ad-image-text">BUILT WITH PURPOSE.</span>
+            </div>
+
+        </article>
+
+
+        <!-- SLIDER ARROWS -->
+        <button class="mc-ad-arrow mc-ad-prev"
+                type="button" aria-label="Previous company">
+            &#8592;
+        </button>
+
+        <button class="mc-ad-arrow mc-ad-next"
+                type="button" aria-label="Next company">
+            &#8594;
+        </button>
+
+    </div>
+
+    <!-- SLIDER INDICATOR -->
+    <div class="mc-ad-progress">
+        <span class="mc-ad-progress-fill" id="mcAdProgress"></span>
+    </div>
+
+</section>
+<style>
+.mc-ads-section {
+    width: 100%;
+    padding: 8px 16px 24px;
+    background:#080808;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.mc-ad-slider {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #080808;
+}
+
+.mc-ad-slide {
+    display: none;
+    width: 100%;
+    min-height: 280px;
+    grid-template-columns: 1.05fr .95fr;
+}
+
+.mc-ad-slide.active {
+    display: grid;
+    animation: mcAdFade .45s ease;
+}
+
+@keyframes mcAdFade {
+    from { opacity: .3; }
+    to { opacity: 1; }
+}
+
+/* LEFT CONTENT */
+.mc-ad-content {
+    padding: 32px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: #080808;
+    color: #fff;
+}
+
+/* COMPANY LOGO + NAME */
+.mc-company-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 23px;
+    max-width: 100%;
+}
+
+.mc-company-logo {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    border-radius: 50%;
+    border: 1px solid #555;
+    background: #fff;
+    object-fit: contain;
+    padding: 3px;
+}
+
+.mc-ad-label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #aaa;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.mc-company-name {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* TITLE */
+.mc-ad-title {
+    color: #fff;
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin: 0 0 14px;
+    font-weight: 700;
+}
+
+/* DESCRIPTION */
+.mc-ad-desc {
+    max-width: 420px;
+    color: #bcbcbc;
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0 0 21px;
+}
+
+/* CONNECT BUTTON */
+.mc-connect-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 12px 24px;
+    min-width: 125px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .3s ease;
+}
+
+.mc-connect-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.mc-connect-btn span {
+    font-size: 17px;
+}
+
+/* RIGHT IMAGE */
+.mc-ad-visual {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+    background: #222;
+}
+
+.mc-ad-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*filter: grayscale(100%);*/
+    transition: transform .6s ease;
+}
+
+.mc-ad-slide.active .mc-ad-visual img {
+    transform: scale(1.03);
+}
+
+.mc-ad-image-overlay {
+    position: absolute;
+    inset: 0;
+
+}
+
+.mc-ad-image-text {
+    position: absolute;
+    bottom: 22px;
+    left: 25px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* ARROWS */
+.mc-ad-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.mc-ad-arrow:hover {
+    background: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
+.mc-ad-prev {
+    left: 12px;
+}
+
+.mc-ad-next {
+    right: 12px;
+}
+
+/* PROGRESS */
+.mc-ad-progress {
+    width: 180px;
+    height: 2px;
+    background: #ddd;
+    margin: 15px auto 0;
+    overflow: hidden;
+}
+
+.mc-ad-progress-fill {
+    display: block;
+    width: 33.333%;
+    height: 100%;
+    background: #000;
+    transition: transform .35s ease;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .mc-ads-section {
+        padding: 8px 10px 20px;
+    }
+
+    .mc-ad-slide {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 155px;
+    }
+
+    .mc-ad-content {
+        padding: 25px 25px 23px;
+    }
+
+    .mc-company-info {
+        gap: 11px;
+        margin-bottom: 19px;
+    }
+
+    .mc-company-logo {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+    }
+
+    .mc-company-name {
+        font-size: 14px;
+    }
+
+    .mc-ad-title {
+        font-size: 29px;
+    }
+
+    .mc-ad-desc {
+        font-size: 12px;
+        line-height: 1.7;
+        margin-bottom: 17px;
+    }
+
+    .mc-ad-visual {
+        min-height: 155px;
+    }
+
+    .mc-ad-image-text {
+        bottom: 17px;
+        left: 18px;
+    }
+
+    .mc-ad-arrow {
+        top: auto;
+        bottom: 166px;
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .mc-ad-prev {
+        left: auto;
+        right: 52px;
+    }
+
+    .mc-ad-next {
+        right: 12px;
+    }
+
+    .mc-ad-progress {
+        width: 130px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mc-ad-slide,
+    .mc-ad-visual img,
+    .mc-ad-progress-fill {
+        animation: none;
+        transition: none;
+    }
+}
+</style>
+<script>
+(function () {
+    const slider = document.getElementById('mcAdSlider');
+
+    if (!slider || slider.dataset.initialized) return;
+    slider.dataset.initialized = 'true';
+
+    const slides = slider.querySelectorAll('.mc-ad-slide');
+    const progress = document.getElementById('mcAdProgress');
+    const previous = slider.querySelector('.mc-ad-prev');
+    const next = slider.querySelector('.mc-ad-next');
+
+    let current = 0;
+    let timer;
+
+    function showSlide(index) {
+        current = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === current);
+        });
+
+        progress.style.transform =
+            'translateX(' + (current * 100) + '%)';
+    }
+
+    function startAutoplay() {
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+            showSlide(current + 1);
+        }, 5000);
+    }
+
+    previous.addEventListener('click', () => {
+        showSlide(current - 1);
+        startAutoplay();
+    });
+
+    next.addEventListener('click', () => {
+        showSlide(current + 1);
+        startAutoplay();
+    });
+
+    slider.addEventListener('mouseenter', () => {
+        clearInterval(timer);
+    });
+
+    slider.addEventListener('mouseleave', startAutoplay);
+
+    showSlide(0);
+    startAutoplay();
+})();
+</script>
+<section class="mc-about" id="about">
+
+    <!-- HERO -->
+    <div class="mc-hero">
+        <div class="mc-brand">
+            <span class="mc-logo">M</span>
+            <span>MONARCH CONNECT</span>
+        </div>
+
+        <div class="mc-hero-content">
+            <span class="mc-eyebrow">ABOUT MONARCH</span>
+
+            <h1>
+                About<br>
+                <em>Monarch.</em>
+            </h1>
+
+            <p>REAL PEOPLE / VERIFIED BUILDERS / STRONGER CONNECTIONS</p>
+            <button
+                class="mc-read-btn"
+                id="mcReadBtn"
+                type="button"
+                aria-expanded="false"
+                aria-controls="mcCollapsible"
+            >
+                <span id="mcReadText">READ MORE</span>
+                <span class="mc-arrow" id="mcArrow">↓</span>
+            </button>
+        </div>
+
+        <div class="mc-hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                alt="Modern architectural building"
+            >
+            <span class="mc-image-caption">
+                BUILD<br>WITH<br>CONFIDENCE
+            </span>
+        </div>
+    </div>
+
+    <!-- ALL CONTENT BELOW THE HERO BUTTON IS COLLAPSIBLE -->
+    <div class="mc-collapsible" id="mcCollapsible">
+
+    <!-- ABOUT CONTENT -->
+    <div class="mc-grid">
+
+        <article class="mc-block">
+            <span class="mc-number">01 / ABOUT</span>
+            <h2>What Monarch Does<span>.</span></h2>
+
+            <p>
+                Monarch Connect is a platform that brings together people
+                who want to build and the professionals who build.
+                Homeowners and consumers discover trusted builders and
+                construction companies. Builders and companies reach
+                people who are ready to start.
+            </p>
+
+            <p>
+                Every connection begins with verification, so trust
+                comes before the first conversation.
+            </p>
+
+            <div class="mc-photo">
+                <img
+                    src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+                    alt="Construction site and building professionals"
+                    loading="lazy"
+                >
+                <span>BETTER CONNECTIONS.<br>STRONGER FUTURES.</span>
+            </div>
+        </article>
+
+        <article class="mc-block mc-problem">
+            <span class="mc-number">02 / THE CHALLENGE</span>
+            <h2>The Problem<br>We're Solving<span>.</span></h2>
+
+            <p>
+                Building is one of the biggest decisions a family or
+                business will make, yet finding the right builder still
+                depends on referrals, guesswork and promises that are
+                hard to verify.
+            </p>
+
+            <div class="mc-quote">
+                <h3>For those who want to build</h3>
+                <p>
+                    It is difficult to know who is genuinely reliable.
+                    Quality varies, track records are hard to see,
+                    and the cost of a wrong choice is high.
+                </p>
+            </div>
+
+            <div class="mc-quote">
+                <h3>For those who build</h3>
+                <p>
+                    Good work often goes unseen. Skilled builders and
+                    honest companies need a better way to reach serious
+                    customers and demonstrate their expertise.
+                </p>
+            </div>
+
+            <p>
+                The result is a market where trust is scarce and talent
+                is hard to find, on both sides.
+            </p>
+        </article>
+
+    </div>
+
+    <!-- HOW WE HELP -->
+    <div class="mc-help">
+        <div class="mc-section-heading">
+            <span class="mc-number">03 / OUR APPROACH</span>
+            <h2>How We <em>Help.</em></h2>
+        </div>
+
+        <div class="mc-help-grid">
+
+            <div class="mc-help-card">
+                <span class="mc-icon">↗</span>
+                <span class="mc-number">FOR HOMEOWNERS</span>
+                <h3>Build With<br>Confidence.</h3>
+
+                <ul>
+                    <li>Discover verified builders and construction companies.</li>
+                    <li>Explore real work, credentials and track records.</li>
+                    <li>Connect directly with the right professional for your project.</li>
+                </ul>
+            </div>
+
+            <div class="mc-help-card">
+                <span class="mc-icon">↗</span>
+                <span class="mc-number">FOR BUILDERS</span>
+                <h3>Let Your Work<br>Speak.</h3>
+
+                <ul>
+                    <li>Showcase your work through a professional profile.</li>
+                    <li>Reach people with genuine intent to build.</li>
+                    <li>Build a stronger reputation through quality work.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- OUR PROMISE -->
+    <div class="mc-promise">
+        <div>
+            <span class="mc-number">04 / OUR PROMISE</span>
+            <h2>Trust is where<br>every great project <em>begins.</em></h2>
+
+            <p>
+                We exist to make the right connection easier to find
+                and safer to trust. When good builders are discovered
+                and people can build with confidence, everyone
+                moves forward.
+            </p>
+        </div>
+
+        <div class="mc-signature">
+            Make Your Own Mark<br>
+            <em>With Monarch.</em>
+        </div>
+    </div>
+
+    <!-- ADDITIONAL CONTENT, ALSO REVEALED BY READ MORE -->
+        <div class="mc-extra" id="mcExtra">
+            <div class="mc-extra-inner">
+                <span class="mc-number">THE MONARCH DIFFERENCE</span>
+                <h2>Connections that<br><em>move you forward.</em></h2>
+
+                <p>
+                    Whether you are planning your dream home, starting
+                    a new commercial project or growing your construction
+                    business, Monarch Connect brings people and
+                    professionals closer together.
+                </p>
+
+                <p>
+                    Our vision is a construction ecosystem where
+                    credibility matters, quality gets recognised and
+                    the right opportunities reach the right people.
+                </p>
+
+                <div class="mc-final-line">
+                    <span>MONARCH CONNECT</span>
+                    <span>BUILD BETTER. BUILD WITH TRUST.</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<style>
+/* ======================================
+   MONARCH CONNECT — LUXURY ABOUT
+   BLACK & WHITE EDITORIAL DESIGN
+====================================== */
+
+.mc-about,
+.mc-about * {
+    box-sizing: border-box;
+}
+
+.mc-about {
+    --mc-black: #050505;
+    --mc-white: #f5f5f5;
+    --mc-grey: #a2a2a2;
+    background: var(--mc-black);
+    color: var(--mc-white);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.mc-about img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mc-about h1,
+.mc-about h2,
+.mc-about h3,
+.mc-about p {
+    margin-top: 0;
+}
+
+.mc-about h1,
+.mc-about h2,
+.mc-about h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+}
+
+.mc-about p {
+    color: var(--mc-grey);
+    font-size: 14px;
+    line-height: 1.95;
+}
+
+.mc-about em {
+    font-weight: 400;
+}
+
+/* HERO */
+
+.mc-hero {
+    position: relative;
+    min-height: 580px;
+    padding: 32px 7% 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    isolation: isolate;
+}
+
+.mc-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 2;
+}
+
+.mc-logo {
+    font-family: Georgia, serif;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: -5px;
+    padding-right: 10px;
+}
+
+.mc-hero-image {
+    position: absolute;
+    inset: 0 0 0 39%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.mc-hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, #050505 0%, transparent 60%),
+        linear-gradient(0deg, #050505 0%, transparent 50%),
+        linear-gradient(180deg, rgba(0,0,0,.25), transparent);
+}
+
+.mc-hero-image img {
+    opacity: .7;
+    /*filter: grayscale(100%);*/
+}
+
+.mc-image-caption {
+    position: absolute;
+    top: 28%;
+    right: 8%;
+    z-index: 1;
+    font-size: 10px;
+    line-height: 2;
+    letter-spacing: 4px;
+}
+
+.mc-hero-content {
+    padding-top: 70px;
+    position: relative;
+    z-index: 1;
+}
+
+.mc-eyebrow,
+.mc-number {
+    color: #aaa;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.mc-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: #fff;
+    vertical-align: middle;
+    margin-right: 16px;
+}
+
+.mc-hero h1 {
+    font-size: clamp(65px, 10vw, 120px);
+    line-height: .88;
+    letter-spacing: -5px;
+    margin: 28px 0 28px;
+}
+
+.mc-hero h1 em {
+    color: #a7a7a7;
+}
+
+.mc-hero-content > p {
+    color: #eee;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+/* MAIN TWO-COLUMN GRID */
+
+.mc-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 7% 85px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 85px;
+}
+
+.mc-block h2 {
+    font-size: clamp(31px, 3.2vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -1px;
+    margin: 18px 0 25px;
+}
+
+.mc-block h2 span {
+    color: #777;
+}
+
+.mc-block > p {
+    max-width: 520px;
+}
+
+.mc-photo {
+    height: 235px;
+    position: relative;
+    margin-top: 32px;
+    overflow: hidden;
+    background: #171717;
+}
+
+.mc-photo img {
+    /*filter: grayscale(100%);*/
+    opacity: .75;
+    transition: transform .7s ease, opacity .5s ease;
+}
+
+.mc-photo:hover img {
+    transform: scale(1.04);
+    opacity: 1;
+}
+
+.mc-photo span {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.35;
+    text-shadow: 0 2px 10px #000;
+}
+
+.mc-quote {
+    padding-left: 20px;
+    border-left: 1px solid #777;
+    margin: 28px 0;
+}
+
+.mc-quote h3 {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.mc-quote p {
+    margin-bottom: 0;
+}
+
+/* HOW WE HELP */
+
+.mc-help {
+    padding: 75px 7% 100px;
+    border-top: 1px solid #202020;
+    border-bottom: 1px solid #202020;
+    background:
+        radial-gradient(ellipse at 50% 0%, #141414 0%, #050505 60%);
+}
+
+.mc-section-heading {
+    max-width: 1200px;
+    margin: 0 auto 45px;
+}
+
+.mc-section-heading h2 {
+    font-size: clamp(44px, 7vw, 75px);
+    margin: 18px 0 0;
+    letter-spacing: -2px;
+}
+
+.mc-section-heading h2 em {
+    color: #8e8e8e;
+}
+
+.mc-help-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.mc-help-card {
+    border: 1px solid #292929;
+    padding: 36px;
+    background: rgba(255,255,255,.018);
+    transition: background .35s ease, border-color .35s ease;
+}
+
+.mc-help-card:hover {
+    background: #101010;
+    border-color: #666;
+}
+
+.mc-icon {
+    display: flex;
+    width: 46px;
+    height: 46px;
+    border: 1px solid #484848;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    margin-bottom: 28px;
+}
+
+.mc-help-card h3 {
+    font-size: 34px;
+    line-height: 1.1;
+    margin: 18px 0 25px;
+}
+
+.mc-help-card ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.mc-help-card li {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.8;
+    padding: 13px 0 13px 20px;
+    border-top: 1px solid #242424;
+    position: relative;
+}
+
+.mc-help-card li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #fff;
+}
+
+/* OUR PROMISE */
+
+.mc-promise {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 95px 7%;
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.mc-promise h2 {
+    font-size: clamp(37px, 5vw, 62px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin: 23px 0;
+}
+
+.mc-promise h2 em {
+    color: #888;
+}
+
+.mc-promise p {
+    max-width: 520px;
+}
+
+.mc-signature {
+    border-left: 1px solid #555;
+    padding: 25px 0 25px 35px;
+    font-family: Georgia, serif;
+    font-size: clamp(24px, 3vw, 37px);
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.mc-signature em {
+    color: #888;
+}
+
+/* COLLAPSE ALL CONTENT BELOW THE HERO BUTTON */
+
+.mc-collapsible {
+    position: relative;
+    max-height: 285px;
+    overflow: hidden;
+    transition: max-height .85s cubic-bezier(.2,.7,.2,1);
+}
+
+.mc-collapsible::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 150px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(5,5,5,0), rgba(5,5,5,.72) 48%, #050505 100%);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: opacity .35s ease;
+}
+
+.mc-extra {
+    position: relative;
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+}
+
+.mc-extra-inner {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 65px 7% 45px;
+    text-align: left;
+}
+
+.mc-extra h2 {
+    font-size: clamp(42px, 7vw, 75px);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin: 25px 0;
+}
+
+.mc-extra h2 em { color: #888; }
+.mc-extra-inner > p { max-width: 700px; }
+
+.mc-final-line {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 28px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    color: #888;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* READ MORE BUTTON UNDER THE TAGLINE */
+.mc-read-btn {
+    position: relative;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    min-width: 150px;
+    margin-top: 24px;
+    padding: 13px 22px;
+    border: 1px solid #777;
+    border-radius: 40px;
+    color: black;
+    background: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background .3s ease, color .3s ease;
+}
+
+.mc-read-btn:hover {
+    background: #080808;
+    color: #fff;
+    border-color: #fff;
+}
+
+.mc-arrow {
+    font-size: 17px;
+    line-height: 1;
+    transition: transform .35s ease;
+}
+
+.mc-about.mc-open .mc-collapsible {
+    max-height: 10000px;
+}
+
+.mc-about.mc-open .mc-collapsible::after { opacity: 0; }
+.mc-about.mc-open .mc-arrow { transform: rotate(180deg); }
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .mc-hero {
+        min-height: 490px;
+        padding: 25px 6% 50px;
+    }
+
+    .mc-brand {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+    }
+
+    .mc-hero-image {
+        inset: 0 0 0 15%;
+    }
+
+    .mc-hero-image::after {
+        background:
+            linear-gradient(90deg, #050505 0%, rgba(5,5,5,.55) 55%, transparent),
+            linear-gradient(0deg, #050505 0%, transparent 75%);
+    }
+
+    .mc-image-caption {
+        font-size: 8px;
+        right: 5%;
+        letter-spacing: 2px;
+    }
+
+    .mc-hero-content {
+        padding-top: 85px;
+    }
+
+    .mc-hero h1 {
+        font-size: clamp(64px, 15vw, 95px);
+        letter-spacing: -3px;
+    }
+
+    .mc-hero-content > p {
+        max-width: 270px;
+        font-size: 8px;
+        line-height: 2;
+        letter-spacing: 1.5px;
+    }
+
+    .mc-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+        padding: 25px 6% 65px;
+    }
+
+    .mc-block h2 {
+        font-size: 38px;
+    }
+
+    .mc-photo {
+        height: 220px;
+    }
+
+    .mc-help {
+        padding: 60px 6%;
+    }
+
+    .mc-help-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .mc-help-card {
+        padding: 27px;
+    }
+
+    .mc-help-card h3 {
+        font-size: 32px;
+    }
+
+    .mc-promise {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 70px 6%;
+    }
+
+    .mc-signature {
+        font-size: 29px;
+    }
+
+    .mc-collapsible {
+        max-height: 245px;
+    }
+
+    .mc-extra-inner {
+        padding: 45px 6% 35px;
+    }
+
+    .mc-read-btn {
+        margin-top: 20px;
+        min-width: 145px;
+    }
+
+    .mc-final-line {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mc-about *,
+    .mc-about *::before,
+    .mc-about *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}
+
+</style>
+<script>
+const mcAbout = document.querySelector(".mc-about");
+const mcReadBtn = document.getElementById("mcReadBtn");
+const mcReadText = document.getElementById("mcReadText");
+const mcCollapsible = document.getElementById("mcCollapsible");
+
+mcReadBtn.addEventListener("click", function () {
+    const isOpen = mcAbout.classList.toggle("mc-open");
+
+    mcReadBtn.setAttribute("aria-expanded", String(isOpen));
+    mcReadText.textContent = isOpen ? "READ LESS" : "READ MORE";
+
+    if (isOpen) {
+        mcCollapsible.scrollIntoView({
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+            block: "start"
+        });
+    } else {
+        mcAbout.scrollIntoView({
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+            block: "start"
+        });
+    }
+});
+</script>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-main">
+
+        <!-- ================= BRAND ================= -->
+
+        <div class="footer-brand">
+
+            <a href="index-2.html" class="footer-logo">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Monarch Connect Logo"
+                >
+
+            </a>
+
+            <p>
+                Make Your Own Mark With Monarch.
+                Building ideas, creating possibilities
+                and turning visions into reality.
+            </p>
+
+            <div class="footer-social">
+
+                <a href="#" aria-label="Instagram">
+                   <i class="fa fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                   <i class="fa fa-facebook"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                   <i class="fa fa-linkedin"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <div class="footer-column">
+
+            <h3>QUICK LINKS</h3>
+
+            <a href="index-2.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#work">Our Work</a>
+
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <div class="footer-column">
+
+            <h3>SERVICES</h3>
+
+            <a href="our-services.html">Construction</a>
+            <a href="read.html">Read Me</a>
+
+        </div>
+
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div class="footer-column footer-contact">
+
+            <h3>CONTACT</h3>
+
+            <a href="tel:+91 8800391355">
+                +91 8800391355
+            </a>
+
+            <a href="monarch%40info.monarchconnect.co.in.html">
+                monarch@info.monarchconnect.co.in
+            </a>
+
+            <p>
+                India
+            </p>
+
+            <a
+                href="contact.html"
+                class="footer-contact-btn"
+            >
+                GET IN TOUCH
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER LINE ================= -->
+
+    <div class="footer-line"></div>
+
+
+
+    <!-- ================= BOTTOM ================= -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="footerYear"></span>
+            Monarch Connect. All Rights Reserved.    &nbsp;<spna style="color:black"> Developed By Parvez Ahmad (<a href="https://www.google.com/search?q=parvez3737&amp;oq=Parvez3737&amp;gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGO8FMgcIAhAAGO8FMgcIAxAAGO8FMgcIBBAAGO8FMgcIBRAAGO8F0gEIMzQ5MmowajeoAgiwAgHxBRLQ5u5pQtVN8QUS0ObuaULVTQ&amp;sourceid=chrome&amp;source=chrome.ob&amp;ie=UTF-8">Parvez3737</spna></a>
+        </p>
+
+        <div class="footer-bottom-links">
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms-and-conditions.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+<style>/* =========================================================
+   PREMIUM FOOTER — BLACK + WHITE + LIGHT GREY
+========================================================= */
+
+.main-footer {
+    position: relative;
+    background: #050505;
+    color: #ffffff;
+    padding: 85px 7% 25px;
+    overflow: hidden;
+}
+
+/* =========================================================
+   TOP LIGHT-GREY LINE
+========================================================= */
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7%;
+    right: 7%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(235,235,235,.75),
+        transparent
+    );
+}
+
+/* =========================================================
+   FOOTER MAIN
+========================================================= */
+
+.footer-main {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 60px;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+    max-width: 340px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.footer-logo img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-brand > p {
+    max-width: 320px;
+    margin: 0;
+    color: #a6a6a6;
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: .4px;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(210,210,210,.45);
+
+    color: #e6e6e6;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    transition: all .3s ease;
+}
+
+.footer-social a:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+    transform: translateY(-4px);
+}
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    position: relative;
+    margin: 12px 0 28px;
+
+    color: #f5f5f5;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.footer-column h3::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 1px;
+    margin-top: 11px;
+
+    background: #d0d0d0;
+
+    transition: width .3s ease;
+}
+
+.footer-column:hover h3::after {
+    width: 45px;
+}
+
+.footer-column > a {
+    margin-bottom: 14px;
+
+    color: #9a9a9a;
+    font-size: 15px;
+    text-decoration: none;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+.footer-column > a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.footer-contact p {
+    margin: 0 0 22px;
+    color: #999999;
+    font-size: 14px;
+}
+
+.footer-contact-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 5px;
+    padding: 11px 18px;
+
+    border: 1px solid rgba(225,225,225,.55);
+
+    color: #eeeeee !important;
+
+    font-size: 9px !important;
+    letter-spacing: 2px;
+
+    transition: all .3s ease !important;
+}
+
+.footer-contact-btn span {
+    font-size: 16px;
+    transition: transform .3s ease;
+}
+
+.footer-contact-btn:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000 !important;
+    transform: translateX(0) !important;
+}
+
+.footer-contact-btn:hover span {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   LINE
+========================================================= */
+
+.footer-line {
+    max-width: 1300px;
+    height: 1px;
+    margin: 65px auto 22px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220,220,220,.16),
+        transparent
+    );
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: .5px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-bottom-links a {
+    color: #666666;
+    font-size: 10px;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .main-footer {
+        padding: 75px 5% 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 40px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-footer {
+        padding: 65px 25px 25px;
+    }
+
+    .main-footer::before {
+        left: 25px;
+        right: 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 18px;
+    }
+
+    .footer-logo img {
+        width: 105px;
+        height: 105px;
+        margin: auto;
+    }
+
+    .footer-brand > p {
+        margin: auto;
+        font-size: 12px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column h3 {
+        margin-top: 0;
+    }
+
+    .footer-column > a:hover {
+        transform: translateY(-2px);
+    }
+
+    .footer-contact-btn {
+        margin-top: 8px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+}
+.footer-bottom p a,
+.footer-bottom p a:hover,
+.footer-bottom p a:focus,
+.footer-bottom p a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+<script>
+    javascript
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const year =
+        document.getElementById("footerYear");
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+});
+
+</script>

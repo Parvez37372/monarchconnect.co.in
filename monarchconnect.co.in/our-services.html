@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from https://monarchconnect.co.in/our-services.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monarch Connect - Header</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="assets/images/monarch-fav.png" type="image/png">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:#050505; color:#fff; font-family:Arial,Helvetica,sans-serif; }
+a { color:inherit; text-decoration:none; }
+
+/* HEADER ONLY */
+.main-header {
+    position:fixed; top:0; left:0; width:100%; height:100px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 55px; z-index:500; background:transparent;
+    transition:background .4s ease, box-shadow .4s ease, backdrop-filter .4s ease;
+}
+.main-header.scrolled { background:#050505; box-shadow:0 5px 25px rgba(0,0,0,.65); backdrop-filter:blur(8px); }
+.main-header::after {
+    content:""; position:absolute; left:55px; right:55px; bottom:0; height:1px;
+    background:rgba(255,255,255,.65); transition:all .4s ease;
+}
+.main-header.scrolled::after { left:0; right:0; background:rgba(255,255,255,.75); }
+
+.menu-btn {
+    position:relative; width:80px; height:40px; display:flex; align-items:center;
+    padding:0 0 0 38px; background:transparent; border:0; color:#fff;
+    font-size:12px; font-weight:400; letter-spacing:2px; cursor:pointer; z-index:510;
+}
+.menu-btn span { position:absolute; left:0; width:25px; height:1px; background:#fff; display:block; transition:transform .3s ease,width .3s ease; }
+.menu-btn span:nth-child(1) { top:8px; }
+.menu-btn span:nth-child(2) { top:15px; }
+.menu-btn span:nth-child(3) { top:22px; }
+.menu-btn:hover span:nth-child(1) { width:30px; }
+.menu-btn:hover span:nth-child(3) { width:20px; }
+
+.logo { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; z-index:505; }
+.logo img { width:150px; height:150px; display:block; object-fit:contain; }
+
+.contact-btn {
+    display:inline-flex; align-items:center; justify-content:center; padding:12px 24px;
+    border:1px solid #fff; border-radius:20px; color:#fff; font-size:16px;
+    font-weight:400; letter-spacing:2px; transition:all .35s ease; z-index:505;
+}
+.contact-btn:hover { background:#fff; border-color:#fff; color:#000; }
+
+/* SLIDE-OUT NAVIGATION */
+.side-menu {
+    position:fixed; top:0; left:-500px; width:370px; height:100vh;
+    padding:120px 45px 40px; background:#080808; border-right:1px solid rgba(255,255,255,.45);
+    z-index:700; overflow-y:auto; transition:left .45s cubic-bezier(.77,0,.175,1);
+}
+.side-menu.active { left:0; }
+.close-btn {
+    position:absolute; top:28px; right:30px; width:42px; height:42px;
+    display:flex; align-items:center; justify-content:center; padding:0;
+    background:transparent; border:0; color:#fff; font-size:35px; font-weight:200;
+    line-height:1; cursor:pointer; transition:all .3s ease;
+}
+.close-btn:hover { transform:rotate(90deg); }
+.side-menu nav { display:flex; flex-direction:column; }
+.side-menu nav a {
+    display:block; padding:18px 0; border-bottom:1px solid rgba(255,255,255,.08);
+    color:#fff; font-size:17px; font-weight:400; letter-spacing:2px; transition:all .3s ease;
+}
+.side-menu nav a:first-child { border-top:1px solid rgba(255,255,255,.08); }
+.side-menu nav a:hover { padding-left:10px; color:#fff; }
+.menu-overlay {
+    position:fixed; inset:0; background:rgba(0,0,0,.72); z-index:650;
+    opacity:0; visibility:hidden; pointer-events:none; transition:opacity .35s ease,visibility .35s ease;
+}
+.menu-overlay.active { opacity:1; visibility:visible; pointer-events:auto; }
+
+@media (max-width:900px) {
+    .main-header { height:90px; padding:0 30px; }
+    .main-header::after { left:30px; right:30px; }
+    .main-header.scrolled::after { left:0; right:0; }
+    .logo img { width:125px; height:125px; }
+}
+@media (max-width:600px) {
+    .main-header { height:80px; padding:0 18px; }
+    .main-header::after { left:18px; right:18px; }
+    .main-header.scrolled::after { left:0; right:0; }
+    .logo img { width:100px; height:100px; }
+    .menu-btn { width:75px; height:36px; padding-left:30px; font-size:9px; letter-spacing:1.5px; }
+    .menu-btn span { width:20px; }
+    .menu-btn span:nth-child(1) { top:7px; }
+    .menu-btn span:nth-child(2) { top:14px; }
+    .menu-btn span:nth-child(3) { top:21px; }
+    .contact-btn { padding:9px 13px; font-size:13px; letter-spacing:1px; }
+    .side-menu { left:-90%; width:85%; padding:100px 30px 30px; }
+    .side-menu.active { left:0; }
+    .side-menu nav a { padding:16px 0; font-size:15px; }
+    .close-btn { top:22px; right:22px; font-size:32px; }
+}
+@media (max-width:380px) {
+    .main-header { padding:0 14px; }
+    .main-header::after { left:14px; right:14px; }
+    .logo img { width:85px; height:85px; }
+    .menu-btn { width:70px; padding-left:27px; font-size:8px; }
+    .menu-btn span { width:18px; }
+    .contact-btn { padding:8px 10px; font-size:12px; }
+}
+</style>
+</head>
+<body>
+
+<header class="main-header" id="mainHeader">
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <a href="index-2.html" class="logo" aria-label="Monarch Connect Home">
+        <img src="assets/images/logo.png" alt="Monarch Connect">
+    </a>
+    <a href="account/index.html" class="contact-btn" aria-label="Account">
+        <i class="fa fa-user" aria-hidden="true"></i>
+    </a>
+</header>
+
+<div class="side-menu" id="sideMenu" aria-hidden="true">
+    <button class="close-btn" id="closeBtn" type="button" aria-label="Close menu">&times;</button>
+    <nav>
+        <a href="index-2.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blogs.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</div>
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const sideMenu = document.getElementById('sideMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const header = document.getElementById('mainHeader');
+
+function openMenu() {
+    sideMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+    sideMenu.setAttribute('aria-hidden', 'false');
+    menuBtn.setAttribute('aria-expanded', 'true');
+}
+function closeMenu() {
+    sideMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    sideMenu.setAttribute('aria-hidden', 'true');
+    menuBtn.setAttribute('aria-expanded', 'false');
+}
+menuBtn.addEventListener('click', openMenu);
+closeBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') closeMenu();
+});
+function checkHeaderScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+}
+window.addEventListener('scroll', checkHeaderScroll);
+checkHeaderScroll();
+</script>
+
+</body>
+
+<!-- Mirrored from https://monarchconnect.co.in/our-services.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:39 GMT -->
+</html>
+
+<style>
+/* =========================================
+   MONARCH CONNECT - CONSTRUCTION SERVICES
+   Theme: Black & White
+========================================= */
+
+.mc-services-page,
+.mc-services-page * {
+    box-sizing: border-box;
+}
+
+.mc-services-page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.mc-services-page a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.mc-services-container {
+    width: min(1240px, 92%);
+    margin: auto;
+}
+
+/* HERO */
+
+.mc-services-hero {
+    position: relative;
+    min-height: 490px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg,
+            rgba(0,0,0,.97) 0%,
+            rgba(0,0,0,.85) 48%,
+            rgba(0,0,0,.45) 100%),
+        url('assets/images/up.jpeg') center/cover no-repeat;
+    border-bottom: 1px solid #292929;
+}
+
+.mc-services-hero-content {
+    width: min(780px, 100%);
+    padding: 90px 0;
+}
+
+.mc-services-eyebrow {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding: 9px 15px;
+    border: 1px solid #555;
+    border-radius: 30px;
+    color: #ddd;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.mc-services-hero h1 {
+    margin: 0 0 22px;
+    font-size: clamp(38px, 6vw, 76px);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.mc-services-hero h1 span {
+    color: #888;
+}
+
+.mc-services-hero p {
+    max-width: 650px;
+    margin: 0;
+    color: #c7c7c7;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.mc-services-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 32px;
+}
+
+.mc-services-btn {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 23px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    background: #fff;
+    color: #000 !important;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: .25s ease;
+}
+
+.mc-services-btn:hover {
+    background: #000;
+    color: #fff !important;
+}
+
+.mc-services-btn-outline {
+    background: transparent;
+    color: #fff !important;
+}
+
+.mc-services-btn-outline:hover {
+    background: #fff;
+    color: #000 !important;
+}
+
+/* INTRO */
+
+.mc-services-intro {
+    padding: 85px 0 45px;
+    text-align: center;
+}
+
+.mc-services-label {
+    margin-bottom: 14px;
+    color: #999;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.mc-services-intro h2,
+.mc-services-section-heading h2 {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.mc-services-intro p {
+    max-width: 730px;
+    margin: 20px auto 0;
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* SERVICE CARDS */
+
+.mc-services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    padding: 25px 0 90px;
+}
+
+.mc-service-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background: #080808;
+    border: 1px solid #292929;
+    transition: border-color .3s, transform .3s;
+}
+
+.mc-service-card:hover {
+    border-color: #aaa;
+    transform: translateY(-5px);
+}
+
+.mc-service-image {
+    position: relative;
+    height: 190px;
+    overflow: hidden;
+    background: #111;
+}
+
+.mc-service-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: transform .5s, filter .5s;
+}
+
+.mc-service-card:hover .mc-service-image img {
+    transform: scale(1.06);
+    filter: grayscale(30%);
+}
+
+.mc-service-number {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 7px 10px;
+    background: #fff;
+    color: #000;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.mc-service-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 23px 18px;
+}
+
+.mc-service-type {
+    margin-bottom: 12px;
+    color: #888;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.mc-service-content h3 {
+    margin: 0 0 13px;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.mc-service-content p {
+    margin: 0 0 23px;
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.mc-service-link {
+    margin-top: auto;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #777;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.mc-service-link:hover {
+    border-color: #fff;
+}
+
+/* PROCESS */
+
+.mc-services-process {
+    padding: 80px 0;
+    border-top: 1px solid #242424;
+    border-bottom: 1px solid #242424;
+    background: #070707;
+}
+
+.mc-services-section-heading {
+    margin-bottom: 38px;
+    text-align: center;
+}
+
+.mc-services-section-heading p {
+    max-width: 650px;
+    margin: 16px auto 0;
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.mc-process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.mc-process-card {
+    padding: 30px 25px;
+    border: 1px solid #292929;
+    background: #000;
+}
+
+.mc-process-number {
+    margin-bottom: 25px;
+    color: #777;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.mc-process-card h3 {
+    margin: 0 0 13px;
+    font-size: 19px;
+}
+
+.mc-process-card p {
+    margin: 0;
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* WHY MONARCH */
+
+.mc-services-why {
+    padding: 85px 0;
+}
+
+.mc-services-why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.mc-services-why h2 {
+    margin: 0 0 20px;
+    font-size: clamp(30px, 4vw, 45px);
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.mc-services-why p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.mc-services-points {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid #333;
+}
+
+.mc-services-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+}
+
+.mc-services-check {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #555;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 13px;
+}
+
+.mc-services-point h3 {
+    margin: 0 0 7px;
+    font-size: 15px;
+}
+
+.mc-services-point p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* CTA */
+
+.mc-services-cta {
+    padding: 65px 20px;
+    border-top: 1px solid #292929;
+    text-align: center;
+    background: #0a0a0a;
+}
+
+.mc-services-cta h2 {
+    margin: 0 0 15px;
+    font-size: clamp(28px, 4vw, 44px);
+    text-transform: uppercase;
+}
+
+.mc-services-cta p {
+    max-width: 620px;
+    margin: 0 auto 27px;
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+    .mc-services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mc-service-image {
+        height: 220px;
+    }
+
+    .mc-services-why-grid {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 650px) {
+    .mc-services-container {
+        width: 90%;
+    }
+
+    .mc-services-hero {
+        min-height: 430px;
+        background-position: center;
+    }
+
+    .mc-services-hero-content {
+        padding: 65px 0;
+    }
+
+    .mc-services-hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .mc-services-hero p {
+        font-size: 14px;
+    }
+
+    .mc-services-intro {
+        padding-top: 60px;
+    }
+
+    .mc-services-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-bottom: 60px;
+    }
+
+    .mc-service-image {
+        height: 230px;
+    }
+
+    .mc-services-process,
+    .mc-services-why {
+        padding: 60px 0;
+    }
+
+    .mc-process-grid,
+    .mc-services-why-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .mc-services-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .mc-services-btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mc-service-card,
+    .mc-service-image img,
+    .mc-services-btn {
+        transition: none;
+    }
+}
+</style>
+<br>
+<br>
+<br>
+<br>
+<main class="mc-services-page">
+
+    <!-- HERO -->
+    <section class="mc-services-hero">
+        <div class="mc-services-container">
+            <div class="mc-services-hero-content">
+
+                <span class="mc-services-eyebrow">
+                    Monarch Connect / Our Services
+                </span>
+
+                <h1>
+                    Build Better.<br>
+                    <span>Connect Smarter.</span>
+                </h1>
+
+                <p>
+                    Find the right construction professionals for your vision.
+                    From architects and builders to interior designers and
+                    contractors, Monarch Connect helps bring projects and
+                    professionals together.
+                </p>
+
+                <div class="mc-services-hero-actions">
+                    <a href="#mc-construction-services"
+                       class="mc-services-btn">
+                        Explore Services &rarr;
+                    </a>
+
+                    <a href="contact.html"
+                       class="mc-services-btn mc-services-btn-outline">
+                        Contact Us
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="mc-services-intro">
+        <div class="mc-services-container">
+
+            <div class="mc-services-label">
+                What We Connect
+            </div>
+
+            <h2>
+                Everything Your Project Needs
+            </h2>
+
+            <p>
+                Every construction project starts with an idea.
+                Find professionals who can help turn that idea into reality.
+                Explore different service categories and discover the right
+                expertise for your next project.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section id="mc-construction-services">
+        <div class="mc-services-container">
+
+            <div class="mc-services-grid">
+
+                <!-- CARD 1 -->
+                <article class="mc-service-card">
+
+                    <div class="mc-service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                            alt="Architectural building design"
+                            loading="lazy">
+
+                        <span class="mc-service-number">01</span>
+                    </div>
+
+                    <div class="mc-service-content">
+                        <span class="mc-service-type">
+                            Design & Planning
+                        </span>
+
+                        <h3>Architects</h3>
+
+                        <p>
+                            Discover architectural professionals for building
+                            concepts, floor plans, space planning and
+                            contemporary building design.
+                        </p>
+
+                        <a class="mc-service-link"
+                           href="contactf748.html?service=architect">
+                            Explore Architecture &rarr;
+                        </a>
+                    </div>
+
+                </article>
+
+
+                <!-- CARD 2 -->
+                <article class="mc-service-card">
+
+                    <div class="mc-service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                            alt="Building construction project"
+                            loading="lazy">
+
+                        <span class="mc-service-number">02</span>
+                    </div>
+
+                    <div class="mc-service-content">
+                        <span class="mc-service-type">
+                            Construction
+                        </span>
+
+                        <h3>Builders</h3>
+
+                        <p>
+                            Find builders and construction companies for
+                            residential buildings, commercial spaces and
+                            new construction projects.
+                        </p>
+
+                        <a class="mc-service-link"
+                           href="contact4a1b.html?service=builder">
+                            Explore Builders &rarr;
+                        </a>
+                    </div>
+
+                </article>
+
+
+                <!-- CARD 3 -->
+                <article class="mc-service-card">
+
+                    <div class="mc-service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                            alt="Modern interior design"
+                            loading="lazy">
+
+                        <span class="mc-service-number">03</span>
+                    </div>
+
+                    <div class="mc-service-content">
+                        <span class="mc-service-type">
+                            Interior Spaces
+                        </span>
+
+                        <h3>Interior Designers</h3>
+
+                        <p>
+                            Connect with interior designers for home interiors,
+                            office spaces, room layouts, finishes and
+                            functional living environments.
+                        </p>
+
+                        <a class="mc-service-link"
+                           href="contact176b.html?service=interior-designer">
+                            Explore Interiors &rarr;
+                        </a>
+                    </div>
+
+                </article>
+
+
+                <!-- CARD 4 -->
+                <article class="mc-service-card">
+
+                    <div class="mc-service-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                            alt="Construction workers at a project"
+                            loading="lazy">
+
+                        <span class="mc-service-number">04</span>
+                    </div>
+
+                    <div class="mc-service-content">
+                        <span class="mc-service-type">
+                            Project Execution
+                        </span>
+
+                        <h3>Contractors</h3>
+
+                        <p>
+                            Explore contractors for site execution, renovation,
+                            civil work, project coordination and
+                            construction-related services.
+                        </p>
+
+                        <a class="mc-service-link"
+                           href="contacta002.html?service=contractor">
+                            Explore Contractors &rarr;
+                        </a>
+                    </div>
+
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="mc-services-process">
+        <div class="mc-services-container">
+
+            <div class="mc-services-section-heading">
+
+                <div class="mc-services-label">
+                    Simple. Clear. Connected.
+                </div>
+
+                <h2>How Monarch Connect Works</h2>
+
+                <p>
+                    A straightforward way to discover construction
+                    professionals and move your project forward.
+                </p>
+
+            </div>
+
+            <div class="mc-process-grid">
+
+                <article class="mc-process-card">
+                    <div class="mc-process-number">01</div>
+
+                    <h3>Explore Professionals</h3>
+
+                    <p>
+                        Browse construction-related categories to find
+                        professionals whose services match your requirements.
+                    </p>
+                </article>
+
+                <article class="mc-process-card">
+                    <div class="mc-process-number">02</div>
+
+                    <h3>Review Your Options</h3>
+
+                    <p>
+                        Understand the services offered and review available
+                        business information before making contact.
+                    </p>
+                </article>
+
+                <article class="mc-process-card">
+                    <div class="mc-process-number">03</div>
+
+                    <h3>Start a Connection</h3>
+
+                    <p>
+                        Contact the relevant professional to discuss your
+                        project scope, requirements, budget and next steps.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- WHY MONARCH CONNECT -->
+    <section class="mc-services-why">
+        <div class="mc-services-container">
+
+            <div class="mc-services-why-grid">
+
+                <div>
+                    <div class="mc-services-label">
+                        Why Monarch Connect
+                    </div>
+
+                    <h2>
+                        The Right People.<br>
+                        The Right Connections.
+                    </h2>
+
+                    <p>
+                        Construction requires the right expertise,
+                        communication and planning. Monarch Connect is
+                        designed to help people discover relevant
+                        professionals and businesses for their projects.
+                    </p>
+
+                    <p>
+                        Our goal is to make discovering construction
+                        services more organised, accessible and convenient.
+                    </p>
+                </div>
+
+                <div class="mc-services-points">
+
+                    <div class="mc-services-point">
+                        <span class="mc-services-check">&#10003;</span>
+
+                        <div>
+                            <h3>Multiple Service Categories</h3>
+
+                            <p>
+                                Explore builders, architects, designers
+                                and other construction professionals.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mc-services-point">
+                        <span class="mc-services-check">&#10003;</span>
+
+                        <div>
+                            <h3>Business Discovery</h3>
+
+                            <p>
+                                Discover relevant businesses and compare
+                                the services they offer.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mc-services-point">
+                        <span class="mc-services-check">&#10003;</span>
+
+                        <div>
+                            <h3>Project-Focused Connections</h3>
+
+                            <p>
+                                Find professionals based on your
+                                construction requirements.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mc-services-point">
+                        <span class="mc-services-check">&#10003;</span>
+
+                        <div>
+                            <h3>Verification Awareness</h3>
+
+                            <p>
+                                Review available verification information
+                                where provided. Always confirm credentials,
+                                references and agreements independently.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <section class="mc-services-cta">
+        <div class="mc-services-container">
+
+            <div class="mc-services-label">
+                Your Vision Starts Here
+            </div>
+
+            <h2>Ready to Build Something?</h2>
+
+            <p>
+                Discover construction professionals, explore available
+                services and take the next step towards your project.
+            </p>
+
+            <a href="index-2.html#mcSearch"
+               class="mc-services-btn">
+                Explore Connections &rarr;
+            </a>
+
+        </div>
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-main">
+
+        <!-- ================= BRAND ================= -->
+
+        <div class="footer-brand">
+
+            <a href="index-2.html" class="footer-logo">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Monarch Connect Logo"
+                >
+
+            </a>
+
+            <p>
+                Make Your Own Mark With Monarch.
+                Building ideas, creating possibilities
+                and turning visions into reality.
+            </p>
+
+            <div class="footer-social">
+
+                <a href="#" aria-label="Instagram">
+                   <i class="fa fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                   <i class="fa fa-facebook"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                   <i class="fa fa-linkedin"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <div class="footer-column">
+
+            <h3>QUICK LINKS</h3>
+
+            <a href="index-2.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#work">Our Work</a>
+
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <div class="footer-column">
+
+            <h3>SERVICES</h3>
+
+            <a href="our-services.html">Construction</a>
+            <a href="read.html">Read Me</a>
+
+        </div>
+
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div class="footer-column footer-contact">
+
+            <h3>CONTACT</h3>
+
+            <a href="tel:+91 8800391355">
+                +91 8800391355
+            </a>
+
+            <a href="monarch%40info.monarchconnect.co.in.html">
+                monarch@info.monarchconnect.co.in
+            </a>
+
+            <p>
+                India
+            </p>
+
+            <a
+                href="contact.html"
+                class="footer-contact-btn"
+            >
+                GET IN TOUCH
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER LINE ================= -->
+
+    <div class="footer-line"></div>
+
+
+
+    <!-- ================= BOTTOM ================= -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="footerYear"></span>
+            Monarch Connect. All Rights Reserved.    &nbsp;<spna style="color:black"> Developed By Parvez Ahmad (<a href="https://www.google.com/search?q=parvez3737&amp;oq=Parvez3737&amp;gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGO8FMgcIAhAAGO8FMgcIAxAAGO8FMgcIBBAAGO8FMgcIBRAAGO8F0gEIMzQ5MmowajeoAgiwAgHxBRLQ5u5pQtVN8QUS0ObuaULVTQ&amp;sourceid=chrome&amp;source=chrome.ob&amp;ie=UTF-8">Parvez3737</spna></a>
+        </p>
+
+        <div class="footer-bottom-links">
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms-and-conditions.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+<style>/* =========================================================
+   PREMIUM FOOTER — BLACK + WHITE + LIGHT GREY
+========================================================= */
+
+.main-footer {
+    position: relative;
+    background: #050505;
+    color: #ffffff;
+    padding: 85px 7% 25px;
+    overflow: hidden;
+}
+
+/* =========================================================
+   TOP LIGHT-GREY LINE
+========================================================= */
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7%;
+    right: 7%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(235,235,235,.75),
+        transparent
+    );
+}
+
+/* =========================================================
+   FOOTER MAIN
+========================================================= */
+
+.footer-main {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 60px;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+    max-width: 340px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.footer-logo img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-brand > p {
+    max-width: 320px;
+    margin: 0;
+    color: #a6a6a6;
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: .4px;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(210,210,210,.45);
+
+    color: #e6e6e6;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    transition: all .3s ease;
+}
+
+.footer-social a:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+    transform: translateY(-4px);
+}
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    position: relative;
+    margin: 12px 0 28px;
+
+    color: #f5f5f5;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.footer-column h3::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 1px;
+    margin-top: 11px;
+
+    background: #d0d0d0;
+
+    transition: width .3s ease;
+}
+
+.footer-column:hover h3::after {
+    width: 45px;
+}
+
+.footer-column > a {
+    margin-bottom: 14px;
+
+    color: #9a9a9a;
+    font-size: 15px;
+    text-decoration: none;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+.footer-column > a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.footer-contact p {
+    margin: 0 0 22px;
+    color: #999999;
+    font-size: 14px;
+}
+
+.footer-contact-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 5px;
+    padding: 11px 18px;
+
+    border: 1px solid rgba(225,225,225,.55);
+
+    color: #eeeeee !important;
+
+    font-size: 9px !important;
+    letter-spacing: 2px;
+
+    transition: all .3s ease !important;
+}
+
+.footer-contact-btn span {
+    font-size: 16px;
+    transition: transform .3s ease;
+}
+
+.footer-contact-btn:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000 !important;
+    transform: translateX(0) !important;
+}
+
+.footer-contact-btn:hover span {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   LINE
+========================================================= */
+
+.footer-line {
+    max-width: 1300px;
+    height: 1px;
+    margin: 65px auto 22px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220,220,220,.16),
+        transparent
+    );
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: .5px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-bottom-links a {
+    color: #666666;
+    font-size: 10px;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .main-footer {
+        padding: 75px 5% 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 40px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-footer {
+        padding: 65px 25px 25px;
+    }
+
+    .main-footer::before {
+        left: 25px;
+        right: 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 18px;
+    }
+
+    .footer-logo img {
+        width: 105px;
+        height: 105px;
+        margin: auto;
+    }
+
+    .footer-brand > p {
+        margin: auto;
+        font-size: 12px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column h3 {
+        margin-top: 0;
+    }
+
+    .footer-column > a:hover {
+        transform: translateY(-2px);
+    }
+
+    .footer-contact-btn {
+        margin-top: 8px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+}
+.footer-bottom p a,
+.footer-bottom p a:hover,
+.footer-bottom p a:focus,
+.footer-bottom p a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+<script>
+    javascript
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const year =
+        document.getElementById("footerYear");
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+});
+
+</script>

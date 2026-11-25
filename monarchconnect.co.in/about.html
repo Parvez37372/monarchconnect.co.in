@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from https://monarchconnect.co.in/about.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monarch Connect - Header</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="assets/images/monarch-fav.png" type="image/png">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:#050505; color:#fff; font-family:Arial,Helvetica,sans-serif; }
+a { color:inherit; text-decoration:none; }
+
+/* HEADER ONLY */
+.main-header {
+    position:fixed; top:0; left:0; width:100%; height:100px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 55px; z-index:500; background:transparent;
+    transition:background .4s ease, box-shadow .4s ease, backdrop-filter .4s ease;
+}
+.main-header.scrolled { background:#050505; box-shadow:0 5px 25px rgba(0,0,0,.65); backdrop-filter:blur(8px); }
+.main-header::after {
+    content:""; position:absolute; left:55px; right:55px; bottom:0; height:1px;
+    background:rgba(255,255,255,.65); transition:all .4s ease;
+}
+.main-header.scrolled::after { left:0; right:0; background:rgba(255,255,255,.75); }
+
+.menu-btn {
+    position:relative; width:80px; height:40px; display:flex; align-items:center;
+    padding:0 0 0 38px; background:transparent; border:0; color:#fff;
+    font-size:12px; font-weight:400; letter-spacing:2px; cursor:pointer; z-index:510;
+}
+.menu-btn span { position:absolute; left:0; width:25px; height:1px; background:#fff; display:block; transition:transform .3s ease,width .3s ease; }
+.menu-btn span:nth-child(1) { top:8px; }
+.menu-btn span:nth-child(2) { top:15px; }
+.menu-btn span:nth-child(3) { top:22px; }
+.menu-btn:hover span:nth-child(1) { width:30px; }
+.menu-btn:hover span:nth-child(3) { width:20px; }
+
+.logo { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; z-index:505; }
+.logo img { width:150px; height:150px; display:block; object-fit:contain; }
+
+.contact-btn {
+    display:inline-flex; align-items:center; justify-content:center; padding:12px 24px;
+    border:1px solid #fff; border-radius:20px; color:#fff; font-size:16px;
+    font-weight:400; letter-spacing:2px; transition:all .35s ease; z-index:505;
+}
+.contact-btn:hover { background:#fff; border-color:#fff; color:#000; }
+
+/* SLIDE-OUT NAVIGATION */
+.side-menu {
+    position:fixed; top:0; left:-500px; width:370px; height:100vh;
+    padding:120px 45px 40px; background:#080808; border-right:1px solid rgba(255,255,255,.45);
+    z-index:700; overflow-y:auto; transition:left .45s cubic-bezier(.77,0,.175,1);
+}
+.side-menu.active { left:0; }
+.close-btn {
+    position:absolute; top:28px; right:30px; width:42px; height:42px;
+    display:flex; align-items:center; justify-content:center; padding:0;
+    background:transparent; border:0; color:#fff; font-size:35px; font-weight:200;
+    line-height:1; cursor:pointer; transition:all .3s ease;
+}
+.close-btn:hover { transform:rotate(90deg); }
+.side-menu nav { display:flex; flex-direction:column; }
+.side-menu nav a {
+    display:block; padding:18px 0; border-bottom:1px solid rgba(255,255,255,.08);
+    color:#fff; font-size:17px; font-weight:400; letter-spacing:2px; transition:all .3s ease;
+}
+.side-menu nav a:first-child { border-top:1px solid rgba(255,255,255,.08); }
+.side-menu nav a:hover { padding-left:10px; color:#fff; }
+.menu-overlay {
+    position:fixed; inset:0; background:rgba(0,0,0,.72); z-index:650;
+    opacity:0; visibility:hidden; pointer-events:none; transition:opacity .35s ease,visibility .35s ease;
+}
+.menu-overlay.active { opacity:1; visibility:visible; pointer-events:auto; }
+
+@media (max-width:900px) {
+    .main-header { height:90px; padding:0 30px; }
+    .main-header::after { left:30px; right:30px; }
+    .main-header.scrolled::after { left:0; right:0; }
+    .logo img { width:125px; height:125px; }
+}
+@media (max-width:600px) {
+    .main-header { height:80px; padding:0 18px; }
+    .main-header::after { left:18px; right:18px; }
+    .main-header.scrolled::after { left:0; right:0; }
+    .logo img { width:100px; height:100px; }
+    .menu-btn { width:75px; height:36px; padding-left:30px; font-size:9px; letter-spacing:1.5px; }
+    .menu-btn span { width:20px; }
+    .menu-btn span:nth-child(1) { top:7px; }
+    .menu-btn span:nth-child(2) { top:14px; }
+    .menu-btn span:nth-child(3) { top:21px; }
+    .contact-btn { padding:9px 13px; font-size:13px; letter-spacing:1px; }
+    .side-menu { left:-90%; width:85%; padding:100px 30px 30px; }
+    .side-menu.active { left:0; }
+    .side-menu nav a { padding:16px 0; font-size:15px; }
+    .close-btn { top:22px; right:22px; font-size:32px; }
+}
+@media (max-width:380px) {
+    .main-header { padding:0 14px; }
+    .main-header::after { left:14px; right:14px; }
+    .logo img { width:85px; height:85px; }
+    .menu-btn { width:70px; padding-left:27px; font-size:8px; }
+    .menu-btn span { width:18px; }
+    .contact-btn { padding:8px 10px; font-size:12px; }
+}
+</style>
+</head>
+<body>
+
+<header class="main-header" id="mainHeader">
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <a href="index-2.html" class="logo" aria-label="Monarch Connect Home">
+        <img src="assets/images/logo.png" alt="Monarch Connect">
+    </a>
+    <a href="account/index.html" class="contact-btn" aria-label="Account">
+        <i class="fa fa-user" aria-hidden="true"></i>
+    </a>
+</header>
+
+<div class="side-menu" id="sideMenu" aria-hidden="true">
+    <button class="close-btn" id="closeBtn" type="button" aria-label="Close menu">&times;</button>
+    <nav>
+        <a href="index-2.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blogs.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</div>
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const sideMenu = document.getElementById('sideMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const header = document.getElementById('mainHeader');
+
+function openMenu() {
+    sideMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+    sideMenu.setAttribute('aria-hidden', 'false');
+    menuBtn.setAttribute('aria-expanded', 'true');
+}
+function closeMenu() {
+    sideMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    sideMenu.setAttribute('aria-hidden', 'true');
+    menuBtn.setAttribute('aria-expanded', 'false');
+}
+menuBtn.addEventListener('click', openMenu);
+closeBtn.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') closeMenu();
+});
+function checkHeaderScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+}
+window.addEventListener('scroll', checkHeaderScroll);
+checkHeaderScroll();
+</script>
+
+</body>
+
+<!-- Mirrored from https://monarchconnect.co.in/about.php by HTTrack Website Copier/3.x [XR&CO], Tue, 24 Nov 2026 12:44:26 GMT -->
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | Monarch Connect</title>
+
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <style>/* =================================================
+   RESET
+================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =================================================
+   COMMON
+================================================= */
+
+.section-tag,
+.about-label {
+    color: #d8d8d8;
+
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 500;
+}
+
+
+/* =================================================
+   HERO
+================================================= */
+
+.about-hero {
+    min-height: 85vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 140px 8% 100px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.94),
+            rgba(0,0,0,.60),
+            rgba(0,0,0,.90)
+        ),
+        url("assets/images/about-hero.html");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.about-hero-content {
+    max-width: 850px;
+}
+
+.about-hero h1 {
+    font-size: clamp(55px, 7vw, 105px);
+
+    line-height: .98;
+
+    font-weight: 300;
+
+    margin: 25px 0;
+}
+
+.about-hero h1 strong {
+    color: #eeeeee;
+    font-weight: 400;
+}
+
+.about-hero p {
+    max-width: 600px;
+
+    color: #aaa;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =================================================
+   INTRO
+================================================= */
+
+.about-intro {
+    padding: 120px 8%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+.about-image {
+    height: 600px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .7s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.about-content h2,
+.services-heading h2,
+.mission-content h2,
+.about-cta h2 {
+    font-size: 58px;
+
+    line-height: 1.05;
+
+    font-weight: 300;
+
+    margin: 22px 0 30px;
+}
+
+.about-content h2 span,
+.services-heading h2 span,
+.mission-content h2 span,
+.about-cta h2 span {
+    color: #d8d8d8;
+}
+
+.about-content p {
+    color: #999;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    margin-bottom: 18px;
+
+    max-width: 550px;
+}
+
+
+/* =================================================
+   BUTTON
+================================================= */
+
+.gold-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+    padding: 15px 25px;
+
+    border: 1px solid #d5d5d5;
+
+    color: #eeeeee;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    transition: .3s ease;
+}
+
+.gold-btn span {
+    font-size: 18px;
+}
+
+.gold-btn:hover {
+    background: #ffffff;
+    color: #050505;
+}
+
+
+/* =================================================
+   STATS
+================================================= */
+
+.about-stats {
+    border-top: 1px solid #1d1d1d;
+    border-bottom: 1px solid #1d1d1d;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 60px 8%;
+}
+
+.stat-box {
+    text-align: center;
+
+    border-right: 1px solid #1d1d1d;
+}
+
+.stat-box:last-child {
+    border-right: none;
+}
+
+.stat-box h3 {
+    color: #e4e4e4;
+
+    font-size: 45px;
+
+    font-weight: 400;
+
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    color: #888;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =================================================
+   SERVICES
+================================================= */
+
+.about-services {
+    padding: 120px 8%;
+}
+
+.services-heading {
+    max-width: 700px;
+    margin-bottom: 65px;
+}
+
+.services-heading p {
+    color: #888;
+
+    line-height: 1.8;
+
+    max-width: 600px;
+}
+
+.about-service-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.about-service-card {
+    padding: 35px 28px;
+
+    min-height: 280px;
+
+    background: #0b0b0b;
+
+    border: 1px solid #292929;
+
+    transition: .4s ease;
+}
+
+.about-service-card:hover {
+    border-color: #d0d0d0;
+    transform: translateY(-8px);
+}
+
+.service-icon {
+    color: #d0d0d0;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 70px;
+}
+
+.about-service-card h3 {
+    font-size: 21px;
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+}
+
+.about-service-card p {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =================================================
+   MISSION
+================================================= */
+
+.about-mission {
+    padding: 120px 8%;
+
+    background: #090909;
+}
+
+.mission-content {
+    max-width: 1000px;
+}
+
+.mission-content > p {
+    max-width: 650px;
+
+    color: #999;
+
+    line-height: 1.9;
+}
+
+.mission-points {
+    margin-top: 65px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 40px;
+}
+
+.mission-points div {
+    border-top: 1px solid #292929;
+
+    padding-top: 25px;
+}
+
+.mission-points span {
+    color: #d0d0d0;
+
+    font-size: 12px;
+}
+
+.mission-points h4 {
+    font-size: 20px;
+
+    font-weight: 400;
+
+    margin: 15px 0 10px;
+}
+
+.mission-points p {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+#user {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =================================================
+   CTA
+================================================= */
+
+.about-cta {
+    text-align: center;
+
+    padding: 130px 20px;
+}
+
+.about-cta p {
+    color: #888;
+
+    margin-bottom: 10px;
+}
+
+
+/* =================================================
+   TABLET
+================================================= */
+
+@media (max-width: 1000px) {
+
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .about-image {
+        height: 500px;
+    }
+
+    .about-service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =================================================
+   MOBILE
+================================================= */
+
+@media (max-width: 650px) {
+
+    .main-header {
+        height: 85px;
+        padding: 0 20px;
+    }
+
+    .header-logo img {
+        width: 95px;
+        height: 95px;
+    }
+
+    .menu-btn {
+        width: 43px;
+        height: 43px;
+    }
+
+    .contact-btn {
+        padding: 11px 15px;
+        font-size: 9px;
+    }
+
+
+    /* SIDE MENU */
+
+    .side-menu {
+        width: 85%;
+        left: -100%;
+        padding: 100px 30px;
+    }
+
+    .side-menu nav a {
+        font-size: 21px;
+    }
+
+
+    /* HERO */
+
+    .about-hero {
+        min-height: 75vh;
+        padding: 110px 22px 80px;
+        background-position: center;
+    }
+
+    .about-hero h1 {
+        font-size: 50px;
+    }
+
+    .about-hero p {
+        font-size: 14px;
+    }
+
+
+    /* CONTENT */
+
+    .about-intro,
+    .about-services,
+    .about-mission {
+        padding: 80px 22px;
+    }
+
+    .about-image {
+        height: 380px;
+    }
+
+    .about-content h2,
+    .services-heading h2,
+    .mission-content h2,
+    .about-cta h2 {
+        font-size: 42px;
+    }
+
+
+    /* STATS */
+
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+
+        padding: 45px 15px;
+
+        gap: 35px 0;
+    }
+
+    .stat-box:nth-child(2) {
+        border-right: none;
+    }
+
+    .stat-box:nth-child(3) {
+        border-right: 1px solid #1d1d1d;
+    }
+
+    .stat-box h3 {
+        font-size: 36px;
+    }
+
+
+    /* SERVICES */
+
+    .about-service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-service-card {
+        min-height: 240px;
+    }
+
+
+    /* MISSION */
+
+    .mission-points {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+
+    /* CTA */
+
+    .about-cta {
+        padding: 90px 20px;
+    }
+}
+
+
+/* =================================================
+   SMALL MOBILE
+================================================= */
+
+@media (max-width: 420px) {
+
+    .about-hero h1 {
+        font-size: 43px;
+    }
+
+    .about-content h2,
+    .services-heading h2,
+    .mission-content h2,
+    .about-cta h2 {
+        font-size: 36px;
+    }
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+     HEADER
+================================================= -->
+
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+
+<!-- =================================================
+     ABOUT HERO
+================================================= -->
+
+<section class="about-hero">
+
+    <div class="about-hero-content">
+
+        <span class="about-label">
+            ABOUT MONARCH CONNECT
+        </span>
+
+        <h1>
+            We Build Spaces
+            <br>
+            <strong>Made To Last.</strong>
+        </h1>
+
+        <p>
+            From homes to commercial spaces, Monarch Connect
+            turns ideas into thoughtfully built spaces with
+            quality, precision and care.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     ABOUT INTRO
+================================================= -->
+
+<section class="about-intro">
+
+    <div class="about-image">
+
+        <img
+            src="assets/images/hero1.png"
+            alt="Monarch Connect Construction"
+        >
+
+    </div>
+
+
+    <div class="about-content">
+
+        <span class="section-tag">
+            WHO WE ARE
+        </span>
+
+        <h2>
+            Building More Than
+            <br>
+            <span>Four Walls.</span>
+        </h2>
+
+        <p>
+            Monarch Connect is a construction and
+            design-focused company dedicated to creating
+            modern, functional and lasting spaces.
+        </p>
+
+        <p>
+            Whether it is renovating a home, building a new
+            office or creating a modern villa, our approach
+            combines thoughtful planning, skilled workmanship
+            and attention to every detail.
+        </p>
+
+        <a href="contact.html" class="gold-btn">
+
+            WORK WITH US
+
+            <span>↗</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     STATS
+================================================= -->
+
+<section class="about-stats">
+
+    <div class="stat-box">
+
+        <h3>10+</h3>
+
+        <p>
+            Projects Completed
+        </p>
+
+    </div>
+
+
+    <div class="stat-box">
+
+        <h3>5+</h3>
+
+        <p>
+            Years Of Experience
+        </p>
+
+    </div>
+
+
+    <div class="stat-box">
+
+        <h3>100%</h3>
+
+        <p>
+            Quality Focused
+        </p>
+
+    </div>
+
+
+    <div class="stat-box">
+
+        <h3>24/7</h3>
+
+        <p>
+            Client Support
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     WHAT WE DO
+================================================= -->
+
+<section class="about-services">
+
+    <div class="services-heading">
+
+        <span class="section-tag">
+            WHAT WE DO
+        </span>
+
+        <h2>
+            From Idea To
+            <br>
+            <span>Reality.</span>
+        </h2>
+
+        <p>
+            Every project is handled with a focus on quality,
+            functionality and a finish that stands the test
+            of time.
+        </p>
+
+    </div>
+
+
+    <div class="about-service-grid">
+
+
+        <div class="about-service-card">
+
+            <div class="service-icon">
+                01
+            </div>
+
+            <h3>
+                Home Construction
+            </h3>
+
+            <p>
+                Complete construction solutions for modern,
+                comfortable and practical homes.
+            </p>
+
+        </div>
+
+
+        <div class="about-service-card">
+
+            <div class="service-icon">
+                02
+            </div>
+
+            <h3>
+                Home Renovation
+            </h3>
+
+            <p>
+                Transforming existing spaces into fresh,
+                modern and functional homes.
+            </p>
+
+        </div>
+
+
+        <div class="about-service-card">
+
+            <div class="service-icon">
+                03
+            </div>
+
+            <h3>
+                Office Construction
+            </h3>
+
+            <p>
+                Professional commercial spaces designed
+                around your business and people.
+            </p>
+
+        </div>
+
+
+        <div class="about-service-card">
+
+            <div class="service-icon">
+                04
+            </div>
+
+            <h3>
+                Villa Projects
+            </h3>
+
+            <p>
+                Premium villa construction with attention
+                to architecture, comfort and detail.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     OUR APPROACH
+================================================= -->
+
+<section class="about-mission">
+
+    <div class="mission-content">
+
+        <span class="section-tag">
+            OUR APPROACH
+        </span>
+
+        <h2>
+            Built With
+            <br>
+            <span>Purpose.</span>
+        </h2>
+
+        <p>
+            We believe great construction is not only about
+            materials and structures. It is about understanding
+            how people want to live, work and experience a space.
+        </p>
+
+
+        <div class="mission-points">
+
+
+            <div>
+
+                <span>01</span>
+
+                <h4>
+                    Quality
+                </h4>
+
+                <p>
+                    We focus on dependable materials
+                    and workmanship.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <span>02</span>
+
+                <h4>
+                    Precision
+                </h4>
+
+                <p>
+                    Every detail is planned and
+                    executed carefully.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <span>03</span>
+
+                <h4>
+                    Trust
+                </h4>
+
+                <p>
+                    Clear communication throughout
+                    every project.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     CTA
+================================================= -->
+
+<section class="about-cta">
+
+    <span class="section-tag">
+        START YOUR PROJECT
+    </span>
+
+    <h2>
+        Have A Space
+        <br>
+        <span>In Mind?</span>
+    </h2>
+
+    <p>
+        Let's turn your vision into a space
+        you'll be proud of.
+    </p>
+
+    <a href="contact.html" class="gold-btn">
+
+        LET'S TALK
+
+        <span>↗</span>
+
+    </a>
+
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="main-footer">
+
+    <div class="footer-main">
+
+        <!-- ================= BRAND ================= -->
+
+        <div class="footer-brand">
+
+            <a href="index-2.html" class="footer-logo">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Monarch Connect Logo"
+                >
+
+            </a>
+
+            <p>
+                Make Your Own Mark With Monarch.
+                Building ideas, creating possibilities
+                and turning visions into reality.
+            </p>
+
+            <div class="footer-social">
+
+                <a href="#" aria-label="Instagram">
+                   <i class="fa fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                   <i class="fa fa-facebook"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                   <i class="fa fa-linkedin"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <div class="footer-column">
+
+            <h3>QUICK LINKS</h3>
+
+            <a href="index-2.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#work">Our Work</a>
+
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <div class="footer-column">
+
+            <h3>SERVICES</h3>
+
+            <a href="our-services.html">Construction</a>
+            <a href="read.html">Read Me</a>
+
+        </div>
+
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div class="footer-column footer-contact">
+
+            <h3>CONTACT</h3>
+
+            <a href="tel:+91 8800391355">
+                +91 8800391355
+            </a>
+
+            <a href="monarch%40info.monarchconnect.co.in.html">
+                monarch@info.monarchconnect.co.in
+            </a>
+
+            <p>
+                India
+            </p>
+
+            <a
+                href="contact.html"
+                class="footer-contact-btn"
+            >
+                GET IN TOUCH
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER LINE ================= -->
+
+    <div class="footer-line"></div>
+
+
+
+    <!-- ================= BOTTOM ================= -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="footerYear"></span>
+            Monarch Connect. All Rights Reserved.    &nbsp;<spna style="color:black"> Developed By Parvez Ahmad (<a href="https://www.google.com/search?q=parvez3737&amp;oq=Parvez3737&amp;gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGO8FMgcIAhAAGO8FMgcIAxAAGO8FMgcIBBAAGO8FMgcIBRAAGO8F0gEIMzQ5MmowajeoAgiwAgHxBRLQ5u5pQtVN8QUS0ObuaULVTQ&amp;sourceid=chrome&amp;source=chrome.ob&amp;ie=UTF-8">Parvez3737</spna></a>
+        </p>
+
+        <div class="footer-bottom-links">
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms-and-conditions.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+<style>/* =========================================================
+   PREMIUM FOOTER — BLACK + WHITE + LIGHT GREY
+========================================================= */
+
+.main-footer {
+    position: relative;
+    background: #050505;
+    color: #ffffff;
+    padding: 85px 7% 25px;
+    overflow: hidden;
+}
+
+/* =========================================================
+   TOP LIGHT-GREY LINE
+========================================================= */
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7%;
+    right: 7%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(235,235,235,.75),
+        transparent
+    );
+}
+
+/* =========================================================
+   FOOTER MAIN
+========================================================= */
+
+.footer-main {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 60px;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+    max-width: 340px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.footer-logo img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-brand > p {
+    max-width: 320px;
+    margin: 0;
+    color: #a6a6a6;
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: .4px;
+}
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(210,210,210,.45);
+
+    color: #e6e6e6;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    transition: all .3s ease;
+}
+
+.footer-social a:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
+    transform: translateY(-4px);
+}
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    position: relative;
+    margin: 12px 0 28px;
+
+    color: #f5f5f5;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.footer-column h3::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 1px;
+    margin-top: 11px;
+
+    background: #d0d0d0;
+
+    transition: width .3s ease;
+}
+
+.footer-column:hover h3::after {
+    width: 45px;
+}
+
+.footer-column > a {
+    margin-bottom: 14px;
+
+    color: #9a9a9a;
+    font-size: 15px;
+    text-decoration: none;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+.footer-column > a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.footer-contact p {
+    margin: 0 0 22px;
+    color: #999999;
+    font-size: 14px;
+}
+
+.footer-contact-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 5px;
+    padding: 11px 18px;
+
+    border: 1px solid rgba(225,225,225,.55);
+
+    color: #eeeeee !important;
+
+    font-size: 9px !important;
+    letter-spacing: 2px;
+
+    transition: all .3s ease !important;
+}
+
+.footer-contact-btn span {
+    font-size: 16px;
+    transition: transform .3s ease;
+}
+
+.footer-contact-btn:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000 !important;
+    transform: translateX(0) !important;
+}
+
+.footer-contact-btn:hover span {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   LINE
+========================================================= */
+
+.footer-line {
+    max-width: 1300px;
+    height: 1px;
+    margin: 65px auto 22px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220,220,220,.16),
+        transparent
+    );
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: .5px;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-bottom-links a {
+    color: #666666;
+    font-size: 10px;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .main-footer {
+        padding: 75px 5% 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 40px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-footer {
+        padding: 65px 25px 25px;
+    }
+
+    .main-footer::before {
+        left: 25px;
+        right: 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 18px;
+    }
+
+    .footer-logo img {
+        width: 105px;
+        height: 105px;
+        margin: auto;
+    }
+
+    .footer-brand > p {
+        margin: auto;
+        font-size: 12px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column h3 {
+        margin-top: 0;
+    }
+
+    .footer-column > a:hover {
+        transform: translateY(-2px);
+    }
+
+    .footer-contact-btn {
+        margin-top: 8px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+}
+.footer-bottom p a,
+.footer-bottom p a:hover,
+.footer-bottom p a:focus,
+.footer-bottom p a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+<script>
+    javascript
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const year =
+        document.getElementById("footerYear");
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+});
+
+</script>
+<!-- =================================================
+     FOOTER
+================================================= -->
+
+<!-- =================================================
+     MENU JAVASCRIPT
+================================================= -->
+
+<script>
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const closeMenu =
+        document.getElementById("closeMenu");
+
+    const sideMenu =
+        document.getElementById("sideMenu");
+
+    const menuOverlay =
+        document.getElementById("menuOverlay");
+
+
+    menuBtn.addEventListener("click", function () {
+
+        sideMenu.classList.add("active");
+
+        menuOverlay.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+
+    closeMenu.addEventListener("click", function () {
+
+        sideMenu.classList.remove("active");
+
+        menuOverlay.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    });
+
+
+    menuOverlay.addEventListener("click", function () {
+
+        sideMenu.classList.remove("active");
+
+        menuOverlay.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    });
+
+
+    document.querySelectorAll(".side-menu a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            sideMenu.classList.remove("active");
+
+            menuOverlay.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+</html>
